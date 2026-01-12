@@ -1,0 +1,149 @@
+---
+// CTASection - Final call to action with Cal.com calendar embed
+---
+
+<section class="cta-section" id="apply">
+  <div class="container">
+    <div class="content-wrapper">
+      <!-- Header -->
+      <div class="section-header">
+        <h2>Ready to Take Back Control?</h2>
+        <p class="cta-description">
+          Book a 15-minute strategy call to see if the OTA Independence System
+          is right for your hotel. No pressure, just an honest conversation about
+          your situation.
+        </p>
+      </div>
+
+      <!-- Calendar -->
+      <div class="calendar-card">
+        <div id="cal-embed" class="cal-embed"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Cal.com embed
+  (function (C, A, L) {
+    let p = function (a: any, ar: any) { a.q.push(ar); };
+    let d = C.document;
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal;
+      let ar = arguments;
+      if (!cal.loaded) {
+        cal.ns = {};
+        cal.q = cal.q || [];
+        d.head.appendChild(d.createElement("script")).src = A;
+        cal.loaded = true;
+      }
+      if (ar[0] === L) {
+        const api = function () { p(api, arguments); };
+        const namespace = ar[1];
+        api.q = api.q || [];
+        if (typeof namespace === "string") {
+          cal.ns[namespace] = cal.ns[namespace] || api;
+          p(cal.ns[namespace], ar);
+          p(cal, ["initNamespace", namespace]);
+        } else p(cal, ar);
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window as any, "https://app.cal.com/embed/embed.js", "init");
+
+  (window as any).Cal("init", { origin: "https://app.cal.com" });
+  (window as any).Cal("inline", {
+    elementOrSelector: "#cal-embed",
+    calLink: "furumconsulting/interview",
+    config: {
+      theme: "light",
+      layout: "month_view"
+    }
+  });
+  (window as any).Cal("ui", {
+    theme: "light",
+    styles: { branding: { brandColor: "#2d5a47" } },
+    hideEventTypeDetails: false
+  });
+</script>
+
+<style>
+  .cta-section {
+    padding: 5rem 0;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--sage) / 0.1) 50%,
+      hsl(var(--gold) / 0.05) 100%
+    );
+  }
+
+  @media (min-width: 768px) {
+    .cta-section {
+      padding: 8rem 0;
+    }
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .content-wrapper {
+    max-width: 64rem;
+    margin: 0 auto;
+  }
+
+  /* Section header */
+  .section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .section-header h2 {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .cta-description {
+    font-size: 1.125rem;
+    color: hsl(var(--muted-foreground));
+    line-height: 1.7;
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  /* Calendar card */
+  .calendar-card {
+    background: hsl(var(--card));
+    border-radius: 1rem;
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 8px 32px hsl(var(--foreground) / 0.1);
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .calendar-card {
+      padding: 1.5rem;
+    }
+  }
+
+  /* Cal.com embed container */
+  .cal-embed {
+    min-height: 550px;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .cal-embed {
+      min-height: 600px;
+    }
+  }
+</style>

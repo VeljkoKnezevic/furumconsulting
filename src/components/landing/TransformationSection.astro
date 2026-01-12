@@ -1,0 +1,317 @@
+---
+// TransformationSection - Before/after comparison showing client transformation
+---
+
+<section class="transformation-section" id="transformation">
+  <div class="container">
+    <div class="content-wrapper">
+      <!-- Section header -->
+      <div class="section-header">
+        <h2>
+          From Trapped to Independent:{" "}
+          <span class="highlight">What Hotels Achieve</span>
+        </h2>
+        <p>
+          This is the transformation our clients experience—not overnight,
+          but through a proven, systematic approach.
+        </p>
+      </div>
+
+      <!-- Before/After visual -->
+      <div class="transformation-visual">
+        <!-- Before -->
+        <div class="state-card state-before">
+          <div class="state-header">
+            <div class="state-icon icon-before">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M16 16s-1.5-2-4-2-4 2-4 2"/>
+                <line x1="9" x2="9.01" y1="9" y2="9"/>
+                <line x1="15" x2="15.01" y1="9" y2="9"/>
+              </svg>
+            </div>
+            <div>
+              <div class="state-label label-before">Before</div>
+              <div class="state-title">Trapped in the OTA Cycle</div>
+            </div>
+          </div>
+          <div class="state-list">
+            <div class="state-item item-before">
+              <div class="dot dot-before"></div>
+              <span>Burned out chasing bookings</span>
+            </div>
+            <div class="state-item item-before">
+              <div class="dot dot-before"></div>
+              <span>Thin margins after OTA fees</span>
+            </div>
+            <div class="state-item item-before">
+              <div class="dot dot-before"></div>
+              <span>No control over pricing</span>
+            </div>
+            <div class="state-item item-before">
+              <div class="dot dot-before"></div>
+              <span>Guests belong to Booking.com</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arrow -->
+        <div class="arrow-wrapper">
+          <div class="arrow-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5v14"/>
+              <path d="m19 12-7 7-7-7"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- After -->
+        <div class="state-card state-after">
+          <div class="state-header">
+            <div class="state-icon icon-after">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                <line x1="9" x2="9.01" y1="9" y2="9"/>
+                <line x1="15" x2="15.01" y1="9" y2="9"/>
+              </svg>
+            </div>
+            <div>
+              <div class="state-label label-after">After</div>
+              <div class="state-title">Independent & Thriving</div>
+            </div>
+          </div>
+          <div class="state-list">
+            <div class="state-item item-after">
+              <div class="dot dot-after"></div>
+              <span>Confident and in control</span>
+            </div>
+            <div class="state-item item-after">
+              <div class="dot dot-after"></div>
+              <span>Healthy, sustainable profits</span>
+            </div>
+            <div class="state-item item-after">
+              <div class="dot dot-after"></div>
+              <span>Your prices, your strategy</span>
+            </div>
+            <div class="state-item item-after">
+              <div class="dot dot-after"></div>
+              <span>Direct relationships that last</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aspirational statement -->
+      <p class="aspirational">
+        "OTAs become a tool in your arsenal—not the master of your business."
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .transformation-section {
+    padding: 5rem 0;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--sage) / 0.1) 50%,
+      hsl(var(--gold) / 0.05) 100%
+    );
+  }
+
+  @media (min-width: 768px) {
+    .transformation-section {
+      padding: 8rem 0;
+    }
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .content-wrapper {
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+
+  /* Section header */
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-header h2 {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .section-header .highlight {
+    color: hsl(var(--forest));
+  }
+
+  .section-header p {
+    font-size: 1.125rem;
+    color: hsl(var(--muted-foreground));
+    max-width: 42rem;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Transformation visual */
+  .transformation-visual {
+    position: relative;
+  }
+
+  /* State cards */
+  .state-card {
+    background: hsl(var(--card));
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .state-card {
+      padding: 2rem;
+    }
+  }
+
+  .state-before {
+    border: 1px solid hsl(var(--terracotta) / 0.2);
+    margin-bottom: 1.5rem;
+  }
+
+  .state-after {
+    border: 1px solid hsl(var(--forest) / 0.2);
+    margin-top: 1.5rem;
+  }
+
+  /* State header */
+  .state-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .state-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-before {
+    background: hsl(var(--terracotta) / 0.1);
+    color: hsl(var(--terracotta));
+  }
+
+  .icon-after {
+    background: hsl(var(--forest) / 0.1);
+    color: hsl(var(--forest));
+  }
+
+  .state-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .label-before {
+    color: hsl(var(--terracotta));
+  }
+
+  .label-after {
+    color: hsl(var(--forest));
+  }
+
+  .state-title {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+  }
+
+  /* State list */
+  .state-list {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .state-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .state-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dot-before {
+    background: hsl(var(--terracotta) / 0.5);
+  }
+
+  .dot-after {
+    background: hsl(var(--forest));
+  }
+
+  .item-before span {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .item-after span {
+    color: hsl(var(--foreground));
+    font-weight: 500;
+  }
+
+  /* Arrow */
+  .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: -0.75rem 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  .arrow-circle {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: hsl(var(--gold));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--charcoal, 220 10% 20%));
+    box-shadow: 0 4px 14px hsl(var(--gold) / 0.4);
+  }
+
+  /* Aspirational statement */
+  .aspirational {
+    text-align: center;
+    font-size: 1.125rem;
+    color: hsl(var(--muted-foreground));
+    margin-top: 3rem;
+    font-style: italic;
+    font-family: var(--font-serif, Georgia, serif);
+  }
+</style>

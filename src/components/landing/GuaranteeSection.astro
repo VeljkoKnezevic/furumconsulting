@@ -1,0 +1,227 @@
+---
+// GuaranteeSection - Performance guarantee with refund promise
+---
+
+<section class="guarantee-section" id="guarantee">
+  <!-- Background decoration -->
+  <div class="bg-decoration">
+    <div class="blur-circle blur-gold"></div>
+    <div class="blur-circle blur-sage"></div>
+  </div>
+
+  <div class="container">
+    <div class="content-wrapper">
+      <!-- Guarantee badge -->
+      <div class="badge-wrapper">
+        <div class="guarantee-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Headline -->
+      <h2>
+        We're So Confident,{" "}
+        <span class="highlight">We'll Pay You</span>{" "}
+        If We Don't Deliver
+      </h2>
+
+      <!-- Explanation -->
+      <p class="explanation">
+        In Phase 1, we guarantee at least a 10 percentage point improvement in your
+        direct booking share. For every point under 10 we deliver, you get paid back.
+      </p>
+
+      <!-- Guarantee points -->
+      <div class="guarantee-points">
+        <div class="point">
+          <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <span>Measured improvement in direct booking percentage</span>
+        </div>
+        <div class="point">
+          <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <span>Performance-based refund for shortfall</span>
+        </div>
+        <div class="point">
+          <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <span>Contractual guarantee, not just a promise</span>
+        </div>
+      </div>
+
+      <!-- Trust statement -->
+      <p class="trust-statement">
+        "This isn't a promise—it's a contract."
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .guarantee-section {
+    position: relative;
+    padding: 5rem 0;
+    background: hsl(var(--forest));
+    color: white;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .guarantee-section {
+      padding: 8rem 0;
+    }
+  }
+
+  /* Background decoration */
+  .bg-decoration {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  .blur-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(48px);
+  }
+
+  .blur-gold {
+    top: 0;
+    left: 25%;
+    width: 24rem;
+    height: 24rem;
+    background: hsl(var(--gold));
+  }
+
+  .blur-sage {
+    bottom: 0;
+    right: 25%;
+    width: 24rem;
+    height: 24rem;
+    background: hsl(var(--sage));
+  }
+
+  .container {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .content-wrapper {
+    max-width: 56rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Guarantee badge */
+  .badge-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  .guarantee-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: hsl(var(--gold) / 0.2);
+    border: 2px solid hsl(var(--gold));
+    color: hsl(var(--gold));
+  }
+
+  /* Headline */
+  h2 {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 .highlight {
+    color: hsl(var(--gold));
+  }
+
+  /* Explanation */
+  .explanation {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 42rem;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+  }
+
+  /* Guarantee points */
+  .guarantee-points {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  @media (min-width: 768px) {
+    .guarantee-points {
+      padding: 2rem;
+    }
+  }
+
+  .guarantee-points {
+    display: grid;
+    gap: 1.5rem;
+    text-align: left;
+  }
+
+  @media (min-width: 640px) {
+    .guarantee-points {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .point {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .check-icon {
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+    color: hsl(var(--gold));
+  }
+
+  .point span {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+  }
+
+  @media (min-width: 768px) {
+    .point span {
+      font-size: 1rem;
+    }
+  }
+
+  /* Trust statement */
+  .trust-statement {
+    margin-top: 2.5rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    font-family: var(--font-serif, Georgia, serif);
+  }
+</style>

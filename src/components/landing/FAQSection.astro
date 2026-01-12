@@ -1,0 +1,204 @@
+---
+// FAQSection - Frequently asked questions with native accordion
+// Uses native <details>/<summary> for zero-JS accordion functionality
+---
+
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="content-wrapper">
+      <!-- Section header -->
+      <div class="section-header">
+        <h2>Questions You Might Have</h2>
+        <p>We believe in transparency. Here are honest answers to common questions.</p>
+      </div>
+
+      <!-- FAQ Accordion -->
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How is this different from other marketing agencies?</summary>
+          <div class="faq-answer">
+            <p>Most agencies focus on traffic or 'brand awareness' with no accountability for results. We focus exclusively on one metric: shifting your booking mix from OTAs to direct. We guarantee a measurable improvement, and our entire system is designed around the specific challenges independent hotels face.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What if I don't have a big marketing budget?</summary>
+          <div class="faq-answer">
+            <p>Our approach prioritizes infrastructure and conversion optimization first—things that compound over time. The paid advertising component is scaled to your property size and adjusted based on performance. Many of our most successful clients started with modest budgets.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Will this work for my location/hotel type?</summary>
+          <div class="faq-answer">
+            <p>Our system works for independent hotels with 15-50 rooms that already receive OTA traffic. Location matters less than you might think—the fundamentals of capturing demand and converting direct bookings are universal. During our strategy call, we'll assess your specific situation.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How quickly will I see results?</summary>
+          <div class="faq-answer">
+            <p>Phase 1 is a 60-day sprint specifically designed to deliver measurable results quickly. Most clients see meaningful shifts within the first 30 days, with the full 10+ percentage point improvement by day 60. That's why we back it with our guarantee.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What happens after 60 days?</summary>
+          <div class="faq-answer">
+            <p>After proving results in Phase 1, you can either continue independently with the infrastructure we've built, or move into Phase 2 where we scale what's working and continue optimizing. There's no lock-in—you own everything we create.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do I need to understand tech or ads?</summary>
+          <div class="faq-answer">
+            <p>Not at all. We handle all the technical implementation, campaign management, and optimization. You'll receive clear monthly reports showing your progress, and we'll walk you through everything in plain language during our strategy calls.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What if I still want to use OTAs?</summary>
+          <div class="faq-answer">
+            <p>You should! The goal isn't to eliminate OTAs—it's to reduce dependency. OTAs are excellent for visibility and filling gaps. The ideal is to have them as a useful tool rather than your primary source of bookings. Think of it as balance, not abandonment.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Optional: Close other items when one opens (single-select behavior)
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        document.querySelectorAll('.faq-item').forEach(other => {
+          if (other !== item && other.open) {
+            other.open = false;
+          }
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  .faq-section {
+    padding: 5rem 0;
+    background: hsl(var(--background));
+  }
+
+  @media (min-width: 768px) {
+    .faq-section {
+      padding: 8rem 0;
+    }
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .content-wrapper {
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+
+  /* Section header */
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .section-header p {
+    font-size: 1.125rem;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* FAQ list */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* FAQ item */
+  .faq-item {
+    background: hsl(var(--card));
+    border-radius: 0.75rem;
+    border: 1px solid hsl(var(--border));
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+  }
+
+  .faq-item[open] {
+    box-shadow: 0 4px 20px hsl(var(--foreground) / 0.08);
+  }
+
+  /* Summary (question) */
+  .faq-item summary {
+    padding: 1.25rem 1.5rem;
+    padding-right: 3rem;
+    cursor: pointer;
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    line-height: 1.4;
+    list-style: none;
+    position: relative;
+    transition: color 0.2s;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: "";
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.75rem;
+    height: 0.75rem;
+    border-right: 2px solid hsl(var(--muted-foreground));
+    border-bottom: 2px solid hsl(var(--muted-foreground));
+    transform: translateY(-50%) rotate(45deg);
+    transition: transform 0.15s, border-color 0.15s;
+  }
+
+  .faq-item[open] summary::after {
+    transform: translateY(-25%) rotate(-135deg);
+    border-color: hsl(var(--forest));
+  }
+
+  .faq-item summary:hover {
+    color: hsl(var(--forest));
+  }
+
+  .faq-item summary:hover::after {
+    border-color: hsl(var(--forest));
+  }
+
+  /* Answer */
+  .faq-answer {
+    padding: 0 1.5rem 1.25rem;
+  }
+
+  .faq-answer p {
+    color: hsl(var(--muted-foreground));
+    line-height: 1.7;
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,256 @@
+---
+// QualificationSection - Who this is for / not for
+---
+
+<section class="qualification-section" id="qualification">
+  <div class="container">
+    <div class="content-wrapper">
+      <!-- Section header -->
+      <div class="section-header">
+        <h2>Is This Right For You?</h2>
+        <p>
+          We're selective about who we work with—not because we're exclusive,
+          but because we want to guarantee results.
+        </p>
+      </div>
+
+      <!-- Two columns -->
+      <div class="columns-grid">
+        <!-- For you -->
+        <div class="column column-for">
+          <div class="column-header">
+            <div class="icon-circle icon-for">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <h3 class="title-for">This is for you if...</h3>
+          </div>
+          <ul>
+            <li>
+              <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span>You're an independent hotel with 15-50 rooms</span>
+            </li>
+            <li>
+              <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span>OTA bookings make up 50%+ of your revenue</span>
+            </li>
+            <li>
+              <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span>You have a functional booking engine on your website</span>
+            </li>
+            <li>
+              <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span>You're ready to invest in building a direct channel</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Not for you -->
+        <div class="column column-not">
+          <div class="column-header">
+            <div class="icon-circle icon-not">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18"/>
+                <path d="m6 6 12 12"/>
+              </svg>
+            </div>
+            <h3 class="title-not">This isn't for you if...</h3>
+          </div>
+          <ul>
+            <li>
+              <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18"/>
+                <path d="m6 6 12 12"/>
+              </svg>
+              <span>You're a large chain hotel (we specialize in independents)</span>
+            </li>
+            <li>
+              <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18"/>
+                <path d="m6 6 12 12"/>
+              </svg>
+              <span>You don't have a website or booking capability</span>
+            </li>
+            <li>
+              <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18"/>
+                <path d="m6 6 12 12"/>
+              </svg>
+              <span>You're happy with your current OTA dependency</span>
+            </li>
+            <li>
+              <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18"/>
+                <path d="m6 6 12 12"/>
+              </svg>
+              <span>You're looking for a quick fix without infrastructure changes</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .qualification-section {
+    padding: 5rem 0;
+    background: hsl(var(--card));
+  }
+
+  @media (min-width: 768px) {
+    .qualification-section {
+      padding: 8rem 0;
+    }
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .content-wrapper {
+    max-width: 64rem;
+    margin: 0 auto;
+  }
+
+  /* Section header */
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-header h2 {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .section-header p {
+    font-size: 1.125rem;
+    color: hsl(var(--muted-foreground));
+    max-width: 42rem;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Columns grid */
+  .columns-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .columns-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Column cards */
+  .column {
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .column {
+      padding: 2rem;
+    }
+  }
+
+  .column-for {
+    background: hsl(var(--forest) / 0.05);
+    border: 1px solid hsl(var(--forest) / 0.2);
+  }
+
+  .column-not {
+    background: hsl(var(--terracotta) / 0.05);
+    border: 1px solid hsl(var(--terracotta) / 0.2);
+  }
+
+  /* Column header */
+  .column-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .icon-circle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .icon-for {
+    background: hsl(var(--forest));
+  }
+
+  .icon-not {
+    background: hsl(var(--terracotta));
+  }
+
+  .column-header h3 {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .title-for {
+    color: hsl(var(--forest));
+  }
+
+  .title-not {
+    color: hsl(var(--terracotta));
+  }
+
+  /* List */
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  li span {
+    color: hsl(var(--foreground));
+    line-height: 1.5;
+  }
+
+  .check-icon {
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+    color: hsl(var(--forest));
+  }
+
+  .x-icon {
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+    color: hsl(var(--terracotta));
+  }
+</style>
