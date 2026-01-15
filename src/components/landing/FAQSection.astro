@@ -1,7 +1,53 @@
 ---
 // FAQSection - Frequently asked questions with native accordion
 // Uses native <details>/<summary> for zero-JS accordion functionality
+
+// FAQ data for schema
+const faqs = [
+	{
+		question: "What size hotel do you work with?",
+		answer: "We work best with independent hotels between 15-150 rooms that are currently 60-90% OTA dependent. Our sweet spot is owner-operated or small-team independents who are drowning in OTA commissions but don't have the expertise or bandwidth to build direct booking systems themselves. We don't work with franchise properties or budget/economy hotels where guests are purely price-shopping."
+	},
+	{
+		question: "What results can I realistically expect?",
+		answer: "In Phase 1 (60 days), we guarantee a minimum 10 percentage point reduction in OTA dependency or refund you per point missed. For example, if you're at 75% OTA bookings, we'll get you to 65% or lower. In Phase 2 (ongoing), we work month-over-month to reduce your OTA dependency to 25-35%, where OTAs become a marketing tool you control rather than a dependency you're enslaved to."
+	},
+	{
+		question: "What's required from me during the 60-day Sprint?",
+		answer: "Weeks 1-2: Access to your systems (booking engine, website, analytics), 2-3 hours for onboarding calls, approval of direct booking incentives. Weeks 3-4: Review and approve landing pages, email templates, and ad creative. Weeks 5-8: Weekly 30-minute check-ins and responsiveness to guest inquiries. This is Done-For-You. We handle all execution. You approve, respond to bookings, and deliver the guest experience. You don't need marketing expertise, just responsiveness and system access."
+	},
+	{
+		question: "What if it doesn't work?",
+		answer: "Phase 1 has a performance guarantee: 10-point reduction or you get refunded per point missed. We've never had to issue a full refund because we qualify clients carefully and only work with hotels where we're confident we can deliver. Phase 2 uses performance-aligned pricing (base + revenue share). We only win when you win. You can cancel with 30 days notice if results aren't meeting expectations."
+	},
+	{
+		question: "What happens after the 60-day Sprint?",
+		answer: "You have two options: Option 1: Transition to Phase 2 (Direct Revenue Growth Engine) where we continue optimizing and scaling on an ongoing retainer + revenue share model. Option 2: Take what we built and manage it yourself. You own everything: infrastructure, campaigns, systems. Most clients choose Option 1 because maintaining and growing direct booking campaigns requires ongoing expertise, testing, and optimization that's hard to do internally."
+	},
+	{
+		question: "Will this disrupt my current operations?",
+		answer: "No. We build in parallel to your existing operations. Your OTA listings stay active. We just reduce dependency over time. Guests still book through your existing processes. The only 'disruption' is you'll start getting more direct bookings, which are actually easier to manage (no commission fees, direct guest contact, better data). We work with your existing PMS and don't require you to change systems (unless your current setup is severely limiting, which we'd discuss upfront)."
+	},
+	{
+		question: "I'm already working with a marketing agency. Can you still help?",
+		answer: "Yes. We focus specifically on direct booking infrastructure and demand capture. We're not doing your branding, website redesign, or social media content. If you have an agency handling those areas, great. We collaborate as needed but stay in our lane: building and optimizing your direct booking channel. Many of our clients have existing agencies for other marketing needs."
+	}
+];
 ---
+
+<!-- FAQ Schema -->
+<script type="application/ld+json" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": faqs.map(faq => ({
+		"@type": "Question",
+		"name": faq.question,
+		"acceptedAnswer": {
+			"@type": "Answer",
+			"text": faq.answer
+		}
+	}))
+})} />
 
 <section class="faq-section" id="faq">
   <div class="container">

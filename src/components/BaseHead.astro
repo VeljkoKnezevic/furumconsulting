@@ -7,11 +7,27 @@ interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	keywords?: string;
+	type?: string;
+	noindex?: boolean;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const {
+	title,
+	description,
+	image = '/logo-light.png',
+	keywords = "hotel direct booking marketing, reduce OTA dependency, independent hotel marketing, hotel booking engine optimization, OTA independence, direct booking strategy, hotel revenue management, Booking.com alternative",
+	type = "website",
+	noindex = false
+} = Astro.props;
+
+// Full title with branding
+const fullTitle = title.includes("Furum Consulting") ? title : `${title} | Furum Consulting`;
+
+// Site info for schema
+const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 ---
 
 <!-- Global Metadata -->
@@ -20,6 +36,13 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/Apple 180x180.png" />
 <meta name="generator" content={Astro.generator} />
+
+<!-- SEO Meta Tags -->
+<meta name="keywords" content={keywords} />
+<meta name="author" content="Furum Consulting" />
+<meta name="language" content="English" />
+<meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow"} />
+<meta name="googlebot" content={noindex ? "noindex,nofollow" : "index,follow"} />
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,20 +53,66 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={type} />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
+<meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Furum Consulting" />
+<meta property="og:locale" content="en_US" />
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={Astro.url} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, Astro.url)} />
+<meta name="twitter:creator" content="@furumconsulting" />
+
+<!-- Organization Schema -->
+<script type="application/ld+json" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	"name": "Furum Consulting",
+	"url": siteUrl,
+	"logo": new URL("/logo-light.png", siteUrl),
+	"description": "Helping independent hotels reduce OTA dependency and increase direct bookings through proven marketing systems.",
+	"foundingDate": "2024",
+	"contactPoint": {
+		"@type": "ContactPoint",
+		"contactType": "Sales",
+		"url": `${siteUrl}#apply`
+	},
+	"sameAs": [
+		"https://www.linkedin.com/company/furum-consulting"
+	]
+})} />
+
+<!-- Service Schema -->
+<script type="application/ld+json" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "Service",
+	"serviceType": "Hotel Direct Booking Marketing",
+	"provider": {
+		"@type": "Organization",
+		"name": "Furum Consulting",
+		"url": siteUrl
+	},
+	"areaServed": {
+		"@type": "Place",
+		"name": "Worldwide"
+	},
+	"description": "Performance-guaranteed direct booking marketing system for independent hotels. Reduce OTA dependency by at least 10 percentage points in 60 days.",
+	"offers": {
+		"@type": "Offer",
+		"url": `${siteUrl}#apply`,
+		"availability": "https://schema.org/InStock"
+	}
+})} />
