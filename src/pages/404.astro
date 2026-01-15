@@ -1,0 +1,169 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="Page Not Found | OTA Independence" description="The page you're looking for doesn't exist or has been moved." />
+  </head>
+  <body>
+    <Header />
+    <main class="error-page">
+      <div class="container">
+        <div class="content">
+          <div class="error-code">404</div>
+          <h1>Page Not Found</h1>
+          <p>The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+          
+          <div class="actions">
+            <a href="/" class="btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              Back to Home
+            </a>
+            <a href="/#apply" class="btn-secondary">
+              Apply Now
+            </a>
+          </div>
+
+          <div class="helpful-links">
+            <p>Or try one of these:</p>
+            <nav>
+              <a href="/#how-it-works">How It Works</a>
+              <a href="/#guarantee">Our Guarantee</a>
+              <a href="/#faq">FAQ</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .error-page {
+    padding: 8rem 0;
+    background: hsl(var(--background));
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+  }
+
+  .content {
+    max-width: 32rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .error-code {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(6rem, 15vw, 10rem);
+    font-weight: 700;
+    color: hsl(var(--forest) / 0.15);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  p {
+    color: hsl(var(--muted-foreground));
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 480px) {
+    .actions {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: hsl(var(--forest));
+    color: hsl(var(--cream));
+  }
+
+  .btn-primary:hover {
+    background: hsl(var(--forest-dark));
+  }
+
+  .btn-secondary {
+    background: hsl(var(--secondary));
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+  }
+
+  .btn-secondary:hover {
+    background: hsl(var(--secondary-foreground) / 0.1);
+  }
+
+  .helpful-links {
+    padding-top: 2rem;
+    border-top: 1px solid hsl(var(--border));
+  }
+
+  .helpful-links p {
+    font-size: 0.875rem;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 1rem;
+  }
+
+  .helpful-links nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .helpful-links a {
+    font-size: 0.875rem;
+    color: hsl(var(--forest));
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .helpful-links a:hover {
+    color: hsl(var(--forest-dark));
+    text-decoration: underline;
+  }
+</style>

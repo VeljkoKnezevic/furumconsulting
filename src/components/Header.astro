@@ -7,9 +7,9 @@
   <div class="container">
     <div class="header-inner">
       <!-- Logo -->
-      <a href="/" class="logo">
-        <span>OTA Independence</span>
-      </a>
+      <div class="logo">
+        <img src="/logo-light.png" alt="OTA Independence" class="logo-img" />
+      </div>
 
       <!-- Desktop Navigation -->
       <nav class="desktop-nav">
@@ -128,20 +128,19 @@
   .logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
     text-decoration: none;
   }
 
-  .logo span {
-    font-family: var(--font-serif, Georgia, serif);
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: hsl(var(--forest));
+  .logo-img {
+    height: 8rem;
+    width: auto;
+    object-fit: contain;
+    object-position: left center;
   }
 
   @media (min-width: 768px) {
-    .logo span {
-      font-size: 1.25rem;
+    .logo-img {
+      height: 10rem;
     }
   }
 

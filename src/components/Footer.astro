@@ -8,7 +8,9 @@ const currentYear = new Date().getFullYear();
     <div class="footer-content">
       <!-- Brand -->
       <div class="brand">
-        <span class="logo">OTA Independence</span>
+        <div class="logo">
+          <img src="/logo-dark.png" alt="OTA Independence" class="logo-img" />
+        </div>
         <p class="tagline">
           Helping independent hotels reclaim their margins and guest relationships.
         </p>
@@ -71,10 +73,20 @@ const currentYear = new Date().getFullYear();
   }
 
   .logo {
-    font-family: var(--font-serif, Georgia, serif);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: hsl(var(--gold));
+    display: inline-block;
+  }
+
+  .logo-img {
+    height: 7rem;
+    width: auto;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  @media (min-width: 768px) {
+    .logo-img {
+      height: 9rem;
+    }
   }
 
   .tagline {

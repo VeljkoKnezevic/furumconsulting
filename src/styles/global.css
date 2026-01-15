@@ -70,8 +70,8 @@
   --color-sidebar-ring: hsl(158 35% 22%);
 
   /* Typography */
-  --font-sans: 'DM Sans', system-ui, sans-serif;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Inter', system-ui, sans-serif;
 
   /* Shadows */
   --shadow-soft: 0 4px 20px -4px hsl(160 30% 12% / 0.08);

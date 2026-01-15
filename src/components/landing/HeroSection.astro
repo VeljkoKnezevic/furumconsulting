@@ -15,14 +15,6 @@ import heroHotel from "@/assets/hero-hotel.jpg";
     <div class="hero-overlay"></div>
   </div>
 
-  <!-- Decorative elements -->
-  <div class="decorative-elements">
-    <div class="blur-circle blur-sage"></div>
-    <div class="blur-circle blur-gold"></div>
-    <div class="ring ring-lg"></div>
-    <div class="ring ring-md"></div>
-  </div>
-
   <div class="container">
     <div class="hero-content">
       <!-- Trust badge -->
@@ -31,7 +23,7 @@ import heroHotel from "@/assets/hero-hotel.jpg";
           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
           <polyline points="22 4 12 14.01 9 11.01"/>
         </svg>
-        <span>Trusted by 15+ independent hotels across Europe</span>
+        <span>For independent hotels</span>
       </div>
 
       <!-- Main headline -->
@@ -39,11 +31,8 @@ import heroHotel from "@/assets/hero-hotel.jpg";
         Cut your OTA dependency by at least{" "}
         <span class="highlight">
           10 percentage points
-          <svg class="underline-svg" height="8" viewBox="0 0 200 8" fill="none">
-            <path d="M2 6C50 2 150 2 198 6" stroke="hsl(var(--gold))" stroke-width="3" stroke-linecap="round"/>
-          </svg>
         </span>{" "}
-        in 60 days—or get paid back for each point we miss.
+        in 60 days, or get paid back for each point we miss.
       </h1>
 
       <!-- Subheadline -->
@@ -61,15 +50,12 @@ import heroHotel from "@/assets/hero-hotel.jpg";
             <polyline points="12 5 19 12 12 19"/>
           </svg>
         </a>
-        <a href="#how-it-works" class="btn btn-hero-outline">
-          See If You Qualify
-        </a>
       </div>
 
       <!-- Stats row -->
       <div class="stats-row">
         <div class="stat">
-          <div class="stat-value">15-30%</div>
+          <div class="stat-value">10-20%</div>
           <div class="stat-label">OTA Commission Saved</div>
         </div>
         <div class="stat">
@@ -128,55 +114,6 @@ import heroHotel from "@/assets/hero-hotel.jpg";
       hsl(var(--background) / 0.85),
       hsl(var(--background) / 0.95)
     );
-  }
-
-  /* Decorative elements */
-  .decorative-elements {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-  }
-
-  .blur-circle {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(48px);
-  }
-
-  .blur-sage {
-    top: 5rem;
-    right: 2.5rem;
-    width: 16rem;
-    height: 16rem;
-    background: hsl(var(--sage) / 0.2);
-  }
-
-  .blur-gold {
-    bottom: 5rem;
-    left: 2.5rem;
-    width: 20rem;
-    height: 20rem;
-    background: hsl(var(--gold) / 0.1);
-  }
-
-  .ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid hsl(var(--primary) / 0.05);
-    border-radius: 50%;
-  }
-
-  .ring-lg {
-    width: 800px;
-    height: 800px;
-  }
-
-  .ring-md {
-    width: 600px;
-    height: 600px;
   }
 
   /* Container */
@@ -238,14 +175,6 @@ import heroHotel from "@/assets/hero-hotel.jpg";
 
   .highlight {
     color: hsl(var(--forest));
-    position: relative;
-  }
-
-  .underline-svg {
-    position: absolute;
-    bottom: -0.5rem;
-    left: 0;
-    width: 100%;
   }
 
   /* Subheadline */
