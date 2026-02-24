@@ -1,29 +1,60 @@
 ---
-// CTASection - Final call to action with Cal.com calendar embed
+// CTASection - Final CTA with Cal.com calendar embed
+// Cal.com theme dynamically matches system preference
 ---
 
-<section class="cta-section" id="apply">
+<section id="book-call" class="cta-section">
+  <div class="grid-bg"></div>
   <div class="container">
     <div class="content-wrapper">
-      <!-- Header -->
       <div class="section-header">
-        <h2>Ready to Take Back Control?</h2>
+        <div class="availability-badge">
+          <span class="pulse-dot"></span>
+          <span>Limited Availability</span>
+        </div>
+
+        <h2>
+          Ready to Stop Worrying<br/>About <span class="dim">Next Month's Revenue?</span>
+        </h2>
+
         <p class="cta-description">
-          Book a call to see if the OTA Independence System
-          is right for your hotel. No pressure, just an honest conversation about
-          your situation.
+          Book a complimentary strategy call. We'll look at your current situation, identify the biggest opportunities, and show you exactly how we'd get you to 30 qualified appointments per month.
         </p>
       </div>
 
-      <!-- Calendar -->
       <div class="calendar-card">
         <div id="cal-embed" class="cal-embed"></div>
+      </div>
+
+      <div class="cta-info">
+        <div class="info-item">
+          <iconify-icon icon="lucide:clock" class="info-icon"></iconify-icon>
+          <span>45 minutes</span>
+        </div>
+        <div class="info-item">
+          <iconify-icon icon="lucide:video" class="info-icon"></iconify-icon>
+          <span>Google Meet</span>
+        </div>
+        <div class="info-item">
+          <iconify-icon icon="lucide:shield" class="info-icon"></iconify-icon>
+          <span>No obligation</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <script>
+  // Detect current theme for Cal.com embed
+  function getCalTheme(): string {
+    const html = document.documentElement;
+    if (html.classList.contains('dark')) return 'dark';
+    if (html.classList.contains('light')) return 'light';
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+
+  const calTheme = getCalTheme();
+
   // Cal.com embed
   (function (C, A, L) {
     let p = function (a: any, ar: any) { a.q.push(ar); };
@@ -57,93 +88,145 @@
     elementOrSelector: "#cal-embed",
     calLink: "furumconsulting/interview",
     config: {
-      theme: "light",
+      theme: calTheme,
       layout: "month_view"
     }
   });
   (window as any).Cal("ui", {
-    theme: "light",
-    styles: { branding: { brandColor: "#2d5a47" } },
+    theme: calTheme,
+    styles: { branding: { brandColor: "#2d5d52" } },
     hideEventTypeDetails: false
   });
 </script>
 
 <style>
   .cta-section {
-    padding: 5rem 0;
-    background: linear-gradient(
-      135deg,
-      hsl(var(--background)) 0%,
-      hsl(var(--sage) / 0.1) 50%,
-      hsl(var(--gold) / 0.05) 100%
-    );
+    position: relative;
+    padding: 6rem 0;
+    background: var(--surface);
   }
 
-  @media (min-width: 768px) {
-    .cta-section {
-      padding: 8rem 0;
-    }
+  @media (min-width: 1024px) {
+    .cta-section { padding: 8rem 0; }
+  }
+
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.5;
   }
 
   .container {
-    max-width: 1200px;
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container { padding: 0 2rem; }
   }
 
   .content-wrapper {
-    max-width: 64rem;
+    max-width: 56rem;
     margin: 0 auto;
   }
 
-  /* Section header */
   .section-header {
     text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .availability-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--accent-bg);
+    border: 1px solid var(--accent-border);
+    border-radius: 9999px;
     margin-bottom: 2rem;
   }
 
-  .section-header h2 {
-    font-family: var(--font-serif, Georgia, serif);
-    font-size: clamp(1.875rem, 4vw, 3rem);
-    font-weight: 700;
-    color: hsl(var(--foreground));
-    margin-bottom: 1rem;
-    line-height: 1.2;
+  .pulse-dot {
+    width: 0.5rem; height: 0.5rem;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
   }
 
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .availability-badge span:last-child {
+    font-size: 0.875rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .section-header h2 {
+    font-family: var(--font-display, 'Clash Grotesk', sans-serif);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .dim { color: var(--text-dim); }
+
   .cta-description {
-    font-size: 1.125rem;
-    color: hsl(var(--muted-foreground));
-    line-height: 1.7;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.6;
     max-width: 42rem;
     margin: 0 auto;
   }
 
-  /* Calendar card */
   .calendar-card {
-    background: hsl(var(--card));
+    background: var(--surface2);
     border-radius: 1rem;
-    border: 1px solid hsl(var(--border));
-    box-shadow: 0 8px 32px hsl(var(--foreground) / 0.1);
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 32px var(--shadow-color);
     padding: 1rem;
     overflow: hidden;
   }
 
   @media (min-width: 768px) {
-    .calendar-card {
-      padding: 1.5rem;
-    }
+    .calendar-card { padding: 1.5rem; }
   }
 
-  /* Cal.com embed container */
   .cal-embed {
     min-height: 550px;
     width: 100%;
   }
 
   @media (min-width: 768px) {
-    .cal-embed {
-      min-height: 600px;
-    }
+    .cal-embed { min-height: 600px; }
   }
+
+  .cta-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-dim);
+  }
+
+  .info-icon { color: var(--accent); }
 </style>

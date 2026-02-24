@@ -1,268 +1,232 @@
 ---
-// FAQSection - Frequently asked questions with native accordion
-// Uses native <details>/<summary> for zero-JS accordion functionality
+// FAQSection - Common Questions with Accordion
+// Gym/fitness studio niche FAQs
 
-// FAQ data for schema
 const faqs = [
-	{
-		question: "What size hotel do you work with?",
-		answer: "We work best with independent hotels between 15-150 rooms that are currently 60-90% OTA dependent. Our sweet spot is owner-operated or small-team independents who are drowning in OTA commissions but don't have the expertise or bandwidth to build direct booking systems themselves. We don't work with franchise properties or budget/economy hotels where guests are purely price-shopping."
-	},
-	{
-		question: "What results can I realistically expect?",
-		answer: "In Phase 1 (60 days), we guarantee a minimum 10 percentage point reduction in OTA dependency or refund you per point missed. For example, if you're at 75% OTA bookings, we'll get you to 65% or lower. In Phase 2 (ongoing), we work month-over-month to reduce your OTA dependency to 25-35%, where OTAs become a marketing tool you control rather than a dependency you're enslaved to."
-	},
-	{
-		question: "What's required from me during the 60-day Sprint?",
-		answer: "Weeks 1-2: Access to your systems (booking engine, website, analytics), 2-3 hours for onboarding calls, approval of direct booking incentives. Weeks 3-4: Review and approve landing pages, email templates, and ad creative. Weeks 5-8: Weekly 30-minute check-ins and responsiveness to guest inquiries. This is Done-For-You. We handle all execution. You approve, respond to bookings, and deliver the guest experience. You don't need marketing expertise, just responsiveness and system access."
-	},
-	{
-		question: "What if it doesn't work?",
-		answer: "Phase 1 has a performance guarantee: 10-point reduction or you get refunded per point missed. We've never had to issue a full refund because we qualify clients carefully and only work with hotels where we're confident we can deliver. Phase 2 uses performance-aligned pricing (base + revenue share). We only win when you win. You can cancel with 30 days notice if results aren't meeting expectations."
-	},
-	{
-		question: "What happens after the 60-day Sprint?",
-		answer: "You have two options: Option 1: Transition to Phase 2 (Direct Revenue Growth Engine) where we continue optimizing and scaling on an ongoing retainer + revenue share model. Option 2: Take what we built and manage it yourself. You own everything: infrastructure, campaigns, systems. Most clients choose Option 1 because maintaining and growing direct booking campaigns requires ongoing expertise, testing, and optimization that's hard to do internally."
-	},
-	{
-		question: "Will this disrupt my current operations?",
-		answer: "No. We build in parallel to your existing operations. Your OTA listings stay active. We just reduce dependency over time. Guests still book through your existing processes. The only 'disruption' is you'll start getting more direct bookings, which are actually easier to manage (no commission fees, direct guest contact, better data). We work with your existing PMS and don't require you to change systems (unless your current setup is severely limiting, which we'd discuss upfront)."
-	},
-	{
-		question: "I'm already working with a marketing agency. Can you still help?",
-		answer: "Yes. We focus specifically on direct booking infrastructure and demand capture. We're not doing your branding, website redesign, or social media content. If you have an agency handling those areas, great. We collaborate as needed but stay in our lane: building and optimizing your direct booking channel. Many of our clients have existing agencies for other marketing needs."
-	}
+  {
+    question: "How is this different from hiring a general marketing agency?",
+    answer: "General agencies treat gyms like any other local business. We exclusively serve gym and fitness studio owners. Every system and strategy is built specifically for the fitness industry. We understand your margins, your sales cycle, and your member psychology."
+  },
+  {
+    question: 'What do you mean by "zero ad spend"?',
+    answer: "We start by generating immediate cashflow from assets you already have but aren't using. That revenue funds everything else. So from day one, the system pays for itself. You never have to dip into your own pocket for ad spend."
+  },
+  {
+    question: "How much time will this require from me?",
+    answer: "Minimal. Beyond your initial onboarding call and showing up to the appointments we book, we handle everything."
+  },
+  {
+    question: "What if my studio is in a small market?",
+    answer: "Small markets are often our best performers. Less competition means faster dominance. Our system works in markets as small as 50,000 population. During your strategy call, we'll assess your specific market opportunity."
+  },
+  {
+    question: "How does the guarantee actually work?",
+    answer: "We calculate the cost per appointment based on your package. If we promise 30 and deliver 22, we refund you for the 8 we missed. No hoops to jump through. No fine print."
+  },
 ];
 ---
 
-<!-- FAQ Schema -->
-<script type="application/ld+json" set:html={JSON.stringify({
-	"@context": "https://schema.org",
-	"@type": "FAQPage",
-	"mainEntity": faqs.map(faq => ({
-		"@type": "Question",
-		"name": faq.question,
-		"acceptedAnswer": {
-			"@type": "Answer",
-			"text": faq.answer
-		}
-	}))
-})} />
-
-<section class="faq-section" id="faq">
+<section id="faq" class="faq-section noise-bg">
   <div class="container">
-    <div class="content-wrapper">
-      <!-- Section header -->
-      <div class="section-header">
-        <h2>Questions You Might Have</h2>
-        <p>We believe in transparency. Here are honest answers to common questions.</p>
-      </div>
+    <div class="section-header">
+      <h2>Common Questions</h2>
+      <p class="section-desc">
+        Everything you need to know before booking your strategy call.
+      </p>
+    </div>
 
-      <!-- FAQ Accordion -->
-      <div class="faq-list">
-        <details class="faq-item">
-          <summary>What size hotel do you work with?</summary>
-          <div class="faq-answer">
-            <p>We work best with independent hotels between 15-150 rooms that are currently 60-90% OTA dependent. Our sweet spot is owner-operated or small-team independents who are drowning in OTA commissions but don't have the expertise or bandwidth to build direct booking systems themselves. We don't work with franchise properties or budget/economy hotels where guests are purely price-shopping.</p>
+    <div class="faq-list">
+      {faqs.map((faq, i) => (
+        <div class="faq-item" data-accordion>
+          <button class="faq-trigger" aria-expanded="false" aria-controls={`faq-panel-${i}`}>
+            <div class="faq-trigger-inner">
+              <div class="q-badge">
+                <span>Q</span>
+              </div>
+              <h3>{faq.question}</h3>
+            </div>
+            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+          <div class="faq-panel" id={`faq-panel-${i}`} role="region">
+            <div class="faq-answer">
+              <p>{faq.answer}</p>
+            </div>
           </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>What results can I realistically expect?</summary>
-          <div class="faq-answer">
-            <p>In Phase 1 (60 days), we guarantee a minimum 10 percentage point reduction in OTA dependency or refund you per point missed. For example, if you're at 75% OTA bookings, we'll get you to 65% or lower.</p>
-            <p>In Phase 2 (ongoing), we work month-over-month to reduce your OTA dependency to 25-35%, where OTAs become a marketing tool you control rather than a dependency you're enslaved to.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>What's required from me during the 60-day Sprint?</summary>
-          <div class="faq-answer">
-            <p><strong>Weeks 1-2:</strong> Access to your systems (booking engine, website, analytics), 2-3 hours for onboarding calls, approval of direct booking incentives.</p>
-            <p><strong>Weeks 3-4:</strong> Review and approve landing pages, email templates, and ad creative.</p>
-            <p><strong>Weeks 5-8:</strong> Weekly 30-minute check-ins and responsiveness to guest inquiries.</p>
-            <p>This is Done-For-You. We handle all execution. You approve, respond to bookings, and deliver the guest experience. You don't need marketing expertise, just responsiveness and system access.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>What if it doesn't work?</summary>
-          <div class="faq-answer">
-            <p>Phase 1 has a performance guarantee: 10-point reduction or you get refunded per point missed. We've never had to issue a full refund because we qualify clients carefully and only work with hotels where we're confident we can deliver.</p>
-            <p>Phase 2 uses performance-aligned pricing (base + revenue share). We only win when you win. You can cancel with 30 days notice if results aren't meeting expectations.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>What happens after the 60-day Sprint?</summary>
-          <div class="faq-answer">
-            <p>You have two options:</p>
-            <p><strong>Option 1:</strong> Transition to Phase 2 (Direct Revenue Growth Engine) where we continue optimizing and scaling on an ongoing retainer + revenue share model.</p>
-            <p><strong>Option 2:</strong> Take what we built and manage it yourself. You own everything: infrastructure, campaigns, systems.</p>
-            <p>Most clients choose Option 1 because maintaining and growing direct booking campaigns requires ongoing expertise, testing, and optimization that's hard to do internally.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>Will this disrupt my current operations?</summary>
-          <div class="faq-answer">
-            <p>No. We build in parallel to your existing operations. Your OTA listings stay active. We just reduce dependency over time. Guests still book through your existing processes. The only "disruption" is you'll start getting more direct bookings, which are actually easier to manage (no commission fees, direct guest contact, better data).</p>
-            <p>We work with your existing PMS and don't require you to change systems (unless your current setup is severely limiting, which we'd discuss upfront).</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>I'm already working with a marketing agency. Can you still help?</summary>
-          <div class="faq-answer">
-            <p>Yes. We focus specifically on direct booking infrastructure and demand capture. We're not doing your branding, website redesign, or social media content. If you have an agency handling those areas, great. We collaborate as needed but stay in our lane: building and optimizing your direct booking channel. Many of our clients have existing agencies for other marketing needs.</p>
-          </div>
-        </details>
-      </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
 
 <script>
-  // Optional: Close other items when one opens (single-select behavior)
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.addEventListener('toggle', () => {
-      if (item.open) {
-        document.querySelectorAll('.faq-item').forEach(other => {
-          if (other !== item && other.open) {
-            other.open = false;
-          }
-        });
+  document.querySelectorAll('[data-accordion] .faq-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('[data-accordion]')!;
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('[data-accordion].open').forEach(openItem => {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-trigger')?.setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle current
+      if (!isOpen) {
+        item.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
       }
     });
   });
 </script>
 
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+})} />
+
 <style>
   .faq-section {
-    padding: 5rem 0;
-    background: hsl(var(--background));
+    padding: 6rem 0;
+    background: var(--page-bg);
   }
 
-  @media (min-width: 768px) {
-    .faq-section {
-      padding: 8rem 0;
-    }
+  @media (min-width: 1024px) {
+    .faq-section { padding: 8rem 0; }
   }
 
   .container {
-    max-width: 1200px;
+    position: relative;
+    z-index: 1;
+    max-width: 56rem;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
   }
 
-  .content-wrapper {
-    max-width: 48rem;
-    margin: 0 auto;
+  @media (min-width: 1024px) {
+    .container { padding: 0 2rem; }
   }
 
-  /* Section header */
   .section-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 
   .section-header h2 {
-    font-family: var(--font-serif, Georgia, serif);
-    font-size: clamp(1.875rem, 4vw, 3rem);
+    font-family: var(--font-display, 'Clash Grotesk', sans-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
-    color: hsl(var(--foreground));
+    color: var(--text-primary);
     margin-bottom: 1.5rem;
-    line-height: 1.2;
   }
 
-  .section-header p {
+  .section-desc {
     font-size: 1.125rem;
-    color: hsl(var(--muted-foreground));
+    color: var(--text-muted);
+    line-height: 1.6;
   }
 
-  /* FAQ list */
   .faq-list {
     display: flex;
     flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .faq-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    transition: border-color 0.2s;
+    overflow: hidden;
+  }
+
+  .faq-item:hover {
+    border-color: var(--faq-hover-border);
+  }
+
+  /* Trigger button */
+  .faq-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
     gap: 1rem;
   }
 
-  /* FAQ item */
-  .faq-item {
-    background: hsl(var(--card));
-    border-radius: 0.75rem;
-    border: 1px solid hsl(var(--border));
-    overflow: hidden;
-    transition: box-shadow 0.3s;
+  .faq-trigger-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 
-  .faq-item[open] {
-    box-shadow: 0 4px 20px hsl(var(--foreground) / 0.08);
+  .q-badge {
+    width: 2rem; height: 2rem;
+    background: var(--accent-bg-strong);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
-  /* Summary (question) */
-  .faq-item summary {
-    padding: 1.25rem 1.5rem;
-    padding-right: 3rem;
-    cursor: pointer;
-    font-family: var(--font-serif, Georgia, serif);
+  .q-badge span {
+    font-family: var(--font-display, 'Clash Grotesk', sans-serif);
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .faq-trigger h3 {
+    font-family: var(--font-display, 'Clash Grotesk', sans-serif);
     font-size: 1.125rem;
     font-weight: 600;
-    color: hsl(var(--foreground));
-    line-height: 1.4;
-    list-style: none;
-    position: relative;
-    transition: color 0.2s;
-  }
-
-  .faq-item summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .faq-item summary::after {
-    content: "";
-    position: absolute;
-    right: 1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0.75rem;
-    height: 0.75rem;
-    border-right: 2px solid hsl(var(--muted-foreground));
-    border-bottom: 2px solid hsl(var(--muted-foreground));
-    transform: translateY(-50%) rotate(45deg);
-    transition: transform 0.15s, border-color 0.15s;
-  }
-
-  .faq-item[open] summary::after {
-    transform: translateY(-25%) rotate(-135deg);
-    border-color: hsl(var(--forest));
-  }
-
-  .faq-item summary:hover {
-    color: hsl(var(--forest));
-  }
-
-  .faq-item summary:hover::after {
-    border-color: hsl(var(--forest));
-  }
-
-  /* Answer */
-  .faq-answer {
-    padding: 0 1.5rem 1.25rem;
-  }
-
-  .faq-answer p {
-    color: hsl(var(--muted-foreground));
-    line-height: 1.7;
+    color: var(--text-primary);
     margin: 0;
   }
 
-  .faq-answer p + p {
-    margin-top: 0.75rem;
+  /* Chevron */
+  .chevron {
+    color: var(--text-muted);
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
   }
 
-  .faq-answer strong {
-    color: hsl(var(--foreground));
-    font-weight: 600;
+  .faq-item.open .chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Panel */
+  .faq-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.25s ease;
+  }
+
+  .faq-item.open .faq-panel {
+    grid-template-rows: 1fr;
+  }
+
+  .faq-answer {
+    overflow: hidden;
+  }
+
+  .faq-answer p {
+    padding: 0 1.5rem 1.25rem 4.5rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
   }
 </style>

@@ -1,0 +1,221 @@
+---
+// MethodologySection - The Zero Ad Spend Member System: 6 pillar cards
+---
+
+<section id="methodology" class="methodology-section">
+  <div class="grid-bg"></div>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Our System</span>
+      <h2>
+        The Zero Ad Spend<br/>Member System
+      </h2>
+      <p class="section-desc">
+        Six integrated components working together to fill your gym or studio with qualified prospects who actually show up and convert.
+      </p>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-top">
+          <div class="pillar-icon-wrap">
+            <iconify-icon icon="lucide:zap" class="pillar-icon"></iconify-icon>
+          </div>
+          <span class="pillar-number">01</span>
+        </div>
+        <h3>Instant Cashflow</h3>
+        <p>We unlock revenue from assets you already own but aren't using. This funds everything else, so the system pays for itself from day one.</p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-top">
+          <div class="pillar-icon-wrap">
+            <iconify-icon icon="lucide:target" class="pillar-icon"></iconify-icon>
+          </div>
+          <span class="pillar-number">02</span>
+        </div>
+        <h3>Offer Positioning</h3>
+        <p>We position your gym or studio as the obvious choice in your market. The right offer to the right people at the right time.</p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-top">
+          <div class="pillar-icon-wrap">
+            <iconify-icon icon="lucide:radio-tower" class="pillar-icon"></iconify-icon>
+          </div>
+          <span class="pillar-number">03</span>
+        </div>
+        <h3>Prospect Attraction</h3>
+        <p>A proven system that puts your business in front of qualified prospects consistently, without you chasing leads or burning time on outreach.</p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-top">
+          <div class="pillar-icon-wrap">
+            <iconify-icon icon="lucide:message-circle" class="pillar-icon"></iconify-icon>
+          </div>
+          <span class="pillar-number">04</span>
+        </div>
+        <h3>Automated Follow-Up</h3>
+        <p>Interested prospects are nurtured and moved to booked appointments automatically. No leads slip through the cracks while you sleep.</p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-top">
+          <div class="pillar-icon-wrap">
+            <iconify-icon icon="lucide:star" class="pillar-icon"></iconify-icon>
+          </div>
+          <span class="pillar-number">05</span>
+        </div>
+        <h3>Trust Building</h3>
+        <p>We build the credibility and social proof that makes prospects choose you over every other option in your area, before they even walk in.</p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-top">
+          <div class="pillar-icon-wrap">
+            <iconify-icon icon="lucide:calendar-check" class="pillar-icon"></iconify-icon>
+          </div>
+          <span class="pillar-number">06</span>
+        </div>
+        <h3>Appointment Booking</h3>
+        <p>Qualified prospects are booked and walk through your door ready to sign up. All you do is welcome them. No chasing, no convincing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .methodology-section {
+    position: relative;
+    padding: 6rem 0;
+    background: var(--surface);
+  }
+
+  @media (min-width: 1024px) {
+    .methodology-section { padding: 8rem 0; }
+  }
+
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.5;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container { padding: 0 2rem; }
+  }
+
+  .section-header {
+    max-width: 48rem;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+
+  .section-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--accent-bg);
+    color: var(--accent);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-header h2 {
+    font-family: var(--font-display, 'Clash Grotesk', sans-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-desc {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .pillars-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1024px) {
+    .pillars-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .pillar-card {
+    background: var(--page-bg);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s;
+  }
+
+  .pillar-card:hover {
+    border-color: var(--accent-hover-border);
+    transform: translateY(-4px);
+  }
+
+  .pillar-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .pillar-icon-wrap {
+    width: 3.5rem; height: 3.5rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s;
+  }
+
+  .pillar-card:hover .pillar-icon-wrap {
+    border-color: var(--accent-hover-border);
+  }
+
+  .pillar-icon { color: var(--accent); font-size: 1.5rem; }
+
+  .pillar-number {
+    font-family: var(--font-display, 'Clash Grotesk', sans-serif);
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--number-color);
+  }
+
+  .pillar-card h3 {
+    font-family: var(--font-display, 'Clash Grotesk', sans-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .pillar-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+</style>
