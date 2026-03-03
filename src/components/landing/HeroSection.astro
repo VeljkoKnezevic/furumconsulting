@@ -1,71 +1,103 @@
 ---
-// HeroSection - Main hero with headline, image, testimonial card, and CTA
+// HeroSection - Main hero with headline, CTAs, and dashboard visual
+// Themed via CSS variables
 ---
 
-<section class="hero-section">
+<section class="hero-section noise-bg">
+  <div class="grid-bg"></div>
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+
   <div class="container">
     <div class="hero-grid">
       <!-- Left Content -->
       <div class="hero-content">
-        <!-- Badge -->
-        <div class="hero-badge">
-          <span>Exclusively for Gym Owners</span>
+        <div class="trust-badge">
+          <span class="pulse-dot"></span>
+          <span>For Gym & Studio Owners Ready to Scale</span>
         </div>
 
-        <!-- Headline -->
         <h1 class="hero-headline">
-          Empty Floors <br/>Cost More Than <br/><span class="highlight">Marketing.</span>
+          30 Qualified<br/>
+          <span class="highlight">Appointments</span><br/>
+          In 30 Days.
         </h1>
 
-        <!-- Description -->
-        <p class="hero-description">
-          We help high-ticket fitness facilities reach $100k+ MRR through performance-based acquisition systems and bulletproof retention strategies. No fluff. Just growth.
+        <p class="hero-subheadline">
+          We install a predictable member acquisition system into your gym or studio. You focus on your clients. We fill the floor.
         </p>
 
-        <!-- CTA Row -->
-        <div class="cta-row">
-          <a href="#booking" class="btn btn-primary">
-            Book Your Free Growth Audit
+        <div class="cta-buttons">
+          <a href="#book-call" class="btn btn-hero">
+            Book Your Strategy Call
+            <iconify-icon icon="lucide:arrow-right" class="btn-icon"></iconify-icon>
           </a>
-          <div class="social-proof-mini">
-            <div class="avatars">
-              <div class="avatar"></div>
-              <div class="avatar"></div>
-              <div class="avatar"></div>
-            </div>
-            <div class="social-proof-text">
-              <span class="social-proof-strong">Join 150+ Gym Owners</span>
-              <span class="social-proof-sub">Scaling aggressively this month</span>
-            </div>
-          </div>
         </div>
+
       </div>
 
-      <!-- Right Image -->
-      <div class="hero-image-wrapper">
-        <div class="hero-image">
-          <img
-            src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1470&auto=format&fit=crop"
-            alt="Premium gym interior with modern equipment"
-            loading="eager"
-          />
-        </div>
-
-        <!-- Testimonial Card -->
-        <div class="testimonial-card">
-          <div class="stars">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <!-- Right Visual - Dashboard Card -->
+      <div class="hero-visual">
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <div>
+              <p class="dashboard-label">New Appointments</p>
+              <p class="dashboard-value">+32</p>
+            </div>
+            <div class="dashboard-badge">This Month</div>
           </div>
-          <p class="testimonial-text">"Furum added 42 high-ticket members in our first 30 days. Our ROI was over 5.5x."</p>
-          <p class="testimonial-author">— Marcus Reed, Elite Athletics</p>
+
+          <div class="lead-list">
+            <div class="lead-item">
+              <div class="lead-icon-wrap">
+                <iconify-icon icon="lucide:user" class="lead-icon"></iconify-icon>
+              </div>
+              <div class="lead-info">
+                <p class="lead-name">Sarah M.</p>
+                <p class="lead-detail">Pilates Intro Class &bull; Booked</p>
+              </div>
+              <span class="lead-time">2m ago</span>
+            </div>
+
+            <div class="lead-item">
+              <div class="lead-icon-wrap">
+                <iconify-icon icon="lucide:user" class="lead-icon"></iconify-icon>
+              </div>
+              <div class="lead-info">
+                <p class="lead-name">Marcus T.</p>
+                <p class="lead-detail">CrossFit Foundations &bull; Booked</p>
+              </div>
+              <span class="lead-time">12m ago</span>
+            </div>
+
+            <div class="lead-item">
+              <div class="lead-icon-wrap">
+                <iconify-icon icon="lucide:user" class="lead-icon"></iconify-icon>
+              </div>
+              <div class="lead-info">
+                <p class="lead-name">Jennifer K.</p>
+                <p class="lead-detail">Kickboxing Trial &bull; Booked</p>
+              </div>
+              <span class="lead-time">34m ago</span>
+            </div>
+          </div>
+
+          <div class="dashboard-footer">
+            <iconify-icon icon="lucide:activity" class="footer-icon"></iconify-icon>
+            <span>System running autonomously</span>
+          </div>
         </div>
 
-        <!-- Decorative blob -->
-        <div class="decorative-blob"></div>
+        <!-- Floating Element -->
+        <div class="floating-card">
+          <div class="floating-icon-wrap">
+            <iconify-icon icon="lucide:trending-up" class="floating-icon"></iconify-icon>
+          </div>
+          <div>
+            <p class="floating-label">Conversion Rate</p>
+            <p class="floating-value">64%</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -73,262 +105,294 @@
 
 <style>
   .hero-section {
-    padding-top: 8rem;
-    padding-bottom: 5rem;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 5rem;
     overflow: hidden;
+    background: var(--page-bg);
   }
 
-  @media (min-width: 1024px) {
-    .hero-section {
-      padding-top: 13rem;
-      padding-bottom: 10rem;
-    }
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  .glow-orb-1 {
+    top: 25%; right: 0;
+    width: 24rem; height: 24rem;
+    background: var(--accent-bg);
+  }
+
+  .glow-orb-2 {
+    bottom: 0; left: 0;
+    width: 18rem; height: 18rem;
+    background: var(--accent-bg);
+    opacity: 0.5;
   }
 
   .container {
+    position: relative;
+    z-index: 1;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 5rem 1.5rem 5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container { padding: 5rem 2rem 8rem; }
   }
 
   .hero-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 4rem;
     align-items: center;
   }
 
   @media (min-width: 1024px) {
-    .hero-grid {
-      grid-template-columns: 7fr 5fr;
-      gap: 3rem;
-    }
+    .hero-grid { grid-template-columns: 1fr 1fr; }
   }
 
-  /* Hero Content */
   .hero-content {
-    animation: fade-in 0.8s ease forwards;
-  }
-
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Badge */
-  .hero-badge {
-    display: inline-block;
-    padding: 0.375rem 1rem;
-    background: hsl(var(--forest) / 0.05);
-    border: 1px solid hsl(var(--forest) / 0.2);
-    border-radius: 9999px;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-badge span {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-  }
-
-  /* Headline */
-  .hero-headline {
-    font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 8vw, 6rem);
-    font-weight: 800;
-    line-height: 0.9;
-    color: hsl(var(--forest));
-    margin-bottom: 2rem;
-  }
-
-  .hero-headline .highlight {
-    color: hsl(var(--gold));
-  }
-
-  /* Description */
-  .hero-description {
-    font-size: 1.25rem;
-    color: hsl(var(--foreground) / 0.8);
-    max-width: 36rem;
-    line-height: 1.6;
-    margin-bottom: 2.5rem;
-  }
-
-  /* CTA Row */
-  .cta-row {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
+  }
+
+  .trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--card-hover-bg);
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+    width: fit-content;
+  }
+
+  .pulse-dot {
+    width: 0.5rem; height: 0.5rem;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .trust-badge span:last-child {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .hero-headline {
+    font-family: var(--font-display, 'Clash Grotesk', sans-serif);
+    font-size: clamp(3.25rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .highlight { color: var(--accent); }
+
+  .hero-subheadline {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 36rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
   }
 
   @media (min-width: 640px) {
-    .cta-row {
-      flex-direction: row;
-      align-items: center;
-    }
+    .cta-buttons { flex-direction: row; }
   }
 
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 1.25rem 2.5rem;
-    font-size: 1rem;
-    font-weight: 700;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    font-size: 1.125rem;
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: all 0.2s;
-    text-align: center;
+    border-radius: 0.75rem;
+    transition: all 0.3s;
   }
 
-  .btn-primary {
-    background: hsl(var(--forest));
+  .btn-hero {
+    background: var(--accent);
     color: white;
-    box-shadow: 0 10px 40px hsl(var(--forest) / 0.1);
+    box-shadow: 0 0 40px var(--glow);
   }
 
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 50px hsl(var(--forest) / 0.15);
+  .btn-hero:hover {
+    background: var(--accent-dark);
+    transform: scale(1.05);
   }
 
-  /* Social Proof Mini */
-  .social-proof-mini {
+  .btn-icon { font-size: 1.25rem; }
+
+  .btn-outline {
+    background: var(--outline-bg);
+    border: 1px solid var(--outline-border);
+    color: var(--outline-text);
+  }
+
+  .btn-outline:hover {
+    background: var(--outline-bg-hover);
+  }
+
+  .hero-checks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .check-item {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.5rem 1.5rem;
-  }
-
-  .avatars {
-    display: flex;
-    margin-left: -0.75rem;
-  }
-
-  .avatar {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    border: 2px solid hsl(var(--cream));
-    margin-left: -0.75rem;
-  }
-
-  .avatar:nth-child(1) {
-    background: hsl(var(--muted));
-  }
-
-  .avatar:nth-child(2) {
-    background: hsl(var(--border));
-  }
-
-  .avatar:nth-child(3) {
-    background: hsl(var(--muted-foreground) / 0.3);
-  }
-
-  .social-proof-text {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .social-proof-strong {
+    gap: 0.5rem;
     font-size: 0.875rem;
-    font-weight: 700;
+    color: var(--text-dim);
   }
 
-  .social-proof-sub {
-    font-size: 0.75rem;
-    opacity: 0.6;
-  }
+  .check-icon { color: var(--accent); }
 
-  /* Hero Image Wrapper */
-  .hero-image-wrapper {
+  /* Right Visual */
+  .hero-visual {
+    display: none;
     position: relative;
-    animation: fade-in 0.8s ease 0.3s forwards;
-    opacity: 0;
-  }
-
-  .hero-image {
-    position: relative;
-    z-index: 10;
-  }
-
-  .hero-image img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
-    box-shadow: 0 25px 50px -12px hsl(var(--forest) / 0.25);
   }
 
   @media (min-width: 1024px) {
-    .hero-image img {
-      height: 600px;
-    }
+    .hero-visual { display: block; }
   }
 
-  /* Testimonial Card */
-  .testimonial-card {
-    position: absolute;
-    bottom: -2.5rem;
-    left: -2.5rem;
-    background: white;
+  .dashboard-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
     padding: 2rem;
-    box-shadow: 0 25px 50px -12px hsl(var(--forest) / 0.15);
-    border: 1px solid hsl(var(--forest) / 0.05);
-    max-width: 280px;
-    z-index: 20;
+    box-shadow: 0 0 40px var(--glow);
   }
 
-  @media (max-width: 1023px) {
-    .testimonial-card {
-      position: relative;
-      bottom: auto;
-      left: auto;
-      max-width: 100%;
-      margin-top: 1.5rem;
-    }
-  }
-
-  .stars {
+  .dashboard-header {
     display: flex;
-    gap: 0.125rem;
-    color: hsl(var(--gold));
-    margin-bottom: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.5rem;
   }
 
-  .testimonial-text {
+  .dashboard-label {
     font-size: 0.875rem;
-    font-style: italic;
-    color: hsl(var(--foreground) / 0.8);
-    margin-bottom: 1rem;
-    line-height: 1.6;
+    color: var(--text-muted);
   }
 
-  .testimonial-author {
-    font-size: 0.75rem;
+  .dashboard-value {
+    font-family: var(--font-display, 'Clash Grotesk', sans-serif);
+    font-size: 2.25rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    color: var(--accent);
   }
 
-  /* Decorative blob */
-  .decorative-blob {
-    position: absolute;
-    top: -2.5rem;
-    right: -2.5rem;
-    width: 16rem;
-    height: 16rem;
-    background: hsl(var(--forest) / 0.05);
-    border-radius: 50%;
-    filter: blur(48px);
-    z-index: 0;
+  .dashboard-badge {
+    padding: 0.25rem 0.75rem;
+    background: var(--green-badge-bg);
+    color: var(--green-badge-text);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
   }
+
+  .lead-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .lead-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--card-hover-bg);
+    border-radius: 0.75rem;
+  }
+
+  .lead-icon-wrap {
+    width: 2.5rem; height: 2.5rem;
+    background: var(--accent-bg-strong);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lead-icon { color: var(--accent); }
+  .lead-info { flex: 1; }
+  .lead-name { font-weight: 500; color: var(--text-primary); }
+  .lead-detail { font-size: 0.875rem; color: var(--text-muted); }
+  .lead-time { font-size: 0.875rem; color: var(--green-badge-text); }
+
+  .dashboard-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .footer-icon { color: var(--accent); }
+
+  .floating-card {
+    position: absolute;
+    top: -1rem; right: -1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-icon-wrap {
+    width: 2rem; height: 2rem;
+    background: var(--green-badge-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .floating-icon { color: var(--green-badge-text); font-size: 0.875rem; }
+  .floating-label { font-size: 0.75rem; color: var(--text-muted); }
+  .floating-value { font-weight: 600; color: var(--text-primary); }
 </style>

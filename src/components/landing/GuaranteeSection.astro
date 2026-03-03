@@ -1,0 +1,164 @@
+---
+// GuaranteeSection - The Performance Guarantee: 30 appointments in 30 days
+---
+
+<section id="guarantee" class="guarantee-section noise-bg">
+  <div class="container">
+    <div class="guarantee-card">
+      <div class="card-glow"></div>
+
+      <div class="card-content">
+        <div class="shield-wrap">
+          <iconify-icon icon="lucide:shield-check" class="shield-icon"></iconify-icon>
+        </div>
+
+        <h2>The Performance Guarantee</h2>
+
+        <p class="guarantee-text">
+          We guarantee <span class="green-text">30 qualified appointments</span> in your first 30 days. If we fall short, we calculate the cost per appointment and refund you for every single one we missed. Deliver 22? You get refunded for 8. No questions asked.
+        </p>
+
+        <div class="guarantee-grid">
+          <div class="guarantee-item">
+            <iconify-icon icon="lucide:check-circle" class="guarantee-check"></iconify-icon>
+            <div>
+              <p class="guarantee-title">No Risk to You</p>
+              <p class="guarantee-desc">If we miss our target, we cover the gap. You only pay for results delivered.</p>
+            </div>
+          </div>
+          <div class="guarantee-item">
+            <iconify-icon icon="lucide:check-circle" class="guarantee-check"></iconify-icon>
+            <div>
+              <p class="guarantee-title">Skin in the Game</p>
+              <p class="guarantee-desc">We're incentivized to over-deliver. Your success is literally our profit.</p>
+            </div>
+          </div>
+          <div class="guarantee-item">
+            <iconify-icon icon="lucide:check-circle" class="guarantee-check"></iconify-icon>
+            <div>
+              <p class="guarantee-title">Full Transparency</p>
+              <p class="guarantee-desc">Real-time dashboard showing every appointment, source, and outcome.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .guarantee-section {
+    padding: 6rem 0;
+    background: var(--page-bg);
+  }
+
+  @media (min-width: 1024px) {
+    .guarantee-section { padding: 8rem 0; }
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container { padding: 0 2rem; }
+  }
+
+  .guarantee-card {
+    position: relative;
+    background: var(--guarantee-gradient);
+    border: 1px solid var(--accent-border);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) { .guarantee-card { padding: 3rem; } }
+  @media (min-width: 1024px) { .guarantee-card { padding: 4rem; } }
+
+  .card-glow {
+    position: absolute;
+    top: 0; right: 0;
+    width: 24rem; height: 24rem;
+    background: var(--accent-bg);
+    border-radius: 50%;
+    filter: blur(80px);
+    transform: translate(50%, -50%);
+    pointer-events: none;
+  }
+
+  .card-content {
+    position: relative;
+    text-align: center;
+  }
+
+  .shield-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem; height: 5rem;
+    background: var(--accent-bg-strong);
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .shield-icon { color: var(--accent); font-size: 2.5rem; }
+
+  .card-content h2 {
+    font-family: var(--font-display, 'Clash Grotesk', sans-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .guarantee-text {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 42rem;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
+  .green-text { color: var(--accent); font-weight: 600; }
+
+  .guarantee-grid {
+    display: grid;
+    gap: 1.5rem;
+    text-align: left;
+    margin-top: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .guarantee-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .guarantee-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .guarantee-check {
+    color: var(--accent);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  .guarantee-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .guarantee-desc {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+</style>

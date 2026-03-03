@@ -1,5 +1,5 @@
 ---
-// Footer - Gym marketing footer with branding, links, and newsletter
+// Footer - Themed footer with branding and links
 const currentYear = new Date().getFullYear();
 ---
 
@@ -8,79 +8,33 @@ const currentYear = new Date().getFullYear();
     <div class="footer-grid">
       <!-- Brand -->
       <div class="brand">
-        <a href="/" class="logo">
-          <img src="/logo-dark.png" alt="Furum Consulting" class="logo-img" />
-        </a>
-        <p class="tagline">
-          The world's premier gym marketing agency for elite fitness owners seeking predictable, high-ticket scale.
-        </p>
-        <div class="social-links">
-          <a href="#" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-          </a>
-          <a href="#" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="#" aria-label="Twitter">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-          </a>
+        <div class="logo">
+          <img src="/logo-dark.png" alt="Furum Consulting" class="logo-img logo-dark-mode" />
+          <img src="/logo-light.png" alt="Furum Consulting" class="logo-img logo-light-mode" />
         </div>
       </div>
 
-      <!-- Navigation -->
-      <div class="footer-nav-col">
-        <h4>Navigation</h4>
-        <nav class="footer-nav">
-          <a href="#services">Services</a>
-          <a href="#process">Our Process</a>
-          <a href="#faq">FAQs</a>
-          <a href="#booking">Book a Call</a>
-        </nav>
-      </div>
-
-      <!-- Contact -->
-      <div class="footer-nav-col">
-        <h4>Contact</h4>
-        <ul class="contact-list">
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            growth@furumconsulting.com
-          </li>
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            Mayfair, London, UK
-          </li>
-        </ul>
-      </div>
-
-      <!-- Newsletter -->
-      <div class="newsletter">
-        <h4>The Weekly Scaler</h4>
-        <p>Free growth strategies sent every Tuesday. No spam.</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Your email" required />
-          <button type="submit">Join</button>
-        </form>
-      </div>
+      <!-- Links -->
+      <nav class="footer-nav">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="mailto:hello@furumconsulting.com">hello@furumconsulting.com</a>
+      </nav>
     </div>
 
     <div class="footer-bottom">
       <p class="copyright">
         &copy; {currentYear} Furum Consulting. All Rights Reserved.
       </p>
-      <div class="legal">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms of Service</a>
-      </div>
     </div>
   </div>
 </footer>
 
 <style>
   .footer {
-    padding: 5rem 0 2rem;
-    background: hsl(var(--forest));
-    color: white;
+    padding: 3rem 0 2rem;
+    background: var(--page-bg);
+    border-top: 1px solid var(--border-subtle);
   }
 
   .container {
@@ -89,31 +43,27 @@ const currentYear = new Date().getFullYear();
     padding: 0 1.5rem;
   }
 
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    padding-bottom: 5rem;
+  @media (min-width: 1024px) {
+    .container { padding: 0 2rem; }
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
   }
 
   @media (min-width: 768px) {
-    .footer-grid {
-      grid-template-columns: 2fr 1fr 1fr 1.5fr;
-      gap: 2rem;
+    .footer-content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 
-  /* Brand */
-  .brand {
-    max-width: 20rem;
-  }
-
-  .logo {
-    display: inline-block;
-    margin-top: -4rem;
-    margin-bottom: -2rem;
-    margin-left: -1rem; /* Compensate for logo whitespace to align visually */
-  }
+  .logo { display: inline-block; }
 
   .logo-img {
     height: 10rem;
@@ -122,165 +72,46 @@ const currentYear = new Date().getFullYear();
   }
 
   @media (min-width: 768px) {
-    .logo-img {
-      height: 13rem;
-    }
+    .logo-img { height: 9rem; }
   }
 
-  .tagline {
-    font-size: 0.875rem;
-    color: hsl(var(--cream) / 0.5);
-    line-height: 1.7;
-    margin-bottom: 2rem;
+  .logo-light-mode { display: none; }
+  .logo-dark-mode { display: block; }
+
+  @media (prefers-color-scheme: light) {
+    :root:not(.dark) .logo-light-mode { display: block; }
+    :root:not(.dark) .logo-dark-mode { display: none; }
   }
 
-  .social-links {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .social-links a {
-    color: hsl(var(--cream) / 0.6);
-    transition: color 0.2s;
-  }
-
-  .social-links a:hover {
-    color: white;
-  }
-
-  /* Footer Nav Columns */
-  .footer-nav-col h4,
-  .newsletter h4 {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 700;
-    color: hsl(var(--cream) / 0.4);
-    margin-bottom: 1.5rem;
-  }
+  :global(.light) .logo-light-mode { display: block; }
+  :global(.light) .logo-dark-mode { display: none; }
 
   .footer-nav {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
   }
 
   .footer-nav a {
     font-size: 0.875rem;
-    color: hsl(var(--cream) / 0.7);
+    color: var(--text-dim);
     text-decoration: none;
     transition: color 0.2s;
   }
 
   .footer-nav a:hover {
-    color: hsl(var(--gold));
+    color: var(--text-primary);
   }
 
-  /* Contact List */
-  .contact-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .contact-list li {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.875rem;
-    color: hsl(var(--cream) / 0.7);
-  }
-
-  .contact-list svg {
-    color: hsl(var(--gold));
-    flex-shrink: 0;
-  }
-
-  /* Newsletter */
-  .newsletter p {
-    font-size: 0.75rem;
-    color: hsl(var(--cream) / 0.5);
-    margin-bottom: 1rem;
-  }
-
-  .newsletter-form {
-    display: flex;
-    border-bottom: 1px solid hsl(var(--cream) / 0.2);
-    padding-bottom: 0.5rem;
-  }
-
-  .newsletter-form input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 0.75rem;
-    outline: none;
-  }
-
-  .newsletter-form input::placeholder {
-    color: hsl(var(--cream) / 0.4);
-  }
-
-  .newsletter-form button {
-    background: transparent;
-    border: none;
-    color: hsl(var(--gold));
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    transition: opacity 0.2s;
-  }
-
-  .newsletter-form button:hover {
-    opacity: 0.8;
-  }
-
-  /* Footer Bottom */
   .footer-bottom {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
     padding-top: 2rem;
-    border-top: 1px solid hsl(var(--cream) / 0.05);
-  }
-
-  @media (min-width: 768px) {
-    .footer-bottom {
-      flex-direction: row;
-      justify-content: space-between;
-    }
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
   }
 
   .copyright {
-    font-size: 0.625rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: hsl(var(--cream) / 0.3);
-  }
-
-  .legal {
-    display: flex;
-    gap: 2rem;
-  }
-
-  .legal a {
-    font-size: 0.625rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: hsl(var(--cream) / 0.3);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .legal a:hover {
-    color: hsl(var(--cream) / 0.6);
+    font-size: 0.875rem;
+    color: var(--text-dimmer);
   }
 </style>

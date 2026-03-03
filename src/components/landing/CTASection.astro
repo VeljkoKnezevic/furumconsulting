@@ -1,48 +1,60 @@
 ---
-// CTASection - Final call to action with Cal.com calendar embed
+// CTASection - Final CTA with Cal.com calendar embed
+// Cal.com theme dynamically matches system preference
 ---
 
-<section class="cta-section" id="booking">
+<section id="book-call" class="cta-section">
+  <div class="grid-bg"></div>
   <div class="container">
-    <div class="cta-grid">
-      <!-- Content -->
-      <div class="content">
-        <h2>Ready to own the <span class="highlight">dominant</span> gym in your city?</h2>
-        <p class="description">
-          We only partner with one gym per zip code to avoid conflict of interest. Check if your territory is still available.
+    <div class="content-wrapper">
+      <div class="section-header">
+        <div class="availability-badge">
+          <span class="pulse-dot"></span>
+          <span>Limited Availability</span>
+        </div>
+
+        <h2>
+          Ready to Stop Worrying<br/>About <span class="dim">Next Month's Revenue?</span>
+        </h2>
+
+        <p class="cta-description">
+          Book a complimentary strategy call. We'll look at your current situation, identify the biggest opportunities, and show you exactly how we'd get you to 30 qualified appointments per month.
         </p>
-
-        <div class="availability">
-          <div class="pulse"></div>
-          <span>3 Spots remaining for Q3 Partnership</span>
-        </div>
-
-        <div class="benefit">
-          <div class="benefit-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
-          </div>
-          <div>
-            <p class="benefit-title">Free 30-Min Strategy Call</p>
-            <p class="benefit-sub">Worth $297 - yours free today</p>
-          </div>
-        </div>
       </div>
 
-      <!-- Calendar Card -->
       <div class="calendar-card">
-        <h3>Secure Your Growth Audit</h3>
         <div id="cal-embed" class="cal-embed"></div>
+      </div>
+
+      <div class="cta-info">
+        <div class="info-item">
+          <iconify-icon icon="lucide:clock" class="info-icon"></iconify-icon>
+          <span>45 minutes</span>
+        </div>
+        <div class="info-item">
+          <iconify-icon icon="lucide:video" class="info-icon"></iconify-icon>
+          <span>Google Meet</span>
+        </div>
+        <div class="info-item">
+          <iconify-icon icon="lucide:shield" class="info-icon"></iconify-icon>
+          <span>No obligation</span>
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- Background accent -->
-  <div class="bg-accent"></div>
 </section>
 
 <script>
+  // Detect current theme for Cal.com embed
+  function getCalTheme(): string {
+    const html = document.documentElement;
+    if (html.classList.contains('dark')) return 'dark';
+    if (html.classList.contains('light')) return 'light';
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+
+  const calTheme = getCalTheme();
+
   // Cal.com embed
   (function (C, A, L) {
     let p = function (a: any, ar: any) { a.q.push(ar); };
@@ -76,13 +88,14 @@
     elementOrSelector: "#cal-embed",
     calLink: "furumconsulting/discovery-call",
     config: {
-      layout: "month_view",
-      useSlotsViewOnSmallScreen: "true"
+      theme: calTheme,
+      layout: "month_view"
     }
   });
   (window as any).Cal.ns["discovery-call"]("ui", {
-    hideEventTypeDetails: false,
-    layout: "month_view"
+    theme: calTheme,
+    styles: { branding: { brandColor: "#2d5d52" } },
+    hideEventTypeDetails: false
   });
 </script>
 
@@ -90,157 +103,130 @@
   .cta-section {
     position: relative;
     padding: 6rem 0;
-    background: hsl(var(--cream));
-    overflow: hidden;
+    background: var(--surface);
   }
 
-  @media (min-width: 768px) {
-    .cta-section {
-      padding: 8rem 0;
-    }
+  @media (min-width: 1024px) {
+    .cta-section { padding: 8rem 0; }
+  }
+
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.5;
   }
 
   .container {
     position: relative;
-    z-index: 10;
+    z-index: 1;
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
 
-  .cta-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
   @media (min-width: 1024px) {
-    .cta-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-    }
+    .container { padding: 0 2rem; }
   }
 
-  /* Content */
-  .content h2 {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 2rem;
+  .content-wrapper {
+    max-width: 56rem;
+    margin: 0 auto;
   }
 
-  .highlight {
-    color: hsl(var(--gold));
-    text-decoration: underline;
-    text-decoration-thickness: 4px;
-    text-underline-offset: 8px;
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
   }
 
-  .description {
-    font-size: 1.25rem;
-    color: hsl(var(--foreground) / 0.8);
-    line-height: 1.6;
-    margin-bottom: 2rem;
-  }
-
-  .availability {
-    display: flex;
+  .availability-badge {
+    display: inline-flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--accent-bg);
+    border: 1px solid var(--accent-border);
+    border-radius: 9999px;
     margin-bottom: 2rem;
   }
 
-  .pulse {
-    width: 0.75rem;
-    height: 0.75rem;
-    background: #22c55e;
+  .pulse-dot {
+    width: 0.5rem; height: 0.5rem;
+    background: var(--accent);
     border-radius: 50%;
     animation: pulse 2s infinite;
   }
 
   @keyframes pulse {
-    0%, 100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.5;
-      transform: scale(1.2);
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
   }
 
-  .availability span {
+  .availability-badge span:last-child {
     font-size: 0.875rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .section-header h2 {
+    font-family: var(--font-display, 'Clash Grotesk', sans-serif);
+    font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .benefit {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .benefit-icon {
-    width: 3rem;
-    height: 3rem;
-    background: hsl(var(--forest) / 0.05);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: hsl(var(--forest));
-  }
-
-  .benefit-title {
-    font-size: 0.875rem;
-    font-weight: 700;
-  }
-
-  .benefit-sub {
-    font-size: 0.75rem;
-    color: hsl(var(--forest) / 0.6);
-  }
-
-  /* Calendar Card */
-  .calendar-card {
-    background: white;
-    padding: 2.5rem;
-    box-shadow: 0 25px 50px -12px hsl(var(--forest) / 0.15);
-    border: 1px solid hsl(var(--forest) / 0.05);
-  }
-
-  .calendar-card h3 {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 700;
+    color: var(--text-primary);
     margin-bottom: 1.5rem;
+    line-height: 1.1;
   }
 
-  /* Cal.com embed container */
+  .dim { color: var(--text-dim); }
+
+  .cta-description {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  .calendar-card {
+    background: var(--surface2);
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 32px var(--shadow-color);
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .calendar-card { padding: 1.5rem; }
+  }
+
   .cal-embed {
     min-height: 500px;
     width: 100%;
   }
 
   @media (min-width: 768px) {
-    .cal-embed {
-      min-height: 550px;
-    }
+    .cal-embed { min-height: 600px; }
   }
 
-  /* Background accent */
-  .bg-accent {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: hsl(var(--forest) / 0.03);
-    z-index: 0;
-    pointer-events: none;
+  .cta-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
   }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-dim);
+  }
+
+  .info-icon { color: var(--accent); }
 </style>

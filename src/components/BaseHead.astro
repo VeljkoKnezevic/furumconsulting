@@ -18,7 +18,7 @@ const {
 	title,
 	description,
 	image = '/logo-light.png',
-	keywords = "gym marketing agency, fitness marketing, gym lead generation, gym member acquisition, gym retention strategies, high-ticket gym marketing, fitness facility growth, gym advertising, personal training marketing, boutique gym marketing",
+	keywords = "gym growth agency, fitness studio marketing, gym member acquisition, pilates studio growth, crossfit box marketing, barre studio members, kickboxing studio leads, qualified appointments for gyms, fitness business growth",
 	type = "website",
 	noindex = false
 } = Astro.props;
@@ -33,6 +33,17 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="color-scheme" content="dark light" />
+
+<!-- Theme: prevent flash by applying stored preference before paint -->
+<script is:inline>
+(function() {
+  var t = localStorage.getItem('theme');
+  if (t === 'light') document.documentElement.classList.add('light');
+  else if (t === 'dark') document.documentElement.classList.add('dark');
+})();
+</script>
+
 <link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/Apple 180x180.png" />
 <meta name="generator" content={Astro.generator} />
@@ -44,8 +55,12 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow"} />
 <meta name="googlebot" content={noindex ? "noindex,nofollow" : "index,follow"} />
 
-<!-- Fonts - Fontshare (Cabinet Grotesk & Satoshi) -->
-<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,400&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+<!-- Fonts: Clash Grotesk + Satoshi from Fontshare -->
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+
+<!-- Iconify Icons -->
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -81,12 +96,12 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 	"name": "Furum Consulting",
 	"url": siteUrl,
 	"logo": new URL("/logo-light.png", siteUrl),
-	"description": "Premium gym marketing agency helping high-ticket fitness facilities reach $100k+ MRR through performance-based acquisition systems and retention strategies.",
+	"description": "We install predictable member acquisition systems into gyms and fitness studios. 30 qualified appointments in 30 days, guaranteed. Zero ad spend required.",
 	"foundingDate": "2024",
 	"contactPoint": {
 		"@type": "ContactPoint",
 		"contactType": "Sales",
-		"url": `${siteUrl}#booking`
+		"url": `${siteUrl}#book-call`
 	},
 	"sameAs": [
 		"https://www.linkedin.com/company/furum-consulting"
@@ -97,7 +112,7 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 <script type="application/ld+json" set:html={JSON.stringify({
 	"@context": "https://schema.org",
 	"@type": "Service",
-	"serviceType": "Gym Marketing and Lead Generation",
+	"serviceType": "Fitness Studio Member Acquisition System",
 	"provider": {
 		"@type": "Organization",
 		"name": "Furum Consulting",
@@ -107,10 +122,10 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 		"@type": "Place",
 		"name": "Worldwide"
 	},
-	"description": "Performance-based gym marketing with guaranteed 4.2x ROAS. High-ticket member acquisition, retention systems, and sales enablement for premium fitness facilities.",
+	"description": "Performance-guaranteed member acquisition system for gym and fitness studio owners. 30 qualified appointments in 30 days. Zero ad spend required.",
 	"offers": {
 		"@type": "Offer",
-		"url": `${siteUrl}#booking`,
+		"url": `${siteUrl}#book-call`,
 		"availability": "https://schema.org/InStock"
 	}
 })} />
