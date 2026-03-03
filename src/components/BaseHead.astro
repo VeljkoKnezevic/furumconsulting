@@ -18,7 +18,7 @@ const {
 	title,
 	description,
 	image = '/logo-light.png',
-	keywords = "hotel direct booking marketing, reduce OTA dependency, independent hotel marketing, hotel booking engine optimization, OTA independence, direct booking strategy, hotel revenue management, Booking.com alternative",
+	keywords = "gym marketing agency, fitness marketing, gym lead generation, gym member acquisition, gym retention strategies, high-ticket gym marketing, fitness facility growth, gym advertising, personal training marketing, boutique gym marketing",
 	type = "website",
 	noindex = false
 } = Astro.props;
@@ -44,10 +44,8 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow"} />
 <meta name="googlebot" content={noindex ? "noindex,nofollow" : "index,follow"} />
 
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />
+<!-- Fonts - Fontshare (Cabinet Grotesk & Satoshi) -->
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,400&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -83,12 +81,12 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 	"name": "Furum Consulting",
 	"url": siteUrl,
 	"logo": new URL("/logo-light.png", siteUrl),
-	"description": "Helping independent hotels reduce OTA dependency and increase direct bookings through proven marketing systems.",
+	"description": "Premium gym marketing agency helping high-ticket fitness facilities reach $100k+ MRR through performance-based acquisition systems and retention strategies.",
 	"foundingDate": "2024",
 	"contactPoint": {
 		"@type": "ContactPoint",
 		"contactType": "Sales",
-		"url": `${siteUrl}#apply`
+		"url": `${siteUrl}#booking`
 	},
 	"sameAs": [
 		"https://www.linkedin.com/company/furum-consulting"
@@ -99,7 +97,7 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 <script type="application/ld+json" set:html={JSON.stringify({
 	"@context": "https://schema.org",
 	"@type": "Service",
-	"serviceType": "Hotel Direct Booking Marketing",
+	"serviceType": "Gym Marketing and Lead Generation",
 	"provider": {
 		"@type": "Organization",
 		"name": "Furum Consulting",
@@ -109,10 +107,10 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 		"@type": "Place",
 		"name": "Worldwide"
 	},
-	"description": "Performance-guaranteed direct booking marketing system for independent hotels. Reduce OTA dependency by at least 10 percentage points in 60 days.",
+	"description": "Performance-based gym marketing with guaranteed 4.2x ROAS. High-ticket member acquisition, retention systems, and sales enablement for premium fitness facilities.",
 	"offers": {
 		"@type": "Offer",
-		"url": `${siteUrl}#apply`,
+		"url": `${siteUrl}#booking`,
 		"availability": "https://schema.org/InStock"
 	}
 })} />

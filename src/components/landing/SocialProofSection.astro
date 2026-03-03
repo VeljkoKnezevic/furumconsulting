@@ -1,0 +1,94 @@
+---
+// SocialProofSection - Trusted by industry leaders logos bar
+---
+
+<section class="social-proof-section">
+  <div class="container">
+    <p class="label">Trusted by Industry Leaders</p>
+    <div class="logos">
+      <span class="logo logo-1">IRON CO.</span>
+      <span class="logo logo-2">Titanium Fitness</span>
+      <span class="logo logo-3">VANGUARD</span>
+      <span class="logo logo-4">The Studio.</span>
+      <span class="logo logo-5">OLYMPUS</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .social-proof-section {
+    padding: 3rem 0;
+    background: hsl(var(--cream-dark));
+    border-top: 1px solid hsl(var(--forest) / 0.05);
+    border-bottom: 1px solid hsl(var(--forest) / 0.05);
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .label {
+    text-align: center;
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-weight: 700;
+    color: hsl(var(--forest) / 0.4);
+    margin-bottom: 2.5rem;
+  }
+
+  .logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem 3rem;
+    opacity: 0.4;
+    filter: grayscale(1);
+  }
+
+  @media (min-width: 768px) {
+    .logos {
+      justify-content: space-between;
+      gap: 3rem;
+    }
+  }
+
+  .logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: hsl(var(--forest));
+  }
+
+  @media (min-width: 768px) {
+    .logo {
+      font-size: 1.5rem;
+    }
+  }
+
+  .logo-1 {
+    font-style: italic;
+  }
+
+  .logo-2 {
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+  }
+
+  .logo-3 {
+    font-weight: 800;
+  }
+
+  .logo-4 {
+    font-family: serif;
+    font-style: italic;
+  }
+
+  .logo-5 {
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+  }
+</style>

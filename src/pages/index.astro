@@ -3,12 +3,10 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import HeroSection from '../components/landing/HeroSection.astro';
+import SocialProofSection from '../components/landing/SocialProofSection.astro';
 import ProblemSection from '../components/landing/ProblemSection.astro';
-import SolutionSection from '../components/landing/SolutionSection.astro';
-import HowItWorksSection from '../components/landing/HowItWorksSection.astro';
-import GuaranteeSection from '../components/landing/GuaranteeSection.astro';
-import QualificationSection from '../components/landing/QualificationSection.astro';
-import TransformationSection from '../components/landing/TransformationSection.astro';
+import MethodologySection from '../components/landing/MethodologySection.astro';
+import ServicesSection from '../components/landing/ServicesSection.astro';
 import FAQSection from '../components/landing/FAQSection.astro';
 import CTASection from '../components/landing/CTASection.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
@@ -23,14 +21,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<Header />
 		<main>
 			<HeroSection />
+			<SocialProofSection />
 			<ProblemSection />
-			<SolutionSection />
-			<HowItWorksSection />
-			<GuaranteeSection />
-			<QualificationSection />
-			<TransformationSection />
-			<CTASection />
+			<MethodologySection />
+			<ServicesSection />
 			<FAQSection />
+			<CTASection />
 		</main>
 		<Footer />
 	</body>

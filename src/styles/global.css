@@ -1,8 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* OTA Independence System Design System
-   Boutique hotel aesthetic: sophisticated, warm, premium, trustworthy
+/* Furum Consulting - Gym Marketing Design System
+   Premium fitness aesthetic: bold, modern, high-converting
    Colors: Deep forest green, warm cream, gold accents
 */
 
@@ -70,8 +70,8 @@
   --color-sidebar-ring: hsl(158 35% 22%);
 
   /* Typography */
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-serif: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Satoshi', system-ui, sans-serif;
+  --font-serif: 'Cabinet Grotesk', system-ui, sans-serif;
 
   /* Shadows */
   --shadow-soft: 0 4px 20px -4px hsl(160 30% 12% / 0.08);
@@ -237,7 +237,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
-    @apply font-semibold tracking-tight;
+    @apply font-bold tracking-tight;
   }
 }
 

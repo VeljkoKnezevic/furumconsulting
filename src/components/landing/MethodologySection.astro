@@ -1,0 +1,229 @@
+---
+// MethodologySection - The Furum Methodology with stats and process steps
+---
+
+<section class="methodology-section" id="process">
+  <div class="container">
+    <!-- Header -->
+    <div class="section-header">
+      <h2>The Furum Methodology</h2>
+      <p>A holistic approach to gym growth that focuses on the metrics that actually impact your bank account.</p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value">+52%</div>
+        <p class="stat-label">Avg Member Growth</p>
+        <p class="stat-desc">We don't just find people; we find the <strong>right</strong> people who value your premium service.</p>
+      </div>
+
+      <div class="stat-card featured">
+        <div class="stat-value">4.2x</div>
+        <p class="stat-label">ROAS Guarantee</p>
+        <p class="stat-desc">If we don't hit our agreed targets within 90 days, we work for free until we do. Total accountability.</p>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-value">-30%</div>
+        <p class="stat-label">Churn Reduction</p>
+        <p class="stat-desc">Automated onboarding and engagement sequences that keep your members loyal and paying.</p>
+      </div>
+    </div>
+
+    <!-- Process Steps -->
+    <div class="process-grid">
+      <div class="process-step">
+        <span class="step-number">Step 01</span>
+        <h4>The Audit</h4>
+        <p>We analyze your current funnel, cost per acquisition, and LTV to find the leak.</p>
+      </div>
+
+      <div class="process-step">
+        <span class="step-number">Step 02</span>
+        <h4>High-Ticket Funnel</h4>
+        <p>Building a custom landing page and ad creative designed for premium conversions.</p>
+      </div>
+
+      <div class="process-step">
+        <span class="step-number">Step 03</span>
+        <h4>Sales Enablement</h4>
+        <p>We train your staff on our proprietary 'Consultation-to-Contract' closing script.</p>
+      </div>
+
+      <div class="process-step">
+        <span class="step-number">Step 04</span>
+        <h4>Scale & Automate</h4>
+        <p>As the cash flows in, we optimize the systems so you spend less time in the weeds.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background accent -->
+  <div class="bg-accent"></div>
+</section>
+
+<style>
+  .methodology-section {
+    position: relative;
+    padding: 6rem 0;
+    background: hsl(var(--forest));
+    color: white;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .methodology-section {
+      padding: 8rem 0;
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 10;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Header */
+  .section-header {
+    text-align: center;
+    max-width: 48rem;
+    margin: 0 auto 5rem;
+  }
+
+  .section-header h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-header p {
+    font-size: 1.125rem;
+    color: hsl(var(--cream) / 0.7);
+    line-height: 1.6;
+  }
+
+  /* Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: 2.5rem;
+    background: hsl(var(--cream) / 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--cream) / 0.1);
+    border-radius: 1rem;
+  }
+
+  .stat-card.featured {
+    background: hsl(var(--cream) / 0.05);
+    border-color: hsl(var(--cream) / 0.2);
+  }
+
+  @media (min-width: 768px) {
+    .stat-card.featured {
+      transform: scale(1.05);
+    }
+  }
+
+  .stat-value {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: hsl(var(--gold));
+    margin-bottom: 1rem;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-desc {
+    color: hsl(var(--cream) / 0.8);
+    line-height: 1.6;
+  }
+
+  .stat-desc strong {
+    color: white;
+  }
+
+  /* Process Grid */
+  .process-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .process-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .process-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .process-step {
+    padding-left: 2rem;
+    border-left: 2px solid hsl(var(--cream) / 0.1);
+  }
+
+  .step-number {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: hsl(var(--gold));
+    margin-bottom: 0.5rem;
+  }
+
+  .process-step h4 {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .process-step p {
+    font-size: 0.875rem;
+    color: hsl(var(--cream) / 0.6);
+    line-height: 1.6;
+  }
+
+  /* Background accent */
+  .bg-accent {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 33%;
+    height: 100%;
+    background: hsl(var(--cream) / 0.05);
+    transform: skewX(-12deg) translateX(5rem);
+    transform-origin: top;
+    z-index: 0;
+  }
+</style>
