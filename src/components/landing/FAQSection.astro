@@ -5,23 +5,27 @@
 const faqs = [
   {
     question: "How is this different from hiring a general marketing agency?",
-    answer: "General agencies treat gyms like any other local business. We exclusively serve gym and fitness studio owners. Every system and strategy is built specifically for the fitness industry. We understand your margins, your sales cycle, and your member psychology."
+    answer: "Agencies generate leads, but leads don't pay the bills, members do. We solve the part most agencies ignore: the follow-up. Our AI contacts, nurtures, and books your leads 24/7 via text and voice. We're built exclusively for gym and fitness studio owners who are already running ads but losing leads to slow follow-up."
   },
   {
-    question: 'What do you mean by "zero ad spend"?',
-    answer: "We start by generating immediate cashflow from assets you already have but aren't using. That revenue funds everything else. So from day one, the system pays for itself. You never have to dip into your own pocket for ad spend."
+    question: "Will the AI sound robotic or put off my leads?",
+    answer: "Not at all. Our AI is trained specifically for the fitness industry. It holds natural conversations, answers questions about your gym, handles objections, and books appointments, all in a way that feels personal and human. And if a lead ever shows signs of frustration or asks to speak with a real person, the system hands off to your team immediately. You stay in control."
+  },
+  {
+    question: "Is this going to replace my staff?",
+    answer: "No, and that's not the goal. The AI handles the repetitive follow-up work that your team doesn't have time for: the calls that go to voicemail, the fifth text to a cold lead, the 10pm inquiry. It frees your staff to focus on higher-leverage tasks like closing in-person, running great classes, and building relationships with existing members."
   },
   {
     question: "How much time will this require from me?",
-    answer: "Minimal. Beyond your initial onboarding call and showing up to the appointments we book, we handle everything."
+    answer: "Minimal. Beyond your initial onboarding call and showing up to the appointments we book, we handle everything. The AI takes care of the follow-up so your staff can focus on what they do best."
   },
   {
-    question: "What if my studio is in a small market?",
-    answer: "Small markets are often our best performers. Less competition means faster dominance. Our system works in markets as small as 50,000 population. During your strategy call, we'll assess your specific market opportunity."
+    question: "What about calling and texting regulations?",
+    answer: "We take compliance seriously. Our system follows all applicable regulations including proper disclosure, consent requirements, and calling/texting rules. Every interaction is transparent about AI involvement, and we ensure your business stays fully compliant."
   },
   {
-    question: "How does the guarantee actually work?",
-    answer: "We calculate the cost per appointment based on your package. If we promise 30 and deliver 22, we refund you for the 8 we missed. No hoops to jump through. No fine print."
+    question: "How does the pay-per-appointment trial work?",
+    answer: "Your first 30 days are pure pay-per-appointment. You only pay for qualified, booked appointments. We target 30, and if we fall short, you get a pro-rated refund for every one we missed. After the trial, clients who see results continue on a simple monthly retainer."
   },
 ];
 ---
@@ -221,6 +225,7 @@ const faqs = [
 
   .faq-answer {
     overflow: hidden;
+    min-height: 0;
   }
 
   .faq-answer p {
@@ -228,5 +233,11 @@ const faqs = [
     color: var(--text-muted);
     line-height: 1.6;
     margin: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .faq-item.open .faq-answer p {
+    opacity: 1;
   }
 </style>
