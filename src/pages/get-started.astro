@@ -1,0 +1,219 @@
+---
+export const prerender = true;
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Get Started | ${SITE_TITLE}`} description="Fill out the form to get started with Furum Consulting's AI appointment system." />
+	</head>
+	<body>
+		<Header />
+		<main class="min-h-screen flex items-center justify-center px-4 py-24">
+			<!-- Form State -->
+			<div id="form-card" class="w-full max-w-md rounded-2xl p-8" style="background-color: var(--surface2); border: 1px solid var(--border);">
+				<h1 class="text-2xl font-semibold text-center mb-2" style="color: var(--text-primary);">Get Started</h1>
+				<p class="text-center mb-8" style="color: var(--text-muted);">Fill in your details and we'll call you right away.</p>
+
+				<form id="lead-form" class="space-y-4" novalidate>
+					<div>
+						<label for="firstName" class="block text-sm font-medium mb-1" style="color: var(--text-secondary);">First Name</label>
+						<input
+							type="text"
+							id="firstName"
+							name="firstName"
+							required
+							placeholder="John"
+							class="w-full rounded-lg px-4 py-3 text-sm outline-none transition-colors"
+							style="background-color: var(--surface); border: 1px solid var(--border); color: var(--text-primary);"
+						/>
+						<p class="field-error text-xs mt-1 hidden" style="color: #f87171;"></p>
+					</div>
+
+					<div>
+						<label for="lastName" class="block text-sm font-medium mb-1" style="color: var(--text-secondary);">Last Name</label>
+						<input
+							type="text"
+							id="lastName"
+							name="lastName"
+							required
+							placeholder="Doe"
+							class="w-full rounded-lg px-4 py-3 text-sm outline-none transition-colors"
+							style="background-color: var(--surface); border: 1px solid var(--border); color: var(--text-primary);"
+						/>
+						<p class="field-error text-xs mt-1 hidden" style="color: #f87171;"></p>
+					</div>
+
+					<div>
+						<label for="email" class="block text-sm font-medium mb-1" style="color: var(--text-secondary);">Email</label>
+						<input
+							type="email"
+							id="email"
+							name="email"
+							required
+							placeholder="john@example.com"
+							class="w-full rounded-lg px-4 py-3 text-sm outline-none transition-colors"
+							style="background-color: var(--surface); border: 1px solid var(--border); color: var(--text-primary);"
+						/>
+						<p class="field-error text-xs mt-1 hidden" style="color: #f87171;"></p>
+					</div>
+
+					<div>
+						<label for="phone" class="block text-sm font-medium mb-1" style="color: var(--text-secondary);">Phone Number</label>
+						<input
+							type="tel"
+							id="phone"
+							name="phone"
+							required
+							placeholder="+1 555 123 4567"
+							class="w-full rounded-lg px-4 py-3 text-sm outline-none transition-colors"
+							style="background-color: var(--surface); border: 1px solid var(--border); color: var(--text-primary);"
+						/>
+						<p class="field-error text-xs mt-1 hidden" style="color: #f87171;"></p>
+					</div>
+
+					<button
+						type="submit"
+						id="submit-btn"
+						class="w-full rounded-lg px-4 py-3 text-sm font-semibold text-white transition-colors cursor-pointer mt-2"
+						style="background-color: var(--accent);"
+					>
+						Get My Call
+					</button>
+				</form>
+			</div>
+
+			<!-- Success State -->
+			<div id="success-card" class="w-full max-w-md rounded-2xl p-8 text-center hidden" style="background-color: var(--surface2); border: 1px solid var(--border);">
+				<div class="text-4xl mb-4">&#9989;</div>
+				<h2 class="text-2xl font-semibold mb-2" style="color: var(--text-primary);">You're All Set!</h2>
+				<p style="color: var(--text-muted);">We're calling you now. Please keep your phone nearby.</p>
+			</div>
+
+			<!-- Error State -->
+			<div id="error-card" class="w-full max-w-md rounded-2xl p-8 text-center hidden" style="background-color: var(--surface2); border: 1px solid var(--border);">
+				<div class="text-4xl mb-4">&#10060;</div>
+				<h2 class="text-2xl font-semibold mb-2" style="color: var(--text-primary);">Something Went Wrong</h2>
+				<p id="error-message" class="mb-6" style="color: var(--text-muted);">We couldn't initiate your call. Please try again.</p>
+				<button
+					id="retry-btn"
+					class="rounded-lg px-6 py-3 text-sm font-semibold text-white transition-colors cursor-pointer"
+					style="background-color: var(--accent);"
+				>
+					Try Again
+				</button>
+			</div>
+		</main>
+		<Footer />
+
+		<script>
+			const form = document.getElementById('lead-form') as HTMLFormElement;
+			const formCard = document.getElementById('form-card')!;
+			const successCard = document.getElementById('success-card')!;
+			const errorCard = document.getElementById('error-card')!;
+			const errorMessage = document.getElementById('error-message')!;
+			const retryBtn = document.getElementById('retry-btn')!;
+			const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+			function showError(input: HTMLInputElement, message: string) {
+				const errorEl = input.parentElement!.querySelector('.field-error') as HTMLElement;
+				errorEl.textContent = message;
+				errorEl.classList.remove('hidden');
+				input.style.borderColor = '#f87171';
+			}
+
+			function clearErrors() {
+				form.querySelectorAll('.field-error').forEach(el => {
+					(el as HTMLElement).classList.add('hidden');
+				});
+				form.querySelectorAll('input').forEach(input => {
+					input.style.borderColor = 'var(--border)';
+				});
+			}
+
+			function validate(): boolean {
+				clearErrors();
+				let valid = true;
+
+				const firstName = (document.getElementById('firstName') as HTMLInputElement);
+				const lastName = (document.getElementById('lastName') as HTMLInputElement);
+				const email = (document.getElementById('email') as HTMLInputElement);
+				const phone = (document.getElementById('phone') as HTMLInputElement);
+
+				if (!firstName.value.trim()) {
+					showError(firstName, 'First name is required');
+					valid = false;
+				}
+				if (!lastName.value.trim()) {
+					showError(lastName, 'Last name is required');
+					valid = false;
+				}
+				if (!email.value.trim()) {
+					showError(email, 'Email is required');
+					valid = false;
+				} else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+					showError(email, 'Please enter a valid email');
+					valid = false;
+				}
+				if (!phone.value.trim()) {
+					showError(phone, 'Phone number is required');
+					valid = false;
+				} else if (!/^\+[1-9]\d{6,14}$/.test(phone.value.replace(/\s/g, ''))) {
+					showError(phone, 'Enter a valid number with country code (e.g. +15551234567)');
+					valid = false;
+				}
+
+				return valid;
+			}
+
+			form.addEventListener('submit', async (e) => {
+				e.preventDefault();
+				if (!validate()) return;
+
+				submitBtn.disabled = true;
+				submitBtn.textContent = 'Submitting...';
+
+				const data = {
+					firstName: (document.getElementById('firstName') as HTMLInputElement).value.trim(),
+					lastName: (document.getElementById('lastName') as HTMLInputElement).value.trim(),
+					email: (document.getElementById('email') as HTMLInputElement).value.trim(),
+					phone: (document.getElementById('phone') as HTMLInputElement).value.trim(),
+				};
+
+				try {
+					const res = await fetch('/api/retell-call', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify(data),
+					});
+
+					if (res.ok) {
+						formCard.classList.add('hidden');
+						successCard.classList.remove('hidden');
+					} else {
+						const result = await res.json();
+						errorMessage.textContent = (result as any).error || 'We couldn\'t initiate your call. Please try again.';
+						formCard.classList.add('hidden');
+						errorCard.classList.remove('hidden');
+					}
+				} catch {
+					errorMessage.textContent = 'Network error. Please check your connection and try again.';
+					formCard.classList.add('hidden');
+					errorCard.classList.remove('hidden');
+				} finally {
+					submitBtn.disabled = false;
+					submitBtn.textContent = 'Get My Call';
+				}
+			});
+
+			retryBtn.addEventListener('click', () => {
+				errorCard.classList.add('hidden');
+				formCard.classList.remove('hidden');
+			});
+		</script>
+	</body>
+</html>

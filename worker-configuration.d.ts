@@ -4,6 +4,9 @@
 declare namespace Cloudflare {
 	interface Env {
 		ASSETS: Fetcher;
+		RETELL_API_KEY: string;
+		RETELL_AGENT_ID: string;
+		RETELL_FROM_NUMBER: string;
 	}
 }
 interface Env extends Cloudflare.Env {}
