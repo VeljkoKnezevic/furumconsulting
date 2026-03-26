@@ -91,14 +91,14 @@ import { SITE_TITLE } from '../consts';
 			<div id="success-card" class="w-full max-w-md rounded-2xl p-8 text-center hidden" style="background-color: var(--surface2); border: 1px solid var(--border);">
 				<div class="text-4xl mb-4">&#9989;</div>
 				<h2 class="text-2xl font-semibold mb-2" style="color: var(--text-primary);">You're All Set!</h2>
-				<p style="color: var(--text-muted);">We're calling you now. Please keep your phone nearby.</p>
+				<p style="color: var(--text-muted);">We've received your details. We'll be in touch shortly.</p>
 			</div>
 
 			<!-- Error State -->
 			<div id="error-card" class="w-full max-w-md rounded-2xl p-8 text-center hidden" style="background-color: var(--surface2); border: 1px solid var(--border);">
 				<div class="text-4xl mb-4">&#10060;</div>
 				<h2 class="text-2xl font-semibold mb-2" style="color: var(--text-primary);">Something Went Wrong</h2>
-				<p id="error-message" class="mb-6" style="color: var(--text-muted);">We couldn't initiate your call. Please try again.</p>
+				<p id="error-message" class="mb-6" style="color: var(--text-muted);">We couldn't submit your details. Please try again.</p>
 				<button
 					id="retry-btn"
 					class="rounded-lg px-6 py-3 text-sm font-semibold text-white transition-colors cursor-pointer"
@@ -196,7 +196,7 @@ import { SITE_TITLE } from '../consts';
 						successCard.classList.remove('hidden');
 					} else {
 						const result = await res.json();
-						errorMessage.textContent = (result as any).error || 'We couldn\'t initiate your call. Please try again.';
+						errorMessage.textContent = (result as any).error || 'We couldn\'t submit your details. Please try again.';
 						formCard.classList.add('hidden');
 						errorCard.classList.remove('hidden');
 					}
