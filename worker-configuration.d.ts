@@ -4,7 +4,6 @@
 declare namespace Cloudflare {
 	interface Env {
 		ASSETS: Fetcher;
-		WEBHOOK_URL: string;
 	}
 }
 interface Env extends Cloudflare.Env {}

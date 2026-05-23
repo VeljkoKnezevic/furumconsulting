@@ -18,7 +18,7 @@ const {
 	title,
 	description,
 	image = '/logo-light.png',
-	keywords = "AI gym lead follow-up, gym appointment booking system, fitness studio lead nurture, AI voice follow-up gyms, automated gym appointments, gym member acquisition, qualified appointments for gyms, fitness business growth, AI lead conversion",
+	keywords = "staffing agency business development, recruiting agency client acquisition, MPC outreach, most placeable candidate marketing, recruiting agency lead generation, hiring manager appointments",
 	type = "website",
 	noindex = false
 } = Astro.props;
@@ -59,9 +59,6 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 <link rel="preconnect" href="https://api.fontshare.com" />
 <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
 
-<!-- Iconify Icons -->
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
@@ -96,12 +93,12 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 	"name": "Furum Consulting",
 	"url": siteUrl,
 	"logo": new URL("/logo-light.png", siteUrl),
-	"description": "AI-powered appointment booking system for gyms and fitness studios. 20 guaranteed qualified appointments on a pay-per-appointment basis. Your leads followed up 24/7 without your staff picking up the phone.",
+	"description": "MPC Demand Engine for staffing and recruiting agencies. Furum Consulting helps agency owners book qualified hiring manager conversations on a pay-per-call basis.",
 	"foundingDate": "2024",
 	"contactPoint": {
 		"@type": "ContactPoint",
 		"contactType": "Sales",
-		"url": `${siteUrl}#book-call`
+		"email": "hello@furumconsulting.com"
 	},
 	"sameAs": [
 		"https://www.linkedin.com/company/furum-consulting"
@@ -112,7 +109,7 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 <script type="application/ld+json" set:html={JSON.stringify({
 	"@context": "https://schema.org",
 	"@type": "Service",
-	"serviceType": "AI-Powered Gym Appointment Booking System",
+	"serviceType": "Staffing Agency Client Acquisition",
 	"provider": {
 		"@type": "Organization",
 		"name": "Furum Consulting",
@@ -122,10 +119,10 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 		"@type": "Place",
 		"name": "Worldwide"
 	},
-	"description": "AI-powered appointment system for gym and fitness studio owners. 20 guaranteed qualified appointments on a pay-per-appointment basis. Leads followed up 24/7 via AI voice and text.",
+	"description": "Done-for-you MPC Demand Engine for staffing and recruiting agencies. Furum Consulting builds candidate-led outbound campaigns that book qualified hiring manager conversations.",
 	"offers": {
 		"@type": "Offer",
-		"url": `${siteUrl}#book-call`,
+		"url": siteUrl,
 		"availability": "https://schema.org/InStock"
 	}
 })} />

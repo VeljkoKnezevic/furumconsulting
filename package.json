@@ -1,6 +1,6 @@
 {
 	"name": "furumconsulting",
-	"description": "OTA Independence System - Helping independent hotels reclaim their margins",
+	"description": "Homepage-only VSL funnel for Furum Consulting",
 	"private": true,
 	"cloudflare": {
 		"label": "Astro Framework Starter",

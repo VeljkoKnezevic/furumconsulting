@@ -1,5 +1,5 @@
 // Place any global data in this file.
 // You can import this data from anywhere in your site by using the `import` keyword.
 
-export const SITE_TITLE = "Furum Consulting | The New Member Pipeline - 30 Qualified Consults, Guaranteed";
-export const SITE_DESCRIPTION = "A complete new member pipeline for gyms and studios. We wake up your old leads, bring in referrals from your members, run your ads, and handle every follow-up. 30 qualified consults, guaranteed.";
+export const SITE_TITLE = "Furum Consulting | MPC Demand Engine for Staffing Agencies";
+export const SITE_DESCRIPTION = "Watch the private VSL from Furum Consulting and learn how staffing and recruiting agencies can get 24-36 new clients by this time next year on a pure pay-per-call basis.";
