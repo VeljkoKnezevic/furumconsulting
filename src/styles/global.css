@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 
 /* Furum Consulting - Gym Growth Agency
-   Theme system: dark by default, light via system preference or .light class
+   Theme system: dark by default, light via system preference
    Fonts: Clash Grotesk (display), Satoshi (body)
 */
 
@@ -119,7 +119,7 @@
    THEME TOKENS — Light (system preference)
    ======================================== */
 @media (prefers-color-scheme: light) {
-  :root:not(.dark) {
+  :root {
     color-scheme: light;
 
     --page-bg: #fafafa;
@@ -175,64 +175,6 @@
 
     --faq-hover-border: rgba(0, 0, 0, 0.15);
   }
-}
-
-/* Manual .light class override */
-.light {
-  color-scheme: light;
-
-  --page-bg: #fafafa;
-  --surface: #f0f0f0;
-  --surface2: #e5e5e5;
-
-  --text-primary: #111111;
-  --text-secondary: #374151;
-  --text-muted: #6b7280;
-  --text-dim: #9ca3af;
-  --text-dimmer: #d1d5db;
-
-  --accent: #2d5d52;
-  --accent-dark: #1e453d;
-  --accent-glow: #3d7a6b;
-
-  --border: rgba(0, 0, 0, 0.1);
-  --border-subtle: rgba(0, 0, 0, 0.05);
-
-  --card-hover-bg: rgba(0, 0, 0, 0.03);
-  --grid-line: rgba(0, 0, 0, 0.05);
-  --glow: rgba(45, 93, 82, 0.08);
-  --shadow-color: rgba(0, 0, 0, 0.08);
-
-  --green-badge-bg: rgba(34, 197, 94, 0.12);
-  --green-badge-text: #15803d;
-
-  --red-icon-bg: rgba(239, 68, 68, 0.08);
-  --red-icon-text: #dc2626;
-  --orange-icon-bg: rgba(249, 115, 22, 0.08);
-  --orange-icon-text: #ea580c;
-  --yellow-icon-bg: rgba(234, 179, 8, 0.08);
-  --yellow-icon-text: #ca8a04;
-
-  --accent-bg: rgba(45, 93, 82, 0.06);
-  --accent-bg-strong: rgba(45, 93, 82, 0.12);
-  --accent-border: rgba(45, 93, 82, 0.2);
-  --accent-hover-border: rgba(45, 93, 82, 0.4);
-
-  --header-bg: rgba(250, 250, 250, 0.9);
-  --header-scrolled-bg: rgba(250, 250, 250, 0.95);
-
-  --guarantee-gradient: linear-gradient(to bottom right, #f0f0f0, #fafafa);
-
-  --number-color: rgba(0, 0, 0, 0.07);
-
-  --noise-opacity: 0.015;
-
-  --outline-bg: rgba(0, 0, 0, 0.04);
-  --outline-bg-hover: rgba(0, 0, 0, 0.08);
-  --outline-border: rgba(0, 0, 0, 0.1);
-  --outline-text: #111111;
-
-  --faq-hover-border: rgba(0, 0, 0, 0.15);
 }
 
 /* ========================================

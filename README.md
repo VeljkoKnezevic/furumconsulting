@@ -1,6 +1,6 @@
 # Furum Consulting
 
-Homepage-only Astro site for Furum Consulting.
+Three-page call funnel for Furum Consulting.
 
 ## Commands
 
@@ -12,7 +12,9 @@ npm run preview
 
 ## Structure
 
-- `src/pages/index.astro` - the complete homepage/VSL funnel.
+- `src/pages/index.astro` - opt-in page with hero, differentiation, and proof.
+- `src/pages/booking.astro` - booking page with Cal.com calendar and proof.
+- `src/pages/confirmation.astro` - confirmation page with next steps.
 - `src/components/BaseHead.astro` - shared metadata, theme prepaint, fonts, and schema.
 - `src/styles/global.css` - Tailwind import plus Furum color and typography tokens.
 - `public/` - logo and favicon assets.
