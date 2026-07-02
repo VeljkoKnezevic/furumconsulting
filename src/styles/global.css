@@ -1,8 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Furum Consulting - Gym Growth Agency
-   Theme system: dark by default, light via system preference
+/* Furum Consulting
+   Single theme: pure white, brand green accent (matches logo)
    Fonts: Clash Grotesk (display), Satoshi (body)
 */
 
@@ -34,162 +34,52 @@
   --font-serif: 'Clash Grotesk', system-ui, sans-serif;
 
   /* Animation */
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-fade-in: fade-in 0.6s ease-out forwards;
   --animate-scale-in: scale-in 0.4s ease-out forwards;
-  --animate-float: float 6s ease-in-out infinite;
 }
 
 /* ========================================
-   THEME TOKENS — Dark (default)
+   THEME TOKENS
    ======================================== */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
   /* Backgrounds */
-  --page-bg: #0a0a0a;
-  --surface: #111111;
-  --surface2: #1a1a1a;
+  --page-bg: #ffffff;
+  --surface: #f7f8f7;
+  --surface2: #eef1f0;
 
   /* Text */
-  --text-primary: #fafafa;
-  --text-secondary: #d1d5db;
-  --text-muted: #9ca3af;
-  --text-dim: #6b7280;
-  --text-dimmer: #4b5563;
+  --text-primary: #111111;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --text-dim: #9ca3af;
 
-  /* Accent (green — same in both modes) */
+  /* Accent (brand green, from logo) */
   --accent: #2d5d52;
   --accent-dark: #1e453d;
   --accent-glow: #3d7a6b;
 
   /* Borders */
-  --border: rgba(255, 255, 255, 0.1);
-  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.05);
 
   /* Surfaces */
-  --card-hover-bg: rgba(255, 255, 255, 0.05);
-  --grid-line: rgba(255, 255, 255, 0.03);
-  --glow: rgba(45, 93, 82, 0.15);
-  --shadow-color: rgba(0, 0, 0, 0.3);
-
-  /* Status badges */
-  --green-badge-bg: rgba(34, 197, 94, 0.2);
-  --green-badge-text: #4ade80;
-
-  /* Status icon colors */
-  --red-icon-bg: rgba(239, 68, 68, 0.1);
-  --red-icon-text: #f87171;
-  --orange-icon-bg: rgba(249, 115, 22, 0.1);
-  --orange-icon-text: #fb923c;
-  --yellow-icon-bg: rgba(234, 179, 8, 0.1);
-  --yellow-icon-text: #facc15;
+  --shadow-color: rgba(17, 17, 17, 0.06);
 
   /* Accent surfaces */
-  --accent-bg: rgba(45, 93, 82, 0.1);
-  --accent-bg-strong: rgba(45, 93, 82, 0.2);
-  --accent-border: rgba(45, 93, 82, 0.3);
-  --accent-hover-border: rgba(45, 93, 82, 0.5);
+  --accent-bg: rgba(45, 93, 82, 0.06);
+  --accent-bg-strong: rgba(45, 93, 82, 0.1);
+  --accent-border: rgba(45, 93, 82, 0.2);
+  --accent-hover-border: rgba(45, 93, 82, 0.4);
 
-  /* Header */
-  --header-bg: rgba(10, 10, 10, 0.9);
-  --header-scrolled-bg: rgba(10, 10, 10, 0.95);
-
-  /* Guarantee card */
-  --guarantee-gradient: linear-gradient(to bottom right, #1a1a1a, #0a0a0a);
-
-  /* Pillar number */
-  --number-color: rgba(255, 255, 255, 0.1);
-
-  /* Noise overlay */
-  --noise-opacity: 0.03;
-
-  /* Outline button */
-  --outline-bg: rgba(255, 255, 255, 0.05);
-  --outline-bg-hover: rgba(255, 255, 255, 0.1);
-  --outline-border: rgba(255, 255, 255, 0.1);
-  --outline-text: #ffffff;
-
-  /* FAQ hover */
-  --faq-hover-border: rgba(255, 255, 255, 0.2);
-}
-
-/* ========================================
-   THEME TOKENS — Light (system preference)
-   ======================================== */
-@media (prefers-color-scheme: light) {
-  :root {
-    color-scheme: light;
-
-    --page-bg: #fafafa;
-    --surface: #f0f0f0;
-    --surface2: #e5e5e5;
-
-    --text-primary: #111111;
-    --text-secondary: #374151;
-    --text-muted: #6b7280;
-    --text-dim: #9ca3af;
-    --text-dimmer: #d1d5db;
-
-    --accent: #2d5d52;
-    --accent-dark: #1e453d;
-    --accent-glow: #3d7a6b;
-
-    --border: rgba(0, 0, 0, 0.1);
-    --border-subtle: rgba(0, 0, 0, 0.05);
-
-    --card-hover-bg: rgba(0, 0, 0, 0.03);
-    --grid-line: rgba(0, 0, 0, 0.05);
-    --glow: rgba(45, 93, 82, 0.08);
-    --shadow-color: rgba(0, 0, 0, 0.08);
-
-    --green-badge-bg: rgba(34, 197, 94, 0.12);
-    --green-badge-text: #15803d;
-
-    --red-icon-bg: rgba(239, 68, 68, 0.08);
-    --red-icon-text: #dc2626;
-    --orange-icon-bg: rgba(249, 115, 22, 0.08);
-    --orange-icon-text: #ea580c;
-    --yellow-icon-bg: rgba(234, 179, 8, 0.08);
-    --yellow-icon-text: #ca8a04;
-
-    --accent-bg: rgba(45, 93, 82, 0.06);
-    --accent-bg-strong: rgba(45, 93, 82, 0.12);
-    --accent-border: rgba(45, 93, 82, 0.2);
-    --accent-hover-border: rgba(45, 93, 82, 0.4);
-
-    --header-bg: rgba(250, 250, 250, 0.9);
-    --header-scrolled-bg: rgba(250, 250, 250, 0.95);
-
-    --guarantee-gradient: linear-gradient(to bottom right, #f0f0f0, #fafafa);
-
-    --number-color: rgba(0, 0, 0, 0.07);
-
-    --noise-opacity: 0.015;
-
-    --outline-bg: rgba(0, 0, 0, 0.04);
-    --outline-bg-hover: rgba(0, 0, 0, 0.08);
-    --outline-border: rgba(0, 0, 0, 0.1);
-    --outline-text: #111111;
-
-    --faq-hover-border: rgba(0, 0, 0, 0.15);
-  }
+  /* Step number */
+  --number-color: rgba(45, 93, 82, 0.12);
 }
 
 /* ========================================
    KEYFRAMES
    ======================================== */
-@keyframes accordion-down {
-  from { height: 0; }
-  to { height: var(--radix-accordion-content-height); }
-}
-
-@keyframes accordion-up {
-  from { height: var(--radix-accordion-content-height); }
-  to { height: 0; }
-}
-
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -198,11 +88,6 @@
 @keyframes scale-in {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
 }
 
 /* ========================================
@@ -222,7 +107,6 @@
     font-family: var(--font-sans);
     background-color: var(--page-bg);
     color: var(--text-primary);
-    transition: background-color 0.3s, color 0.3s;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -235,38 +119,6 @@
    COMPONENT UTILITIES
    ======================================== */
 @layer components {
-  .gradient-text {
-    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-muted) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .glow-green {
-    box-shadow: 0 0 40px var(--glow);
-  }
-
-  .noise-bg {
-    position: relative;
-  }
-
-  .noise-bg::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: var(--noise-opacity);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .grid-pattern {
-    background-image:
-      linear-gradient(var(--grid-line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-
   .shadow-soft {
     box-shadow: 0 4px 20px -4px var(--shadow-color);
   }

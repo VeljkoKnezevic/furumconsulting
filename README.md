@@ -1,6 +1,7 @@
 # Furum Consulting
 
-Three-page call funnel for Furum Consulting.
+Single-page VSL call funnel for Furum Consulting: headline, video (step 1 of 2),
+Cal.com booking (step 2 of 2), what you'll learn on the call, and the offer.
 
 ## Commands
 
@@ -12,9 +13,7 @@ npm run preview
 
 ## Structure
 
-- `src/pages/index.astro` - opt-in page with hero, differentiation, and proof.
-- `src/pages/booking.astro` - booking page with Cal.com calendar and proof.
-- `src/pages/confirmation.astro` - confirmation page with next steps.
-- `src/components/BaseHead.astro` - shared metadata, theme prepaint, fonts, and schema.
-- `src/styles/global.css` - Tailwind import plus Furum color and typography tokens.
+- `src/pages/index.astro` - the entire funnel: hero, video step, booking step, learn section, offer, and CTA.
+- `src/components/BaseHead.astro` - shared metadata, fonts, and schema.
+- `src/styles/global.css` - Tailwind import plus Furum color and typography tokens (white background, brand green accent).
 - `public/` - logo and favicon assets.

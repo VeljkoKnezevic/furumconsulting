@@ -11,121 +11,241 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <main class="page-shell">
-      <section class="hero-section noise-bg">
-        <div class="grid-bg"></div>
-        <div class="glow glow-top"></div>
-        <div class="glow glow-bottom"></div>
+    <header class="site-header">
+      <div class="container header-inner">
+        <img src="/logo-light.png" alt="Furum Consulting" class="logo" />
+      </div>
+    </header>
 
+    <main class="page-shell">
+      <!-- Hero + Step 1: headline and video, kept tight so both sit above the fold -->
+      <section class="hero-section">
         <div class="container">
           <div class="hero-copy">
-            <p class="eyebrow">For staffing and recruiting agency owners</p>
+            <p class="eyebrow-text">For staffing and recruiting agency owners</p>
             <h1>
-              Get 24-36 New Clients by This Time Next Year
-              <span>On a Pure Pay-Per-Call Basis.</span>
+              Book <span>24&ndash;36 qualified hiring manager calls</span> this year
+              &mdash; on a pure pay-per-call basis.
             </h1>
             <p class="subheadline">
-              We build the outbound infrastructure, MPC messaging, hiring-intent lists,
-              and reply handling system that places qualified hiring manager
-              conversations on your calendar without cold calling, chasing, or hiring a BD person.
+              A done-for-you outbound system that fills your calendar with
+              qualified conversations. No cold calling, no chasing, no BD hire.
             </p>
+          </div>
 
-            <div class="cta-row">
-              <a class="cta-button" href="/booking">Book Your Discovery Call</a>
-              <p>Only pay when qualified hiring manager calls are booked.</p>
-            </div>
+          <div class="step-divider"></div>
 
-            <div class="trust-row" aria-label="Offer highlights">
-              <span>DFY MPC Demand Engine</span>
-              <span>Qualified operator conversations</span>
-              <span>Performance-based model</span>
-            </div>
+          <p class="step-inline"><span>Step 1 of 2</span> &mdash; Watch how it works</p>
+
+          <div class="video-frame shadow-medium">
+            <div id="vidalytics_embed_XQQBJpoNa92oiOXa" style="width: 100%; position: relative; padding-top: 56.25%;"></div>
           </div>
         </div>
       </section>
 
+      <!-- Step 2: Book the call -->
+      <section id="book" class="step-section">
+        <div class="container">
+          <div class="step-header">
+            <p class="step-inline"><span>Step 2 of 2</span> &mdash; Book your call</p>
+            <h2>Schedule Your Free Discovery Call</h2>
+            <p>
+              Use the calendar below to pick a time. We&rsquo;ll look at your niche,
+              candidate inventory, and current BD motion to see whether the MPC
+              Demand Engine is a fit.
+            </p>
+          </div>
+
+          <div class="calendar-card shadow-medium">
+            <div id="cal-embed" class="cal-embed"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What you'll learn -->
+      <section class="learn-section">
+        <div class="container">
+          <div class="section-header">
+            <p class="step-inline"><span>On the call</span></p>
+            <h2>What You&rsquo;ll Learn</h2>
+          </div>
+
+          <div class="learn-grid">
+            <article class="learn-card">
+              <span class="learn-number">01</span>
+              <strong>Whether you&rsquo;re a fit</strong>
+              <p>If your niche and candidate bench support a pay-per-call model &mdash; and if not, why.</p>
+            </article>
+            <article class="learn-card">
+              <span class="learn-number">02</span>
+              <strong>How the system is built</strong>
+              <p>How the MPC messaging, lists, and outbound infrastructure are engineered for your market.</p>
+            </article>
+            <article class="learn-card">
+              <span class="learn-number">03</span>
+              <strong>What to expect</strong>
+              <p>A realistic view of pipeline, timeline, and results over the next 90 days.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- What's included -->
+      <section class="offer-section">
+        <div class="container">
+          <div class="offer-panel shadow-strong">
+            <div class="section-header">
+              <p class="step-inline"><span>The offer</span></p>
+              <h2>What&rsquo;s Included</h2>
+              <p>
+                A done-for-you system built and run for your agency &mdash; not a
+                course, not software you have to figure out yourself.
+              </p>
+            </div>
+
+            <ul class="offer-list">
+              <li>Outbound infrastructure setup &amp; deliverability management</li>
+              <li>MPC-led messaging &amp; offer positioning for your niche</li>
+              <li>Hiring-intent lists sourced and refreshed weekly</li>
+              <li>Reply handling and qualification &mdash; only booked calls reach you</li>
+              <li>Performance-based, pay-per-call pricing</li>
+            </ul>
+
+            <div class="offer-cta">
+              <a class="cta-button" href="#book">Book Your Free Discovery Call</a>
+              <p>Only pay when qualified hiring manager calls are booked.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; {new Date().getFullYear()} Furum Consulting. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script is:inline type="text/javascript">
+      (function (v, i, d, a, l, y, t, c, s) {
+        y = '_' + d.toLowerCase(); c = d + 'L'; if (!v[d]) { v[d] = {}; } if (!v[c]) { v[c] = {}; } if (!v[y]) { v[y] = {}; } var vl = 'Loader', vli = v[y][vl], vsl = v[c][vl + 'Script'], vlf = v[c][vl + 'Loaded'], ve = 'Embed';
+        if (!vsl) {
+          vsl = function (u, cb) {
+            if (t) { cb(); return; } s = i.createElement("script"); s.type = "text/javascript"; s.async = 1; s.src = u;
+            if (s.readyState) { s.onreadystatechange = function () { if (s.readyState === "loaded" || s.readyState == "complete") { s.onreadystatechange = null; vlf = 1; cb(); } }; } else { s.onload = function () { vlf = 1; cb(); }; }
+            i.getElementsByTagName("head")[0].appendChild(s);
+          };
+        }
+        vsl(l + 'loader.min.js', function () { if (!vli) { var vlc = v[c][vl]; vli = new vlc(); } vli.loadScript(l + 'player.min.js', function () { var vec = v[d][ve]; t = new vec(); t.run(a); }); });
+      })(window, document, 'Vidalytics', 'vidalytics_embed_XQQBJpoNa92oiOXa', 'https://fast.vidalytics.com/embeds/2rtPO8Ua/XQQBJpoNa92oiOXa/');
+    </script>
+
+    <script>
+      (function (C: any, A: string, L: string) {
+        const p = function (a: any, ar: IArguments) {
+          a.q.push(ar);
+        };
+        const d = C.document;
+        C.Cal = C.Cal || function () {
+          const cal = C.Cal;
+          const ar = arguments;
+          if (!cal.loaded) {
+            cal.ns = {};
+            cal.q = cal.q || [];
+            d.head.appendChild(d.createElement("script")).src = A;
+            cal.loaded = true;
+          }
+          if (ar[0] === L) {
+            const api = function () {
+              p(api, arguments);
+            };
+            const namespace = ar[1];
+            api.q = api.q || [];
+            if (typeof namespace === "string") {
+              cal.ns[namespace] = cal.ns[namespace] || api;
+              p(cal.ns[namespace], ar);
+              p(cal, ["initNamespace", namespace]);
+            } else {
+              p(cal, ar);
+            }
+            return;
+          }
+          p(cal, ar);
+        };
+      })(window, "https://app.cal.com/embed/embed.js", "init");
+
+      (window as any).Cal("init", "discovery-call", { origin: "https://app.cal.com" });
+      (window as any).Cal.ns["discovery-call"]("inline", {
+        elementOrSelector: "#cal-embed",
+        calLink: "furumconsulting/discovery-call",
+        config: {
+          theme: "light",
+          layout: "month_view"
+        }
+      });
+      (window as any).Cal.ns["discovery-call"]("ui", {
+        theme: "light",
+        styles: {
+          branding: {
+            brandColor: "#2d5d52"
+          }
+        },
+        hideEventTypeDetails: false
+      });
+    </script>
   </body>
 </html>
 
 <style>
-  .page-shell {
-    min-height: 100vh;
-    background: var(--page-bg);
-  }
-
-  .hero-section {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 4rem 0;
-    background: var(--page-bg);
-  }
-
-  .grid-bg {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(var(--grid-line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-    background-size: 64px 64px;
-    opacity: 0.7;
-  }
-
-  .glow {
-    position: absolute;
-    border-radius: 999px;
-    background: var(--accent-bg-strong);
-    filter: blur(90px);
-    pointer-events: none;
-  }
-
-  .glow-top {
-    top: -8rem;
-    left: 50%;
-    width: 34rem;
-    height: 18rem;
-    transform: translateX(-50%);
-  }
-
-  .glow-bottom {
-    right: -10rem;
-    bottom: 5rem;
-    width: 24rem;
-    height: 24rem;
-    opacity: 0.7;
-  }
-
   .container {
-    position: relative;
-    z-index: 1;
-    width: min(100% - 2rem, 1240px);
+    width: min(100% - 2rem, 1120px);
     margin: 0 auto;
   }
 
+  /* Header */
+  .site-header {
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    overflow: visible;
+  }
+
+  /* The source PNG has heavy transparent padding around the mark, so the
+     rendered box has to be oversized relative to the header bar to make the
+     logo itself read at a normal size; the negative margin removes the
+     matching whitespace on the left edge. */
+  .logo {
+    height: 7.5rem;
+    width: auto;
+    margin-left: -0.75rem;
+    object-fit: contain;
+  }
+
+  /* Page shell */
+  .page-shell {
+    background: var(--page-bg);
+  }
+
+  /* Hero + Step 1 */
+  .hero-section {
+    padding: 2rem 0 3rem;
+  }
+
   .hero-copy {
-    max-width: 1120px;
+    max-width: 760px;
     margin: 0 auto;
     text-align: center;
   }
 
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0 1rem;
-    padding: 0.55rem 1rem;
-    border: 1px solid var(--accent-border);
-    border-radius: 999px;
-    background: var(--accent-bg);
-    color: var(--accent);
-    font-size: 0.78rem;
-    font-weight: 800;
+  .eyebrow-text {
+    margin: 0 0 0.75rem;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
@@ -136,32 +256,188 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
     font-weight: 700;
     letter-spacing: 0;
-  }
-
-  h1 {
-    font-size: clamp(2.5rem, 5.5vw, 6.4rem);
-    line-height: 0.92;
+    font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+    line-height: 1.15;
   }
 
   h1 span {
-    display: block;
     color: var(--accent);
   }
 
   .subheadline {
-    max-width: 850px;
-    margin: 1.15rem auto 0;
+    max-width: 620px;
+    margin: 1rem auto 0;
     color: var(--text-muted);
-    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    font-size: clamp(0.95rem, 1.4vw, 1.05rem);
     line-height: 1.55;
   }
 
-  .cta-row {
+  .step-divider {
+    width: 3rem;
+    height: 1px;
+    margin: 2rem auto;
+    background: var(--border);
+  }
+
+  .step-inline {
+    margin: 0 0 1rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .step-inline span {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* Step 2 section */
+  .step-section {
+    padding: 4.5rem 0;
+    border-top: 1px solid var(--border-subtle);
+    background: var(--surface);
+  }
+
+  .step-header,
+  .section-header {
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+
+  h2 {
+    margin: 0;
+    color: var(--text-primary);
+    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
+    font-weight: 700;
+    letter-spacing: 0;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.1;
+  }
+
+  .step-header p,
+  .section-header p {
+    margin: 0.85rem auto 0;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  /* Video */
+  .video-frame {
+    max-width: 700px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--surface2);
+  }
+
+  /* Calendar */
+  .calendar-card {
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid var(--accent-border);
+    border-radius: 1rem;
+    background: var(--page-bg);
+  }
+
+  .cal-embed {
+    width: 100%;
+    min-height: 680px;
+  }
+
+  /* Learn grid */
+  .learn-section {
+    padding: 5rem 0;
+  }
+
+  .learn-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .learn-card {
+    padding: 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    background: var(--page-bg);
+  }
+
+  .learn-number {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--number-color);
+    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .learn-card strong {
+    display: block;
+    color: var(--text-primary);
+    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
+    font-size: 1.15rem;
+  }
+
+  .learn-card p {
+    margin: 0.5rem 0 0;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* Offer */
+  .offer-section {
+    padding: 0 0 5.5rem;
+  }
+
+  .offer-panel {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    background: var(--surface);
+  }
+
+  .offer-list {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .offer-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    color: var(--text-secondary);
+    font-size: 1.02rem;
+    line-height: 1.5;
+  }
+
+  .offer-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--accent);
+  }
+
+  .offer-cta {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.85rem;
-    margin: 2rem auto 0;
+    margin: 2.5rem auto 0;
     text-align: center;
   }
 
@@ -170,15 +446,14 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     align-items: center;
     justify-content: center;
     min-height: 3.5rem;
-    padding: 0.95rem 2rem;
+    padding: 0.95rem 2.25rem;
     border-radius: 0.6rem;
     background: var(--accent);
     color: #fff;
     font-size: 1rem;
-    font-weight: 800;
+    font-weight: 700;
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.01em;
     transition: transform 0.2s, background 0.2s;
   }
 
@@ -187,48 +462,51 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     background: var(--accent-dark);
   }
 
-  .cta-row p {
+  .offer-cta p {
     margin: 0;
     color: var(--text-dim);
-    font-size: 0.95rem;
-  }
-
-  .trust-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-top: 2rem;
-  }
-
-  .trust-row span {
-    padding: 0.65rem 0.9rem;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: var(--card-hover-bg);
-    color: var(--text-muted);
     font-size: 0.9rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    border-top: 1px solid var(--border-subtle);
+    padding: 2rem 0;
+  }
+
+  .site-footer p {
+    margin: 0;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  @media (min-width: 800px) {
+    .learn-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   @media (max-width: 560px) {
     .hero-section {
-      min-height: auto;
-      padding: 3rem 0 4rem;
+      padding: 1.25rem 0 2.25rem;
     }
 
-    .eyebrow {
-      max-width: 20rem;
-      padding: 0.45rem 0.75rem;
-      font-size: 0.62rem;
-      line-height: 1.35;
-      letter-spacing: 0.08em;
+    .step-section {
+      padding: 3.5rem 0;
+    }
+
+    .offer-panel {
+      padding: 2.25rem 1.5rem;
+    }
+
+    .cal-embed {
+      min-height: 720px;
     }
 
     .cta-button {
       width: 100%;
       max-width: 24rem;
-      font-size: 0.86rem;
     }
-
   }
 </style>
