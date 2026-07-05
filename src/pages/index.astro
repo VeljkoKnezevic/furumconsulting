@@ -24,21 +24,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
           <div class="hero-copy">
             <p class="eyebrow-text">For staffing and recruiting agency owners</p>
             <h1>
-              Book <span>24&ndash;36 qualified hiring manager calls</span> this year
-              &mdash; on a pure pay-per-call basis.
+              Discover How We Can <span class="u">Guarantee</span> You
+              <span>20-30 New Clients</span> In <span>10 Months or Less...</span>
             </h1>
-            <p class="subheadline">
-              A done-for-you outbound system that fills your calendar with
-              qualified conversations. No cold calling, no chasing, no BD hire.
-            </p>
           </div>
 
-          <div class="step-divider"></div>
-
-          <p class="step-inline"><span>Step 1 of 2</span> &mdash; Watch how it works</p>
+          <p class="step-heading"><span>Step 1 of 2:</span> Watch Video</p>
 
           <div class="video-frame shadow-medium">
-            <div id="vidalytics_embed_XQQBJpoNa92oiOXa" style="width: 100%; position: relative; padding-top: 56.25%;"></div>
+            <div id="vidalytics_embed_8GoihHVYaY4zw8qH" style="width: 100%; position: relative; padding-top: 56.25%;"></div>
           </div>
         </div>
       </section>
@@ -47,12 +41,10 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
       <section id="book" class="step-section">
         <div class="container">
           <div class="step-header">
-            <p class="step-inline"><span>Step 2 of 2</span> &mdash; Book your call</p>
-            <h2>Schedule Your Free Discovery Call</h2>
+            <h2 class="step-heading"><span>Step 2 of 2:</span> Schedule Your Discovery Call</h2>
             <p>
-              Use the calendar below to pick a time. We&rsquo;ll look at your niche,
-              candidate inventory, and current BD motion to see whether the MPC
-              Demand Engine is a fit.
+              A low-pressure call designed to learn about your agency and see
+              whether we're a good fit to work together.
             </p>
           </div>
 
@@ -74,7 +66,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
             <article class="learn-card">
               <span class="learn-number">01</span>
               <strong>Whether you&rsquo;re a fit</strong>
-              <p>If your niche and candidate bench support a pay-per-call model &mdash; and if not, why.</p>
+              <p>If your niche and candidate bench support a pay-per-call model, and if not, why.</p>
             </article>
             <article class="learn-card">
               <span class="learn-number">02</span>
@@ -98,7 +90,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
               <p class="step-inline"><span>The offer</span></p>
               <h2>What&rsquo;s Included</h2>
               <p>
-                A done-for-you system built and run for your agency &mdash; not a
+                A done-for-you system built and run for your agency. Not a
                 course, not software you have to figure out yourself.
               </p>
             </div>
@@ -107,7 +99,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
               <li>Outbound infrastructure setup &amp; deliverability management</li>
               <li>MPC-led messaging &amp; offer positioning for your niche</li>
               <li>Hiring-intent lists sourced and refreshed weekly</li>
-              <li>Reply handling and qualification &mdash; only booked calls reach you</li>
+              <li>Reply handling and qualification, so only booked calls reach you</li>
               <li>Performance-based, pay-per-call pricing</li>
             </ul>
 
@@ -137,7 +129,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
           };
         }
         vsl(l + 'loader.min.js', function () { if (!vli) { var vlc = v[c][vl]; vli = new vlc(); } vli.loadScript(l + 'player.min.js', function () { var vec = v[d][ve]; t = new vec(); t.run(a); }); });
-      })(window, document, 'Vidalytics', 'vidalytics_embed_XQQBJpoNa92oiOXa', 'https://fast.vidalytics.com/embeds/2rtPO8Ua/XQQBJpoNa92oiOXa/');
+      })(window, document, 'Vidalytics', 'vidalytics_embed_8GoihHVYaY4zw8qH', 'https://fast.vidalytics.com/embeds/2rtPO8Ua/8GoihHVYaY4zw8qH/');
     </script>
 
     <script>
@@ -242,8 +234,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   }
 
   .eyebrow-text {
-    margin: 0 0 0.75rem;
-    color: var(--text-dim);
+    display: inline-block;
+    margin: 0 0 1rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 0.4rem;
+    background: var(--accent-bg);
+    color: var(--accent);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -264,19 +260,28 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     color: var(--accent);
   }
 
-  .subheadline {
-    max-width: 620px;
-    margin: 1rem auto 0;
-    color: var(--text-muted);
-    font-size: clamp(0.95rem, 1.4vw, 1.05rem);
-    line-height: 1.55;
+  h1 span.u {
+    text-decoration: underline;
+    text-decoration-thickness: 0.09em;
+    text-underline-offset: 0.14em;
   }
 
-  .step-divider {
-    width: 3rem;
-    height: 1px;
-    margin: 2rem auto;
-    background: var(--border);
+  .step-heading {
+    margin: 2.25rem 0 1.25rem;
+    text-align: center;
+    color: var(--text-primary);
+    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
+    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .step-heading span {
+    color: var(--accent);
+  }
+
+  .step-header .step-heading {
+    margin: 0;
   }
 
   .step-inline {
