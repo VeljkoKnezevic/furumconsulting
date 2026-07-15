@@ -54,6 +54,53 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         </div>
       </section>
 
+      <!-- ROI calculator -->
+      <section class="calc-section">
+        <div class="container">
+          <div class="section-header">
+            <p class="step-inline"><span>Your numbers</span></p>
+            <h2>What Would This Do for Your Agency?</h2>
+            <p>Two inputs. See what the system would produce for your agency.</p>
+          </div>
+
+          <div class="calc-panel shadow-medium">
+            <div class="calc-inputs">
+              <div class="calc-field">
+                <label for="calc-revenue">
+                  Average revenue per client in the first year
+                  <output id="calc-revenue-out">$30,000</output>
+                </label>
+                <input id="calc-revenue" type="range" min="5000" max="150000" step="1000" value="30000" />
+              </div>
+              <div class="calc-field">
+                <label for="calc-close">
+                  Close rate from calls
+                  <output id="calc-close-out">20%</output>
+                </label>
+                <input id="calc-close" type="range" min="5" max="50" step="1" value="20" />
+              </div>
+            </div>
+
+            <div class="calc-results" aria-live="polite">
+              <div class="calc-result">
+                <p>New clients / month</p>
+                <strong id="calc-clients">2.1</strong>
+              </div>
+              <div class="calc-result">
+                <p>New client revenue / month</p>
+                <strong id="calc-revenue-result">$63,360</strong>
+              </div>
+              <div class="calc-result calc-result--roi">
+                <p>Return on investment</p>
+                <strong id="calc-roi">9x</strong>
+              </div>
+            </div>
+
+            <p class="calc-note">Projections assume conservative campaign performance.</p>
+          </div>
+        </div>
+      </section>
+
       <!-- What you'll learn -->
       <section class="learn-section">
         <div class="container">
@@ -184,6 +231,51 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
         },
         hideEventTypeDetails: false
       });
+    </script>
+
+    <script>
+      // ROI calculator. Volume and pricing are fixed internally and never rendered.
+      // Pricing model: base fee + 2% of avg first-year client revenue per show.
+      const EMAILS_PER_DAY = 1000;
+      const SENDING_DAYS = 22;
+      const REPLY_RATE = 0.015;
+      const POSITIVE_RATE = 0.1;
+      const BOOK_RATE = 0.4;
+      const SHOW_RATE = 0.8;
+      const BASE_FEE = 500;
+      const REV_SHARE_PER_SHOW = 0.02;
+
+      const revenueInput = document.getElementById("calc-revenue") as HTMLInputElement;
+      const closeInput = document.getElementById("calc-close") as HTMLInputElement;
+      const revenueOut = document.getElementById("calc-revenue-out") as HTMLOutputElement;
+      const closeOut = document.getElementById("calc-close-out") as HTMLOutputElement;
+      const clientsEl = document.getElementById("calc-clients") as HTMLElement;
+      const revenueResultEl = document.getElementById("calc-revenue-result") as HTMLElement;
+      const roiEl = document.getElementById("calc-roi") as HTMLElement;
+
+      function update() {
+        const avgRevenue = Number(revenueInput.value);
+        const closeRate = Number(closeInput.value) / 100;
+
+        const emails = EMAILS_PER_DAY * SENDING_DAYS;
+        const replies = emails * REPLY_RATE;
+        const leads = replies * POSITIVE_RATE;
+        const calls = leads * BOOK_RATE;
+        const shows = calls * SHOW_RATE;
+        const clients = shows * closeRate;
+        const revenue = clients * avgRevenue;
+        const cost = BASE_FEE + REV_SHARE_PER_SHOW * avgRevenue * shows;
+
+        revenueOut.textContent = `$${avgRevenue.toLocaleString("en-US")}`;
+        closeOut.textContent = `${closeInput.value}%`;
+        clientsEl.textContent = clients.toFixed(1);
+        revenueResultEl.textContent = `$${Math.round(revenue).toLocaleString("en-US")}`;
+        roiEl.textContent = `${Math.round(revenue / cost)}x`;
+      }
+
+      revenueInput.addEventListener("input", update);
+      closeInput.addEventListener("input", update);
+      update();
     </script>
   </body>
 </html>
@@ -351,6 +443,116 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   .cal-embed {
     width: 100%;
     min-height: 680px;
+  }
+
+  /* ROI calculator */
+  .calc-section {
+    padding: 4.5rem 0;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .calc-panel {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: 1.25rem;
+    background: var(--page-bg);
+  }
+
+  .calc-inputs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .calc-field label {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  .calc-field output {
+    color: var(--accent);
+    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .calc-field input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+
+  .calc-results {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .calc-result {
+    padding: 1.5rem;
+    border: 1px solid var(--accent-border);
+    border-radius: 0.8rem;
+    background: var(--accent-bg);
+    text-align: center;
+  }
+
+  .calc-result p {
+    margin: 0 0 0.4rem;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .calc-result strong {
+    color: var(--accent);
+    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .calc-result--roi {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+
+  .calc-result--roi p {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .calc-result--roi strong {
+    color: #fff;
+  }
+
+  .calc-note {
+    max-width: 640px;
+    margin: 1.75rem auto 0;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  @media (min-width: 720px) {
+    .calc-inputs {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .calc-results {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   /* Learn grid */
