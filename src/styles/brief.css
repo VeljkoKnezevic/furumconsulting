@@ -1,0 +1,286 @@
+/* Shared styles for the Candidate Marketing Brief (live view + /brief/[id] permalink). */
+
+.brief {
+	max-width: 780px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.brief-hero {
+	padding: 2rem;
+	border: 1px solid var(--accent-border);
+	border-radius: 1rem;
+	background: var(--accent-bg);
+}
+
+.brief-kicker {
+	margin: 0 0 0.6rem;
+	color: var(--accent);
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+.brief-headline {
+	margin: 0;
+	color: var(--text-primary);
+	font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
+	font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+	font-weight: 700;
+	line-height: 1.15;
+}
+
+.brief-snapshot {
+	margin: 0.85rem 0 0;
+	color: var(--text-secondary);
+	font-size: 1.02rem;
+	line-height: 1.6;
+}
+
+.brief-section {
+	margin-top: 2.5rem;
+}
+
+.brief-section > h3 {
+	margin: 0 0 1rem;
+	color: var(--text-primary);
+	font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
+	font-size: 1.3rem;
+	font-weight: 700;
+}
+
+.brief-cards {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.9rem;
+}
+
+.brief-card {
+	padding: 1.25rem 1.4rem;
+	border: 1px solid var(--border);
+	border-radius: 0.8rem;
+	background: var(--page-bg);
+}
+
+.brief-card strong {
+	display: block;
+	color: var(--text-primary);
+	font-size: 1.02rem;
+}
+
+.brief-card p {
+	margin: 0.5rem 0 0;
+	color: var(--text-muted);
+	font-size: 0.96rem;
+	line-height: 1.55;
+}
+
+.brief-card .brief-evidence {
+	color: var(--text-secondary);
+	font-size: 0.9rem;
+}
+
+.brief-card .brief-evidence::before {
+	content: "Evidence: ";
+	color: var(--accent);
+	font-weight: 700;
+}
+
+.brief-body-text {
+	margin: 0 0 0.75rem;
+	color: var(--text-secondary);
+	line-height: 1.6;
+}
+
+.brief-signals {
+	margin: 0 0 0.75rem;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.brief-signals li {
+	position: relative;
+	padding-left: 1.5rem;
+	color: var(--text-secondary);
+	line-height: 1.5;
+}
+
+.brief-signals li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.5em;
+	width: 0.45rem;
+	height: 0.45rem;
+	border-radius: 999px;
+	background: var(--accent);
+}
+
+.copy-block {
+	position: relative;
+	padding: 1.25rem 1.4rem;
+	border: 1px solid var(--border);
+	border-radius: 0.8rem;
+	background: var(--surface);
+}
+
+.copy-block .copy-btn {
+	position: absolute;
+	top: 0.85rem;
+	right: 0.85rem;
+	padding: 0.35rem 0.8rem;
+	border: 1px solid var(--accent-border);
+	border-radius: 0.45rem;
+	background: var(--page-bg);
+	color: var(--accent);
+	font-size: 0.78rem;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background 0.15s;
+}
+
+.copy-block .copy-btn:hover {
+	background: var(--accent-bg);
+}
+
+.copy-subject {
+	margin: 0 0 0.6rem;
+	padding-right: 4.5rem;
+	color: var(--text-primary);
+	font-weight: 700;
+	font-size: 0.98rem;
+}
+
+.copy-block .copy-text:first-child {
+	padding-right: 4rem;
+}
+
+.copy-text {
+	margin: 0;
+	color: var(--text-secondary);
+	font-family: inherit;
+	font-size: 0.96rem;
+	line-height: 1.65;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+.followup-step {
+	display: flex;
+	gap: 1rem;
+	align-items: flex-start;
+}
+
+.followup-day {
+	flex-shrink: 0;
+	min-width: 4.2rem;
+	padding: 0.3rem 0.6rem;
+	border-radius: 0.45rem;
+	background: var(--accent-bg);
+	color: var(--accent);
+	font-size: 0.78rem;
+	font-weight: 700;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.pdf-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.6rem 1.3rem;
+	border-radius: 0.55rem;
+	background: var(--accent);
+	color: #fff;
+	font-size: 0.9rem;
+	font-weight: 700;
+	text-decoration: none;
+	transition: transform 0.2s, background 0.2s;
+}
+
+.pdf-button:hover {
+	transform: translateY(-1px);
+	background: var(--accent-dark);
+}
+
+.brief-cta {
+	margin-top: 3rem;
+	padding: 2rem;
+	border: 1px solid var(--accent-border);
+	border-radius: 1rem;
+	background: var(--surface);
+	text-align: center;
+}
+
+.brief-cta p {
+	max-width: 560px;
+	margin: 0 auto 1.25rem;
+	color: var(--text-secondary);
+	line-height: 1.6;
+}
+
+.brief-cta .cta-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 3.25rem;
+	padding: 0.85rem 2rem;
+	border-radius: 0.6rem;
+	background: var(--accent);
+	color: #fff;
+	font-size: 0.98rem;
+	font-weight: 700;
+	text-decoration: none;
+	transition: transform 0.2s, background 0.2s;
+}
+
+.brief-cta .cta-button:hover {
+	transform: translateY(-2px);
+	background: var(--accent-dark);
+}
+
+@media (min-width: 720px) {
+	.brief-cards {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.brief-cards.brief-cards--stack {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Print: clean deliverable when saved as PDF. */
+@media print {
+	header.site-header,
+	footer.site-footer,
+	.brief-cta,
+	.copy-btn,
+	.no-print {
+		display: none !important;
+	}
+
+	body {
+		background: #fff;
+	}
+
+	.brief {
+		max-width: none;
+	}
+
+	.brief-hero,
+	.brief-card,
+	.copy-block {
+		border-color: #ccc;
+		background: #fff;
+		break-inside: avoid;
+	}
+
+	.brief-section {
+		margin-top: 1.5rem;
+	}
+}

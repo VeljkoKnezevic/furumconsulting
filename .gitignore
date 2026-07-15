@@ -200,3 +200,4 @@ dist
 
 ### Astro ###
 .astro/
+.dev.vars
