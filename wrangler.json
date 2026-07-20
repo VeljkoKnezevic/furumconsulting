@@ -7,12 +7,6 @@
 		"directory": "./dist",
 		"binding": "ASSETS"
 	},
-	"kv_namespaces": [
-		{
-			"binding": "BRIEFS",
-			"id": "05b48b4362454b2689c34b989965d109"
-		}
-	],
 	"observability": {
 		"enabled": true
 	},
