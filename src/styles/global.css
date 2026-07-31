@@ -111,6 +111,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+    color: var(--text-primary);
     @apply font-semibold tracking-tight;
   }
 }
@@ -130,4 +131,195 @@
   .shadow-strong {
     box-shadow: 0 16px 50px -12px var(--shadow-color);
   }
+}
+
+/* ========================================
+   SHARED LAYOUT UTILITIES (multi-page site)
+   ======================================== */
+.container {
+  width: min(100% - 2rem, 1120px);
+  margin: 0 auto;
+}
+
+.container-narrow {
+  width: min(100% - 2rem, 760px);
+  margin: 0 auto;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section--tight {
+  padding: 3.5rem 0;
+}
+
+.section--alt {
+  background: var(--surface);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.eyebrow {
+  margin: 0 0 0.85rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.section-head {
+  max-width: 640px;
+  margin: 0 0 2.5rem;
+}
+
+.section-head.is-center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-head h2 {
+  margin: 0;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.section-head p {
+  margin: 0.9rem 0 0;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid var(--accent);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.btn-lg {
+  min-height: 3.5rem;
+  padding: 0.95rem 2.25rem;
+  font-size: 1rem;
+}
+
+/* Cards */
+.card {
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  background: var(--page-bg);
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Prose (legal + long-form) */
+.prose {
+  max-width: 720px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.prose h2 {
+  margin: 2.25rem 0 0.75rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.prose h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.prose p { margin: 0 0 1rem; }
+
+.prose ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.prose li { margin: 0.35rem 0; }
+
+.prose a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.placeholder-note {
+  margin: 0 0 1.5rem;
+  padding: 0.7rem 1rem;
+  border: 1px dashed var(--accent-border);
+  border-radius: 0.5rem;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+/* Page hero (interior pages) */
+.page-hero {
+  padding: 3.5rem 0 1rem;
+}
+
+.page-hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.page-hero p {
+  max-width: 620px;
+  margin: 1.1rem 0 0;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
 }

@@ -1,0 +1,97 @@
+---
+export const prerender = true;
+
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Contact | Furum Consulting"
+  description="Get in touch with Furum Consulting — email us a question or book a low-pressure call."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1>Let&rsquo;s talk.</h1>
+      <p>
+        Prefer to ask a question before committing to a call? Email us &mdash;
+        a real person replies. Ready to go deeper? Book a time directly.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <article class="contact-card">
+        <h2>Email us</h2>
+        <p>Questions about fit, the model, or how it works. We usually reply within one business day.</p>
+        <a href="mailto:hello@furumconsulting.com" class="btn btn-outline">hello@furumconsulting.com</a>
+      </article>
+
+      <article class="contact-card highlight">
+        <h2>Book a call</h2>
+        <p>A low-pressure conversation to understand your agency and whether a pay-on-results model fits.</p>
+        <a href="/book" class="btn btn-primary">Book a call</a>
+      </article>
+
+      <article class="contact-card">
+        <h2>Connect</h2>
+        <p>Follow along or reach out on LinkedIn.</p>
+        <a href="https://www.linkedin.com/company/furum-consulting" class="btn btn-outline" rel="noopener" target="_blank">LinkedIn</a>
+      </article>
+    </div>
+
+    <div class="container">
+      <!-- [PLACEHOLDER] Replace with registered company details -->
+      <p class="contact-meta">
+        Furum Consulting [Ltd — placeholder] &middot; Company No. [00000000 &mdash; placeholder]
+        &middot; [City, Country &mdash; placeholder]
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-card {
+    padding: 1.9rem;
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    background: var(--page-bg);
+  }
+
+  .contact-card.highlight {
+    border-color: var(--accent-border);
+    background: var(--accent-bg);
+  }
+
+  .contact-card h2 {
+    margin: 0 0 0.6rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .contact-card p {
+    margin: 0 0 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  .contact-meta {
+    margin: 0;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  @media (min-width: 720px) {
+    .contact-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

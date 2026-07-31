@@ -1,0 +1,227 @@
+---
+export const prerender = true;
+
+import Layout from "../layouts/Layout.astro";
+
+// [PLACEHOLDER] Replace with the real founders — name, role, one-line background, LinkedIn.
+const team = [
+  {
+    name: "[Founder Name]",
+    role: "[Co-founder — placeholder]",
+    bio: "[Short background — e.g. years in recruitment / outbound, what they did before Furum. Placeholder.]",
+    linkedin: "#",
+  },
+  {
+    name: "[Founder Name]",
+    role: "[Co-founder — placeholder]",
+    bio: "[Short background — e.g. years in recruitment / outbound, what they did before Furum. Placeholder.]",
+    linkedin: "#",
+  },
+];
+---
+
+<Layout
+  title="About | Furum Consulting"
+  description="Who's behind Furum Consulting — a small team helping recruiting agencies win clients on a pay-on-results basis."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">About</p>
+      <h1>Who&rsquo;s behind Furum.</h1>
+      <p>
+        We&rsquo;re a small team that builds and runs client-acquisition
+        outbound for recruiting agencies. Here&rsquo;s why we started, how we
+        work, and who you&rsquo;ll actually be dealing with.
+      </p>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="section">
+    <div class="container story">
+      <div class="prose">
+        <p class="placeholder-note">
+          [PLACEHOLDER — founder story. Replace the copy below with your own.]
+        </p>
+        <p>
+          [Placeholder] Furum Consulting started because we kept seeing strong
+          recruiting agencies held back by the same thing: inconsistent client
+          acquisition. Great recruiters who could place candidates all day, but
+          whose new-business pipeline depended on referrals, luck, and whoever
+          had time to do outreach that week.
+        </p>
+        <p>
+          [Placeholder] We&rsquo;d spent years [building outbound systems / working
+          in recruitment / doing X], and we knew the &ldquo;most placeable
+          candidate&rdquo; approach could turn that pipeline from unpredictable
+          into something you could actually plan around &mdash; if it was built
+          and run properly.
+        </p>
+        <p>
+          [Placeholder] So we built Furum around a simple principle: we take the
+          risk. We only get paid when qualified conversations reach your
+          calendar. That keeps us honest, and it means we only take on agencies
+          we genuinely believe we can produce results for.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">The team</p>
+        <h2>Real people you&rsquo;ll actually work with.</h2>
+      </div>
+      <div class="team-grid">
+        {
+          team.map((m) => (
+            <article class="team-card">
+              <div class="team-photo" role="img" aria-label="Headshot placeholder">
+                <span>[ Photo ]</span>
+              </div>
+              <h3>{m.name}</h3>
+              <p class="team-role">{m.role}</p>
+              <p class="team-bio">{m.bio}</p>
+              <a href={m.linkedin} class="team-linkedin" rel="noopener" target="_blank">LinkedIn</a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- How we work -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">How we work</p>
+        <h2>Deliberately small. Deliberately selective.</h2>
+      </div>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>A handful of agencies at a time</h3>
+          <p>We cap our roster so every campaign is built and run properly, not spread thin across too many clients.</p>
+        </article>
+        <article class="card">
+          <h3>We only take work we believe in</h3>
+          <p>Because we&rsquo;re paid on results, we turn down agencies we don&rsquo;t think we can produce for. It has to work for both sides.</p>
+        </article>
+        <article class="card">
+          <h3>Straight answers</h3>
+          <p>No inflated promises, no pressure. We&rsquo;ll tell you honestly whether this is a fit for your niche and stage.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container final-cta-inner">
+      <h2>Want to talk it through?</h2>
+      <p>A low-pressure call to see whether we&rsquo;re right for each other.</p>
+      <a href="/book" class="btn btn-primary btn-lg">Book a call</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .story .prose {
+    margin: 0;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .team-card {
+    padding: 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    background: var(--page-bg);
+  }
+
+  .team-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    max-width: 8rem;
+    margin-bottom: 1.1rem;
+    border: 1px dashed var(--accent-border);
+    border-radius: 999px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .team-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .team-role {
+    margin: 0.25rem 0 0.75rem;
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .team-bio {
+    margin: 0 0 1rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  .team-linkedin {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .card p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  .final-cta {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .final-cta-inner {
+    max-width: 620px;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    margin: 0;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 700;
+  }
+
+  .final-cta p {
+    margin: 1rem auto 2rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  @media (min-width: 640px) {
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,310 @@
+---
+export const prerender = true;
+
+import Layout from "../layouts/Layout.astro";
+
+const steps = [
+  {
+    n: "01",
+    title: "We set up dedicated infrastructure",
+    body: "We build a separate sending setup for your campaigns — its own domains and inboxes, warmed properly. Your primary domain is never used for cold outreach, so your brand reputation and day-to-day deliverability stay protected.",
+  },
+  {
+    n: "02",
+    title: "We position your most placeable candidates",
+    body: "We build messaging around the candidates you can actually place — the MPC (most placeable candidate) approach. Instead of pitching a generic service, we lead with specific talent that hiring managers in your niche want, which is what earns replies.",
+  },
+  {
+    n: "03",
+    title: "We source hiring-intent lists",
+    body: "We build and refresh targeted lists of companies showing signs they're hiring in your niche, so outreach reaches the people most likely to need what you place.",
+  },
+  {
+    n: "04",
+    title: "We handle replies and qualification",
+    body: "Every reply is handled and qualified against your criteria. Only relevant, booked conversations reach your calendar — you spend your time on calls, not on inbox management.",
+  },
+];
+
+const faqs = [
+  {
+    q: "Will this put my domain reputation at risk?",
+    a: "No. Cold outreach runs entirely on separate sending infrastructure that we set up and manage. Your primary domain is never used for prospecting, so your internal email and brand reputation are insulated from it.",
+  },
+  {
+    q: "How do you handle data and compliance?",
+    a: "We source lists from compliant providers and follow applicable outreach regulations for the markets you target. We can walk you through exactly how data is sourced, stored, and handled on the call. [Placeholder — confirm your specific compliance posture and providers here.]",
+  },
+  {
+    q: "Whose brand does the outreach come from?",
+    a: "Yours. We represent your agency in the messaging, working from positioning we agree with you up front. You see the approach before anything goes out.",
+  },
+  {
+    q: "What exactly do I pay for?",
+    a: "We work on a pay-on-results basis rather than a pure retainer. We'll walk you through the specifics on the call so it's clear before you commit.",
+  },
+  {
+    q: "How quickly do conversations start?",
+    a: "Infrastructure needs to be set up and warmed before volume ramps, so the first weeks are groundwork. We'll give you a realistic timeline for your niche on the call rather than promise overnight results.",
+  },
+];
+---
+
+<Layout
+  title="How It Works | Furum Consulting"
+  description="How Furum Consulting builds and runs candidate-led outbound for recruiting agencies — protecting your domain, sourcing hiring-intent lists, and delivering qualified conversations on a pay-on-results basis."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">How it works</p>
+      <h1>A done-for-you client acquisition system, explained.</h1>
+      <p>
+        No black box and no hype. Here is exactly what we build, how we protect
+        your brand, and what you can expect &mdash; so you can judge whether it
+        fits your agency before you ever get on a call.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="steps">
+        {
+          steps.map((s) => (
+            <article class="step">
+              <span class="step-n">{s.n}</span>
+              <div>
+                <h2>{s.title}</h2>
+                <p>{s.body}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Protecting your brand -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Built for a cautious buyer</p>
+        <h2>We treat your reputation like it&rsquo;s ours.</h2>
+      </div>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Your domain stays protected</h3>
+          <p>Prospecting runs on separate infrastructure. Your primary domain is never exposed to cold volume.</p>
+        </article>
+        <article class="card">
+          <h3>Your brand voice, agreed up front</h3>
+          <p>You approve the positioning and messaging before anything is sent on your behalf.</p>
+        </article>
+        <article class="card">
+          <h3>Compliant data handling</h3>
+          <p>Lists are sourced from compliant providers and handled in line with the regulations of the markets you target.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's included -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What&rsquo;s included</p>
+        <h2>Everything, run for you.</h2>
+        <p>Not a course, not software. A system we build and operate on your behalf.</p>
+      </div>
+      <ul class="deliverables">
+        <li>Dedicated outbound infrastructure setup and deliverability management</li>
+        <li>MPC-led messaging and offer positioning for your niche</li>
+        <li>Hiring-intent lists sourced and refreshed weekly</li>
+        <li>Reply handling and qualification, so only booked calls reach you</li>
+        <li>Ongoing optimisation and reporting</li>
+        <li>Performance-based, pay-on-results pricing</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head is-center">
+        <p class="eyebrow">Common questions</p>
+        <h2>The things recruiters ask us first.</h2>
+      </div>
+      <div class="faq">
+        {
+          faqs.map((f) => (
+            <details class="faq-item">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container final-cta-inner">
+      <h2>Have a question we didn&rsquo;t cover?</h2>
+      <p>Get on a low-pressure call, or email us first &mdash; whichever you prefer.</p>
+      <div class="final-actions">
+        <a href="/book" class="btn btn-primary btn-lg">Book a call</a>
+        <a href="/contact" class="btn btn-outline btn-lg">Email us</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .steps {
+    max-width: 760px;
+    display: grid;
+    gap: 2.25rem;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .step-n {
+    color: var(--number-color);
+    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .step h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  .step p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+
+  .card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .card p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  .deliverables {
+    max-width: 720px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .deliverables li {
+    position: relative;
+    padding-left: 1.75rem;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .deliverables li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--accent);
+  }
+
+  .faq {
+    max-width: 760px;
+    margin: 0 auto;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: 0.7rem;
+    background: var(--page-bg);
+    padding: 0 1.25rem;
+  }
+
+  .faq-item summary {
+    padding: 1.1rem 0;
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 1.02rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary::after {
+    content: "+";
+    color: var(--accent);
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+
+  .faq-item[open] summary::after { content: "\2013"; }
+
+  .faq-item p {
+    margin: 0;
+    padding: 0 0 1.2rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .final-cta {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .final-cta-inner {
+    max-width: 620px;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    margin: 0;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 700;
+  }
+
+  .final-cta p {
+    margin: 1rem auto 2rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .final-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.85rem;
+  }
+</style>

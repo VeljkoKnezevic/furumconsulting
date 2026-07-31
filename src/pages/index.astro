@@ -1,719 +1,317 @@
 ---
 export const prerender = true;
 
-import BaseHead from "../components/BaseHead.astro";
+import Layout from "../layouts/Layout.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container header-inner">
-        <img src="/logo-light.png" alt="Furum Consulting" class="logo" />
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">For recruiting agency owners</p>
+      <h1>Predictable client acquisition for recruiting agencies.</h1>
+      <p class="hero-lede">
+        We build and run the outbound that puts qualified hiring-manager
+        conversations on your calendar. No cold calling, no chasing, no BD hire
+        &mdash; and you only pay when it works.
+      </p>
+      <div class="hero-actions">
+        <a href="/book" class="btn btn-primary btn-lg">Book a call</a>
+        <a href="/how-it-works" class="btn btn-outline btn-lg">See how it works</a>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <main class="page-shell">
-      <!-- Hero + Step 1: headline and video, kept tight so both sit above the fold -->
-      <section class="hero-section">
-        <div class="container">
-          <div class="hero-copy">
-            <p class="eyebrow-text">For recruiting agency owners</p>
-            <h1>
-              Discover How We Can <span class="u">Guarantee</span> You
-              <span>20-30 New Clients</span> In <span>10 Months or Less...</span>
-            </h1>
-          </div>
+  <!-- Risk reversal band: the centerpiece -->
+  <section class="risk section--alt">
+    <div class="container risk-inner">
+      <p class="eyebrow">Our model</p>
+      <h2>You don&rsquo;t pay unless we deliver.</h2>
+      <p>
+        We work on a pay-on-results basis. You&rsquo;re not buying a retainer and
+        hoping it pays off &mdash; you pay when qualified conversations actually
+        reach your calendar. We take the risk, because we&rsquo;re confident in
+        the system. If it doesn&rsquo;t produce, you don&rsquo;t pay for it.
+      </p>
+    </div>
+  </section>
 
-          <p class="step-heading"><span>Step 1 of 2:</span> Watch Video</p>
-
-          <div class="video-frame shadow-medium">
-            <div id="vidalytics_embed_8GoihHVYaY4zw8qH" style="width: 100%; position: relative; padding-top: 56.25%;"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Step 2: Book the call -->
-      <section id="book" class="step-section">
-        <div class="container">
-          <div class="step-header">
-            <h2 class="step-heading"><span>Step 2 of 2:</span> Schedule Your Discovery Call</h2>
-            <p>
-              A low-pressure call designed to learn about your agency and see
-              whether we're a good fit to work together.
-            </p>
-          </div>
-
-          <div class="calendar-card shadow-medium">
-            <div id="cal-embed" class="cal-embed"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ROI calculator -->
-      <section class="calc-section">
-        <div class="container">
-          <div class="section-header">
-            <p class="step-inline"><span>Your numbers</span></p>
-            <h2>What Would This Do for Your Agency?</h2>
-            <p>Two inputs. See what the system would produce for your agency.</p>
-          </div>
-
-          <div class="calc-panel shadow-medium">
-            <div class="calc-inputs">
-              <div class="calc-field">
-                <label for="calc-revenue">
-                  Average revenue per client in the first year
-                  <output id="calc-revenue-out">$30,000</output>
-                </label>
-                <input id="calc-revenue" type="range" min="5000" max="150000" step="1000" value="30000" />
-              </div>
-              <div class="calc-field">
-                <label for="calc-close">
-                  Close rate from calls
-                  <output id="calc-close-out">20%</output>
-                </label>
-                <input id="calc-close" type="range" min="5" max="50" step="1" value="20" />
-              </div>
-            </div>
-
-            <div class="calc-results" aria-live="polite">
-              <div class="calc-result">
-                <p>New clients / month</p>
-                <strong id="calc-clients">2.1</strong>
-              </div>
-              <div class="calc-result">
-                <p>New client revenue / month</p>
-                <strong id="calc-revenue-result">$63,360</strong>
-              </div>
-              <div class="calc-result calc-result--roi">
-                <p>Return on investment</p>
-                <strong id="calc-roi">9x</strong>
-              </div>
-            </div>
-
-            <p class="calc-note">Projections assume conservative campaign performance.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- What you'll learn -->
-      <section class="learn-section">
-        <div class="container">
-          <div class="section-header">
-            <p class="step-inline"><span>On the call</span></p>
-            <h2>What You&rsquo;ll Learn</h2>
-          </div>
-
-          <div class="learn-grid">
-            <article class="learn-card">
-              <span class="learn-number">01</span>
-              <strong>Whether you&rsquo;re a fit</strong>
-              <p>If your niche and candidate bench support a pay-per-call model, and if not, why.</p>
-            </article>
-            <article class="learn-card">
-              <span class="learn-number">02</span>
-              <strong>How the system is built</strong>
-              <p>How the MPC messaging, lists, and outbound infrastructure are engineered for your market.</p>
-            </article>
-            <article class="learn-card">
-              <span class="learn-number">03</span>
-              <strong>What to expect</strong>
-              <p>A realistic view of pipeline, timeline, and results over the next 90 days.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- What's included -->
-      <section class="offer-section">
-        <div class="container">
-          <div class="offer-panel shadow-strong">
-            <div class="section-header">
-              <p class="step-inline"><span>The offer</span></p>
-              <h2>What&rsquo;s Included</h2>
-              <p>
-                A done-for-you system built and run for your agency. Not a
-                course, not software you have to figure out yourself.
-              </p>
-            </div>
-
-            <ul class="offer-list">
-              <li>Outbound infrastructure setup &amp; deliverability management</li>
-              <li>MPC-led messaging &amp; offer positioning for your niche</li>
-              <li>Hiring-intent lists sourced and refreshed weekly</li>
-              <li>Reply handling and qualification, so only booked calls reach you</li>
-              <li>Performance-based, pay-per-call pricing</li>
-            </ul>
-
-            <div class="offer-cta">
-              <a class="cta-button" href="#book">Book Your Free Discovery Call</a>
-              <p>Only pay when qualified hiring manager calls are booked.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p>&copy; {new Date().getFullYear()} Furum Consulting. All rights reserved.</p>
+  <!-- How it works teaser -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head is-center">
+        <p class="eyebrow">How it works</p>
+        <h2>A system built and run for your agency.</h2>
+        <p>
+          Not a course, not software you have to figure out yourself. We handle
+          the infrastructure, the messaging, and the outreach &mdash; you take
+          the calls.
+        </p>
       </div>
-    </footer>
 
-    <script is:inline type="text/javascript">
-      (function (v, i, d, a, l, y, t, c, s) {
-        y = '_' + d.toLowerCase(); c = d + 'L'; if (!v[d]) { v[d] = {}; } if (!v[c]) { v[c] = {}; } if (!v[y]) { v[y] = {}; } var vl = 'Loader', vli = v[y][vl], vsl = v[c][vl + 'Script'], vlf = v[c][vl + 'Loaded'], ve = 'Embed';
-        if (!vsl) {
-          vsl = function (u, cb) {
-            if (t) { cb(); return; } s = i.createElement("script"); s.type = "text/javascript"; s.async = 1; s.src = u;
-            if (s.readyState) { s.onreadystatechange = function () { if (s.readyState === "loaded" || s.readyState == "complete") { s.onreadystatechange = null; vlf = 1; cb(); } }; } else { s.onload = function () { vlf = 1; cb(); }; }
-            i.getElementsByTagName("head")[0].appendChild(s);
-          };
-        }
-        vsl(l + 'loader.min.js', function () { if (!vli) { var vlc = v[c][vl]; vli = new vlc(); } vli.loadScript(l + 'player.min.js', function () { var vec = v[d][ve]; t = new vec(); t.run(a); }); });
-      })(window, document, 'Vidalytics', 'vidalytics_embed_8GoihHVYaY4zw8qH', 'https://fast.vidalytics.com/embeds/2rtPO8Ua/8GoihHVYaY4zw8qH/');
-    </script>
+      <div class="grid grid-3">
+        <article class="card">
+          <span class="step-num">01</span>
+          <h3>We build the infrastructure</h3>
+          <p>
+            Dedicated sending infrastructure, kept separate from your primary
+            domain so your brand and deliverability stay protected.
+          </p>
+        </article>
+        <article class="card">
+          <span class="step-num">02</span>
+          <h3>We run candidate-led outreach</h3>
+          <p>
+            MPC messaging and hiring-intent lists, positioned for your niche, so
+            the right hiring managers hear from you.
+          </p>
+        </article>
+        <article class="card">
+          <span class="step-num">03</span>
+          <h3>Qualified calls reach you</h3>
+          <p>
+            We handle replies and qualification. Only booked, relevant
+            conversations land on your calendar.
+          </p>
+        </article>
+      </div>
 
-    <script>
-      (function (C: any, A: string, L: string) {
-        const p = function (a: any, ar: IArguments) {
-          a.q.push(ar);
-        };
-        const d = C.document;
-        C.Cal = C.Cal || function () {
-          const cal = C.Cal;
-          const ar = arguments;
-          if (!cal.loaded) {
-            cal.ns = {};
-            cal.q = cal.q || [];
-            d.head.appendChild(d.createElement("script")).src = A;
-            cal.loaded = true;
-          }
-          if (ar[0] === L) {
-            const api = function () {
-              p(api, arguments);
-            };
-            const namespace = ar[1];
-            api.q = api.q || [];
-            if (typeof namespace === "string") {
-              cal.ns[namespace] = cal.ns[namespace] || api;
-              p(cal.ns[namespace], ar);
-              p(cal, ["initNamespace", namespace]);
-            } else {
-              p(cal, ar);
-            }
-            return;
-          }
-          p(cal, ar);
-        };
-      })(window, "https://app.cal.com/embed/embed.js", "init");
+      <div class="center-cta">
+        <a href="/how-it-works" class="btn btn-outline">Read the full methodology</a>
+      </div>
+    </div>
+  </section>
 
-      (window as any).Cal("init", "discovery-call", { origin: "https://app.cal.com" });
-      (window as any).Cal.ns["discovery-call"]("inline", {
-        elementOrSelector: "#cal-embed",
-        calLink: "furumconsulting/discovery-call",
-        config: {
-          theme: "light",
-          layout: "month_view"
-        }
-      });
-      (window as any).Cal.ns["discovery-call"]("ui", {
-        theme: "light",
-        styles: {
-          branding: {
-            brandColor: "#2d5d52"
-          }
-        },
-        hideEventTypeDetails: false
-      });
-    </script>
+  <!-- What you get -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What&rsquo;s included</p>
+        <h2>Done-for-you, end to end.</h2>
+      </div>
+      <ul class="deliverables">
+        <li>Outbound infrastructure setup and deliverability management</li>
+        <li>MPC-led messaging and offer positioning for your niche</li>
+        <li>Hiring-intent lists sourced and refreshed weekly</li>
+        <li>Reply handling and qualification, so only booked calls reach you</li>
+        <li>Performance-based, pay-on-results pricing</li>
+      </ul>
+    </div>
+  </section>
 
-    <script>
-      // ROI calculator. Volume and pricing are fixed internally and never rendered.
-      // Pricing model: base fee + 2% of avg first-year client revenue per show.
-      const EMAILS_PER_DAY = 1000;
-      const SENDING_DAYS = 22;
-      const REPLY_RATE = 0.015;
-      const POSITIVE_RATE = 0.1;
-      const BOOK_RATE = 0.4;
-      const SHOW_RATE = 0.8;
-      const BASE_FEE = 500;
-      const REV_SHARE_PER_SHOW = 0.02;
+  <!-- Who we are teaser -->
+  <section class="section">
+    <div class="container who">
+      <div class="who-copy">
+        <p class="eyebrow">Who we are</p>
+        <h2>A small team, working with a handful of agencies at a time.</h2>
+        <p>
+          We deliberately keep our roster small so every campaign gets built and
+          run properly. We&rsquo;re early, we&rsquo;re selective about who we work
+          with, and we&rsquo;d rather do a few things exceptionally than many
+          things adequately.
+        </p>
+        <a href="/about" class="btn btn-outline">Meet the team</a>
+      </div>
+      <!-- [PLACEHOLDER] Swap for a real team photo -->
+      <div class="who-photo" role="img" aria-label="Team photo placeholder">
+        <span>[ Team photo &mdash; placeholder ]</span>
+      </div>
+    </div>
+  </section>
 
-      const revenueInput = document.getElementById("calc-revenue") as HTMLInputElement;
-      const closeInput = document.getElementById("calc-close") as HTMLInputElement;
-      const revenueOut = document.getElementById("calc-revenue-out") as HTMLOutputElement;
-      const closeOut = document.getElementById("calc-close-out") as HTMLOutputElement;
-      const clientsEl = document.getElementById("calc-clients") as HTMLElement;
-      const revenueResultEl = document.getElementById("calc-revenue-result") as HTMLElement;
-      const roiEl = document.getElementById("calc-roi") as HTMLElement;
-
-      function update() {
-        const avgRevenue = Number(revenueInput.value);
-        const closeRate = Number(closeInput.value) / 100;
-
-        const emails = EMAILS_PER_DAY * SENDING_DAYS;
-        const replies = emails * REPLY_RATE;
-        const leads = replies * POSITIVE_RATE;
-        const calls = leads * BOOK_RATE;
-        const shows = calls * SHOW_RATE;
-        const clients = shows * closeRate;
-        const revenue = clients * avgRevenue;
-        const cost = BASE_FEE + REV_SHARE_PER_SHOW * avgRevenue * shows;
-
-        revenueOut.textContent = `$${avgRevenue.toLocaleString("en-US")}`;
-        closeOut.textContent = `${closeInput.value}%`;
-        clientsEl.textContent = clients.toFixed(1);
-        revenueResultEl.textContent = `$${Math.round(revenue).toLocaleString("en-US")}`;
-        roiEl.textContent = `${Math.round(revenue / cost)}x`;
-      }
-
-      revenueInput.addEventListener("input", update);
-      closeInput.addEventListener("input", update);
-      update();
-    </script>
-  </body>
-</html>
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <div class="container final-cta-inner">
+      <h2>See whether we&rsquo;re a fit.</h2>
+      <p>
+        A low-pressure call to understand your agency, your niche, and whether a
+        pay-on-results model makes sense for you. No hard sell.
+      </p>
+      <a href="/book" class="btn btn-primary btn-lg">Book a call</a>
+    </div>
+  </section>
+</Layout>
 
 <style>
-  .container {
-    width: min(100% - 2rem, 1120px);
+  .hero {
+    padding: 5rem 0 4rem;
+    text-align: center;
+  }
+
+  .hero h1 {
+    max-width: 18ch;
     margin: 0 auto;
-  }
-
-  /* Header */
-  .site-header {
-    border-bottom: 1px solid var(--border-subtle);
-  }
-
-  .header-inner {
-    display: flex;
-    align-items: center;
-    height: 4rem;
-    overflow: visible;
-  }
-
-  /* The source PNG has heavy transparent padding around the mark, so the
-     rendered box has to be oversized relative to the header bar to make the
-     logo itself read at a normal size; the negative margin removes the
-     matching whitespace on the left edge. */
-  .logo {
-    height: 7.5rem;
-    width: auto;
-    margin-left: -0.75rem;
-    object-fit: contain;
-  }
-
-  /* Page shell */
-  .page-shell {
-    background: var(--page-bg);
-  }
-
-  /* Hero + Step 1 */
-  .hero-section {
-    padding: 2rem 0 3rem;
-  }
-
-  .hero-copy {
-    max-width: 760px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .eyebrow-text {
-    display: inline-block;
-    margin: 0 0 1rem;
-    padding: 0.45rem 0.9rem;
-    border-radius: 0.4rem;
-    background: var(--accent-bg);
-    color: var(--accent);
-    font-size: 0.75rem;
+    font-size: clamp(2.2rem, 4.6vw, 3.6rem);
     font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    line-height: 1.08;
   }
 
-  h1 {
-    margin: 0;
-    color: var(--text-primary);
-    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
-    font-weight: 700;
-    letter-spacing: 0;
-    font-size: clamp(1.9rem, 3.6vw, 2.9rem);
-    line-height: 1.15;
-  }
-
-  h1 span {
-    color: var(--accent);
-  }
-
-  h1 span.u {
-    text-decoration: underline;
-    text-decoration-thickness: 0.09em;
-    text-underline-offset: 0.14em;
-  }
-
-  .step-heading {
-    margin: 2.25rem 0 1.25rem;
+  .hero .eyebrow {
     text-align: center;
-    color: var(--text-primary);
-    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
-    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
-    font-weight: 600;
-    line-height: 1.2;
   }
 
-  .step-heading span {
-    color: var(--accent);
-  }
-
-  .step-header .step-heading {
-    margin: 0;
-  }
-
-  .step-inline {
-    margin: 0 0 1rem;
-    text-align: center;
+  .hero-lede {
+    max-width: 640px;
+    margin: 1.3rem auto 0;
     color: var(--text-muted);
-    font-size: 0.9rem;
-  }
-
-  .step-inline span {
-    color: var(--accent);
-    font-weight: 700;
-  }
-
-  /* Step 2 section */
-  .step-section {
-    padding: 4.5rem 0;
-    border-top: 1px solid var(--border-subtle);
-    background: var(--surface);
-  }
-
-  .step-header,
-  .section-header {
-    max-width: 720px;
-    margin: 0 auto 2.5rem;
-    text-align: center;
-  }
-
-  h2 {
-    margin: 0;
-    color: var(--text-primary);
-    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
-    font-weight: 700;
-    letter-spacing: 0;
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
-    line-height: 1.1;
-  }
-
-  .step-header p,
-  .section-header p {
-    margin: 0.85rem auto 0;
-    color: var(--text-muted);
-    font-size: 1.05rem;
+    font-size: clamp(1.02rem, 1.6vw, 1.2rem);
     line-height: 1.6;
   }
 
-  /* Video */
-  .video-frame {
-    max-width: 700px;
-    margin: 0 auto;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    border-radius: 1rem;
-    background: var(--surface2);
-  }
-
-  /* Calendar */
-  .calendar-card {
-    max-width: 900px;
-    margin: 0 auto;
-    overflow: hidden;
-    border: 1px solid var(--accent-border);
-    border-radius: 1rem;
-    background: var(--page-bg);
-  }
-
-  .cal-embed {
-    width: 100%;
-    min-height: 680px;
-  }
-
-  /* ROI calculator */
-  .calc-section {
-    padding: 4.5rem 0;
-    border-top: 1px solid var(--border-subtle);
-  }
-
-  .calc-panel {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2.5rem;
-    border: 1px solid var(--border);
-    border-radius: 1.25rem;
-    background: var(--page-bg);
-  }
-
-  .calc-inputs {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-  }
-
-  .calc-field label {
+  .hero-actions {
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 0.6rem;
-    color: var(--text-primary);
-    font-size: 0.9rem;
-    font-weight: 700;
-  }
-
-  .calc-field output {
-    color: var(--accent);
-    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
-    font-size: 1.2rem;
-    font-weight: 700;
-    white-space: nowrap;
-  }
-
-  .calc-field input[type="range"] {
-    width: 100%;
-    accent-color: var(--accent);
-    cursor: pointer;
-  }
-
-  .calc-results {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.85rem;
     margin-top: 2rem;
   }
 
-  .calc-result {
-    padding: 1.5rem;
-    border: 1px solid var(--accent-border);
-    border-radius: 0.8rem;
-    background: var(--accent-bg);
+  /* Risk band */
+  .risk {
+    padding: 4rem 0;
+  }
+
+  .risk-inner {
+    max-width: 720px;
     text-align: center;
   }
 
-  .calc-result p {
-    margin: 0 0 0.4rem;
+  .risk h2 {
+    margin: 0;
+    font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .risk p {
+    margin: 1.1rem auto 0;
     color: var(--text-secondary);
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: 1.1rem;
+    line-height: 1.65;
   }
 
-  .calc-result strong {
-    color: var(--accent);
-    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
-    font-weight: 700;
-    line-height: 1;
-  }
-
-  .calc-result--roi {
-    border-color: var(--accent);
-    background: var(--accent);
-  }
-
-  .calc-result--roi p {
-    color: rgba(255, 255, 255, 0.8);
-  }
-
-  .calc-result--roi strong {
-    color: #fff;
-  }
-
-  .calc-note {
-    max-width: 640px;
-    margin: 1.75rem auto 0;
-    color: var(--text-dim);
-    font-size: 0.8rem;
-    line-height: 1.55;
-    text-align: center;
-  }
-
-  @media (min-width: 720px) {
-    .calc-inputs {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .calc-results {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  /* Learn grid */
-  .learn-section {
-    padding: 5rem 0;
-  }
-
-  .learn-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  .learn-card {
-    padding: 1.75rem;
-    border: 1px solid var(--border);
-    border-radius: 0.9rem;
-    background: var(--page-bg);
-  }
-
-  .learn-number {
+  /* Step cards */
+  .step-num {
     display: block;
     margin-bottom: 0.75rem;
     color: var(--number-color);
     font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 700;
     line-height: 1;
   }
 
-  .learn-card strong {
-    display: block;
-    color: var(--text-primary);
-    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
+  .card h3 {
+    margin: 0 0 0.5rem;
     font-size: 1.15rem;
+    font-weight: 700;
   }
 
-  .learn-card p {
-    margin: 0.5rem 0 0;
+  .card p {
+    margin: 0;
     color: var(--text-muted);
     line-height: 1.55;
   }
 
-  /* Offer */
-  .offer-section {
-    padding: 0 0 5.5rem;
+  .center-cta {
+    margin-top: 2.5rem;
+    text-align: center;
   }
 
-  .offer-panel {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 3rem 2.5rem;
-    border: 1px solid var(--border);
-    border-radius: 1.25rem;
-    background: var(--surface);
-  }
-
-  .offer-list {
-    max-width: 620px;
-    margin: 0 auto;
+  /* Deliverables */
+  .deliverables {
+    max-width: 720px;
+    margin: 0;
     padding: 0;
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.9rem;
+    display: grid;
+    gap: 0.85rem;
   }
 
-  .offer-list li {
+  .deliverables li {
     position: relative;
     padding-left: 1.75rem;
     color: var(--text-secondary);
-    font-size: 1.02rem;
+    font-size: 1.05rem;
     line-height: 1.5;
   }
 
-  .offer-list li::before {
+  .deliverables li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 0.5em;
+    top: 0.55em;
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 999px;
     background: var(--accent);
   }
 
-  .offer-cta {
-    display: flex;
-    flex-direction: column;
+  /* Who */
+  .who {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
     align-items: center;
-    gap: 0.85rem;
-    margin: 2.5rem auto 0;
-    text-align: center;
   }
 
-  .cta-button {
-    display: inline-flex;
+  .who-copy h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .who-copy p {
+    margin: 0 0 1.5rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .who-photo {
+    display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 3.5rem;
-    padding: 0.95rem 2.25rem;
-    border-radius: 0.6rem;
-    background: var(--accent);
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 700;
-    text-decoration: none;
-    letter-spacing: 0.01em;
-    transition: transform 0.2s, background 0.2s;
-  }
-
-  .cta-button:hover {
-    transform: translateY(-2px);
-    background: var(--accent-dark);
-  }
-
-  .offer-cta p {
-    margin: 0;
-    color: var(--text-dim);
+    aspect-ratio: 4 / 3;
+    border: 1px dashed var(--accent-border);
+    border-radius: 1rem;
+    background: var(--accent-bg);
+    color: var(--accent);
     font-size: 0.9rem;
+    font-weight: 600;
   }
 
-  /* Footer */
-  .site-footer {
+  /* Final CTA */
+  .final-cta {
+    padding: 5rem 0;
     border-top: 1px solid var(--border-subtle);
-    padding: 2rem 0;
   }
 
-  .site-footer p {
-    margin: 0;
-    color: var(--text-dim);
-    font-size: 0.85rem;
+  .final-cta-inner {
+    max-width: 620px;
     text-align: center;
   }
 
-  @media (min-width: 800px) {
-    .learn-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  .final-cta h2 {
+    margin: 0;
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight: 700;
   }
 
-  @media (max-width: 560px) {
-    .hero-section {
-      padding: 1.25rem 0 2.25rem;
-    }
+  .final-cta p {
+    margin: 1rem auto 2rem;
+    color: var(--text-muted);
+    font-size: 1.08rem;
+    line-height: 1.6;
+  }
 
-    .step-section {
-      padding: 3.5rem 0;
-    }
-
-    .offer-panel {
-      padding: 2.25rem 1.5rem;
-    }
-
-    .cal-embed {
-      min-height: 720px;
-    }
-
-    .cta-button {
-      width: 100%;
-      max-width: 24rem;
+  @media (min-width: 860px) {
+    .who {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3.5rem;
     }
   }
 </style>

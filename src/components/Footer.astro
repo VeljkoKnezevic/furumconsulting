@@ -1,0 +1,132 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="/logo-light.png" alt="Furum Consulting" class="footer-logo" />
+      <p>
+        Done-for-you client acquisition for recruiting agencies, on a
+        pay-on-results basis. We build and run the outbound; you only pay
+        when qualified conversations reach your calendar.
+      </p>
+      <a href="https://www.linkedin.com/company/furum-consulting" class="footer-social" rel="noopener" target="_blank">
+        LinkedIn
+      </a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Company</h3>
+      <a href="/how-it-works">How it works</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/book">Book a call</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <a href="/privacy">Privacy policy</a>
+      <a href="/terms">Terms of service</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Get in touch</h3>
+      <a href="mailto:hello@furumconsulting.com">hello@furumconsulting.com</a>
+      <!-- [PLACEHOLDER] Replace with your registered company details -->
+      <p class="footer-meta">
+        Furum Consulting [Ltd — placeholder]<br />
+        Company No. [00000000 — placeholder]<br />
+        [City, Country — placeholder]
+      </p>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>&copy; {year} Furum Consulting. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border-subtle);
+    background: var(--surface);
+    padding: 3.5rem 0 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-logo {
+    height: 6rem;
+    width: auto;
+    margin: -1.25rem 0 -0.5rem -0.75rem;
+    object-fit: contain;
+  }
+
+  .footer-brand p {
+    max-width: 34rem;
+    margin: 0 0 1rem;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .footer-social {
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .footer-col h3 {
+    margin: 0 0 0.9rem;
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .footer-col a {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-col a:hover {
+    color: var(--accent);
+  }
+
+  .footer-meta {
+    margin: 0.9rem 0 0;
+    color: var(--text-dim);
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  .footer-bottom {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .footer-bottom p {
+    margin: 0;
+    color: var(--text-dim);
+    font-size: 0.82rem;
+  }
+
+  @media (min-width: 720px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1fr 1.4fr;
+      gap: 2rem;
+    }
+  }
+</style>

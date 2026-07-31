@@ -1,0 +1,80 @@
+---
+export const prerender = true;
+
+import Layout from "../layouts/Layout.astro";
+
+const updated = "[Month YYYY — placeholder]";
+---
+
+<Layout
+  title="Privacy Policy | Furum Consulting"
+  description="How Furum Consulting collects, uses, and protects personal data."
+  noindex={true}
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Legal</p>
+      <h1>Privacy policy</h1>
+      <p>Last updated: {updated}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose">
+        <p class="placeholder-note">
+          [PLACEHOLDER — this is template copy, not legal advice. Have it reviewed
+          and completed by a qualified professional before publishing.]
+        </p>
+
+        <p>
+          This Privacy Policy explains how Furum Consulting (&ldquo;we&rdquo;,
+          &ldquo;us&rdquo;) collects, uses, and protects information when you use
+          our website or engage our services.
+        </p>
+
+        <h2>Information we collect</h2>
+        <ul>
+          <li>Information you provide directly, such as your name, email address, and details you share when booking a call or contacting us.</li>
+          <li>Business information relevant to delivering our services.</li>
+          <li>Basic technical and usage data collected automatically when you visit our website.</li>
+        </ul>
+
+        <h2>How we use information</h2>
+        <ul>
+          <li>To respond to enquiries and provide our services.</li>
+          <li>To operate, maintain, and improve our website.</li>
+          <li>To communicate with you about your engagement with us.</li>
+        </ul>
+
+        <h2>Data we process on behalf of clients</h2>
+        <p>
+          [Placeholder] When delivering outbound campaigns, we process business
+          contact data. Describe here how such data is sourced from compliant
+          providers, the lawful basis relied upon, retention periods, and how
+          data-subject requests are handled.
+        </p>
+
+        <h2>Sharing</h2>
+        <p>
+          We do not sell your personal information. We may share it with service
+          providers who help us operate, under appropriate agreements.
+          [Placeholder — list processor categories.]
+        </p>
+
+        <h2>Your rights</h2>
+        <p>
+          Depending on your location, you may have rights to access, correct, or
+          delete your personal data, or to object to certain processing.
+          [Placeholder — reflect the applicable regime, e.g. UK GDPR / GDPR / CCPA.]
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          For any privacy question or request, contact us at
+          <a href="mailto:hello@furumconsulting.com">hello@furumconsulting.com</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
