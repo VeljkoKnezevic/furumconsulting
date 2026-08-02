@@ -12,12 +12,16 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
       <div class="hero-copy">
         <p class="eyebrow-text">For recruiting agency owners</p>
         <h1>
-          Discover How We Can <span class="u">Guarantee</span> You
-          <span>20-30 New Clients</span> In <span>10 Months or Less</span>
+          Predictable client acquisition for <span>recruiting agencies</span>.
         </h1>
+        <p class="hero-sub">
+          We build and run the outbound that books qualified hiring-manager
+          conversations on your calendar &mdash; without cold calling, chasing,
+          or hiring a BD rep.
+        </p>
       </div>
 
-      <p class="step-heading"><span>Step 1 of 2:</span> Watch Video</p>
+      <p class="step-heading"><span>Overview</span> &mdash; how it works in 2 minutes</p>
 
       <div class="video-frame shadow-medium">
         <div id="vidalytics_embed_8GoihHVYaY4zw8qH" style="width: 100%; position: relative; padding-top: 56.25%;"></div>
@@ -29,10 +33,10 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   <section id="book" class="step-section">
     <div class="container">
       <div class="step-header">
-        <h2 class="step-heading"><span>Step 2 of 2:</span> Schedule Your Discovery Call</h2>
+        <h2 class="step-heading"><span>Book a call</span> &mdash; schedule your discovery call</h2>
         <p>
-          A low-pressure call designed to learn about your agency and see
-          whether we're a good fit to work together.
+          A straightforward conversation to understand your agency, your niche,
+          and whether we&rsquo;re a fit. No pressure, no hard sell.
         </p>
       </div>
 
@@ -46,9 +50,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   <section class="calc-section">
     <div class="container">
       <div class="section-header">
-        <p class="step-inline"><span>Your numbers</span></p>
-        <h2>What Would This Do for Your Agency?</h2>
-        <p>Two inputs. See what the system would produce for your agency.</p>
+        <p class="step-inline"><span>The numbers</span></p>
+        <h2>Model the impact for your agency</h2>
+        <p>Adjust two inputs to see a conservative projection for your niche.</p>
       </div>
 
       <div class="calc-panel shadow-medium">
@@ -84,7 +88,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
           </div>
         </div>
 
-        <p class="calc-note">Projections assume conservative campaign performance.</p>
+        <p class="calc-note">An illustrative model based on conservative benchmarks &mdash; not a guarantee of results.</p>
       </div>
     </div>
   </section>
@@ -94,24 +98,24 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     <div class="container">
       <div class="section-header">
         <p class="step-inline"><span>On the call</span></p>
-        <h2>What You&rsquo;ll Learn</h2>
+        <h2>What We&rsquo;ll Cover</h2>
       </div>
 
       <div class="learn-grid">
         <article class="learn-card">
           <span class="learn-number">01</span>
           <strong>Whether you&rsquo;re a fit</strong>
-          <p>If your niche and candidate bench support a pay-per-call model, and if not, why.</p>
+          <p>If your niche and candidate bench support a pay-on-results model &mdash; and if not, we&rsquo;ll tell you straight.</p>
         </article>
         <article class="learn-card">
           <span class="learn-number">02</span>
           <strong>How the system is built</strong>
-          <p>How the MPC messaging, lists, and outbound infrastructure are engineered for your market.</p>
+          <p>How the candidate-led messaging, lists, and outbound infrastructure would be set up for your market.</p>
         </article>
         <article class="learn-card">
           <span class="learn-number">03</span>
           <strong>What to expect</strong>
-          <p>A realistic view of pipeline, timeline, and results over the next 90 days.</p>
+          <p>A realistic view of pipeline and timeline &mdash; groundwork first, then ramp. No overnight promises.</p>
         </article>
       </div>
     </div>
@@ -122,25 +126,25 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     <div class="container">
       <div class="offer-panel shadow-strong">
         <div class="section-header">
-          <p class="step-inline"><span>The offer</span></p>
+          <p class="step-inline"><span>The engagement</span></p>
           <h2>What&rsquo;s Included</h2>
           <p>
-            A done-for-you system built and run for your agency. Not a
-            course, not software you have to figure out yourself.
+            A done-for-you system, built and run for your agency. Not a course,
+            not software you have to figure out yourself.
           </p>
         </div>
 
         <ul class="offer-list">
-          <li>Outbound infrastructure setup &amp; deliverability management</li>
-          <li>MPC-led messaging &amp; offer positioning for your niche</li>
+          <li>Dedicated outbound infrastructure and deliverability management</li>
+          <li>Candidate-led messaging and offer positioning for your niche</li>
           <li>Hiring-intent lists sourced and refreshed weekly</li>
           <li>Reply handling and qualification, so only booked calls reach you</li>
-          <li>Performance-based, pay-per-call pricing</li>
+          <li>Performance-based pricing &mdash; you pay on results</li>
         </ul>
 
         <div class="offer-cta">
-          <a class="cta-button" href="#book">Book Your Free Discovery Call</a>
-          <p>Only pay when qualified hiring manager calls are booked.</p>
+          <a class="cta-button" href="#book">Book a call</a>
+          <p>You only pay when qualified hiring-manager conversations are booked.</p>
         </div>
       </div>
     </div>
@@ -304,10 +308,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     color: var(--accent);
   }
 
-  h1 span.u {
-    text-decoration: underline;
-    text-decoration-thickness: 0.09em;
-    text-underline-offset: 0.14em;
+  .hero-sub {
+    max-width: 620px;
+    margin: 1.1rem auto 0;
+    color: var(--text-muted);
+    font-size: clamp(0.98rem, 1.5vw, 1.12rem);
+    line-height: 1.6;
   }
 
   .step-heading {
