@@ -3,26 +3,28 @@ export const prerender = true;
 
 import Layout from "../layouts/Layout.astro";
 
-// [PLACEHOLDER] Replace with the real founders — name, role, one-line background, LinkedIn.
+// Roles/bios are light placeholders you can edit. Names/photos/LinkedIn are set.
 const team = [
   {
-    name: "[Founder Name]",
-    role: "[Co-founder — placeholder]",
-    bio: "[Short background — e.g. years in recruitment / outbound, what they did before Furum. Placeholder.]",
-    linkedin: "#",
+    name: "Veljko Knezevic",
+    role: "Co-founder",
+    bio: "A software developer turned marketer. Veljko runs the technical side of the service: the infrastructure, deliverability, and systems behind every campaign.",
+    photo: "/founder-veljko.jpg",
+    linkedin: null,
   },
   {
-    name: "[Founder Name]",
-    role: "[Co-founder — placeholder]",
-    bio: "[Short background — e.g. years in recruitment / outbound, what they did before Furum. Placeholder.]",
-    linkedin: "#",
+    name: "Nina Obradovic",
+    role: "Co-founder",
+    bio: "A medical student who found she was far more interested in sales and client acquisition than medicine. Nina leads how we position and win clients.",
+    photo: "/founder-nina.jpg",
+    linkedin: "https://www.linkedin.com/in/nina-obradovic-9265003a0/",
   },
 ];
 ---
 
 <Layout
   title="About | Furum Consulting"
-  description="Who's behind Furum Consulting — a small team helping recruiting agencies win clients on a pay-on-results basis."
+  description="Who's behind Furum Consulting: a small team helping recruiting agencies win clients on a pay-on-results basis."
 >
   <section class="page-hero">
     <div class="container">
@@ -38,32 +40,34 @@ const team = [
 
   <!-- Story -->
   <section class="section">
-    <div class="container story">
+    <div class="container story-grid">
       <div class="prose">
-        <p class="placeholder-note">
-          [PLACEHOLDER — founder story. Replace the copy below with your own.]
+        <p>
+          After years building outbound systems, we kept noticing the same gap in
+          one industry in particular: recruiting. Strong agencies that could place
+          candidates all day, but whose new-business pipeline depended on
+          referrals, luck, and whoever had time to do outreach that week.
         </p>
         <p>
-          [Placeholder] Furum Consulting started because we kept seeing strong
-          recruiting agencies held back by the same thing: inconsistent client
-          acquisition. Great recruiters who could place candidates all day, but
-          whose new-business pipeline depended on referrals, luck, and whoever
-          had time to do outreach that week.
+          We are not recruiters, and we have never claimed to be. What we know is
+          outbound. Paired with the most-placeable-candidate approach and run on
+          dedicated infrastructure, it turns an unpredictable pipeline into
+          something an agency can actually plan around.
         </p>
         <p>
-          [Placeholder] We&rsquo;d spent years [building outbound systems / working
-          in recruitment / doing X], and we knew the &ldquo;most placeable
-          candidate&rdquo; approach could turn that pipeline from unpredictable
-          into something you could actually plan around &mdash; if it was built
-          and run properly.
-        </p>
-        <p>
-          [Placeholder] So we built Furum around a simple principle: we take the
-          risk. We only get paid when qualified conversations reach your
-          calendar. That keeps us honest, and it means we only take on agencies
-          we genuinely believe we can produce results for.
+          So we built the business around a simple principle: we take the risk.
+          We only get paid when qualified conversations reach your calendar. That
+          keeps us honest, and it means we only take on agencies we genuinely
+          believe we can produce results for.
         </p>
       </div>
+      <img
+        class="story-photo"
+        src="/founders-together.jpg"
+        alt="The Furum Consulting founders"
+        width="1200"
+        height="900"
+      />
     </div>
   </section>
 
@@ -78,13 +82,13 @@ const team = [
         {
           team.map((m) => (
             <article class="team-card">
-              <div class="team-photo" role="img" aria-label="Headshot placeholder">
-                <span>[ Photo ]</span>
-              </div>
+              <img class="team-photo" src={m.photo} alt={m.name} width="112" height="112" />
               <h3>{m.name}</h3>
               <p class="team-role">{m.role}</p>
               <p class="team-bio">{m.bio}</p>
-              <a href={m.linkedin} class="team-linkedin" rel="noopener" target="_blank">LinkedIn</a>
+              {m.linkedin && (
+                <a href={m.linkedin} class="team-linkedin" rel="noopener" target="_blank">LinkedIn</a>
+              )}
             </article>
           ))
         }
@@ -126,8 +130,29 @@ const team = [
 </Layout>
 
 <style>
-  .story .prose {
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .story-grid .prose {
     margin: 0;
+  }
+
+  .story-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    object-fit: cover;
+  }
+
+  @media (min-width: 860px) {
+    .story-grid {
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 3rem;
+    }
   }
 
   .team-grid {
@@ -144,18 +169,13 @@ const team = [
   }
 
   .team-photo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    aspect-ratio: 1 / 1;
-    max-width: 8rem;
+    display: block;
+    width: 7rem;
+    height: 7rem;
     margin-bottom: 1.1rem;
-    border: 1px dashed var(--accent-border);
     border-radius: 999px;
-    background: var(--accent-bg);
-    color: var(--accent);
-    font-size: 0.85rem;
-    font-weight: 600;
+    object-fit: cover;
+    background: var(--surface2);
   }
 
   .team-card h3 {
