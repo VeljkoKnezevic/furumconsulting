@@ -3,6 +3,22 @@ export const prerender = true;
 
 import Layout from "../layouts/Layout.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import {
+  calculateRoi,
+  CLOSE_DEFAULT,
+  CLOSE_MAX,
+  CLOSE_MIN,
+  CLOSE_STEP,
+  REVENUE_DEFAULT,
+  REVENUE_MAX,
+  REVENUE_MIN,
+  REVENUE_STEP,
+} from "../lib/roi";
+
+// Computed at build time so the first paint shows real numbers. The model
+// itself never reaches the browser; see src/lib/roi.ts.
+const initialRoi = calculateRoi(REVENUE_DEFAULT, CLOSE_DEFAULT);
+const initialRevenueLabel = `$${REVENUE_DEFAULT.toLocaleString("en-US")}`;
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -59,31 +75,45 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
           <div class="calc-field">
             <label for="calc-revenue">
               Average revenue per client in the first year
-              <output id="calc-revenue-out">$30,000</output>
+              <output id="calc-revenue-out">{initialRevenueLabel}</output>
             </label>
-            <input id="calc-revenue" type="range" min="5000" max="150000" step="1000" value="30000" />
+            <input
+              id="calc-revenue"
+              type="range"
+              min={REVENUE_MIN}
+              max={REVENUE_MAX}
+              step={REVENUE_STEP}
+              value={REVENUE_DEFAULT}
+            />
           </div>
           <div class="calc-field">
             <label for="calc-close">
               Close rate from calls
-              <output id="calc-close-out">20%</output>
+              <output id="calc-close-out">{CLOSE_DEFAULT}%</output>
             </label>
-            <input id="calc-close" type="range" min="5" max="50" step="1" value="20" />
+            <input
+              id="calc-close"
+              type="range"
+              min={CLOSE_MIN}
+              max={CLOSE_MAX}
+              step={CLOSE_STEP}
+              value={CLOSE_DEFAULT}
+            />
           </div>
         </div>
 
         <div class="calc-results" aria-live="polite">
           <div class="calc-result">
             <p>New clients / month</p>
-            <strong id="calc-clients">2.1</strong>
+            <strong id="calc-clients">{initialRoi.clients}</strong>
           </div>
           <div class="calc-result">
             <p>New client revenue / month</p>
-            <strong id="calc-revenue-result">$63,360</strong>
+            <strong id="calc-revenue-result">{initialRoi.revenue}</strong>
           </div>
           <div class="calc-result calc-result--roi">
             <p>Return on investment</p>
-            <strong id="calc-roi">9x</strong>
+            <strong id="calc-roi">{initialRoi.roi}</strong>
           </div>
         </div>
 
@@ -218,17 +248,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
   </script>
 
   <script>
-    // ROI calculator. Volume and pricing are fixed internally and never rendered.
-    // Pricing model: base fee + 2% of avg first-year client revenue per show.
-    const EMAILS_PER_DAY = 1000;
-    const SENDING_DAYS = 22;
-    const REPLY_RATE = 0.015;
-    const POSITIVE_RATE = 0.1;
-    const BOOK_RATE = 0.4;
-    const SHOW_RATE = 0.8;
-    const BASE_FEE = 500;
-    const REV_SHARE_PER_SHOW = 0.02;
-
+    // ROI calculator. The projection model lives on the server (src/lib/roi.ts)
+    // so our volume assumptions and pricing never ship to the browser. This
+    // script only echoes the slider labels and renders whatever /api/roi returns.
     const revenueInput = document.getElementById("calc-revenue") as HTMLInputElement;
     const closeInput = document.getElementById("calc-close") as HTMLInputElement;
     const revenueOut = document.getElementById("calc-revenue-out") as HTMLOutputElement;
@@ -237,37 +259,54 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     const revenueResultEl = document.getElementById("calc-revenue-result") as HTMLElement;
     const roiEl = document.getElementById("calc-roi") as HTMLElement;
 
-    function update() {
-      const avgRevenue = Number(revenueInput.value);
-      const closeRate = Number(closeInput.value) / 100;
+    let debounce: number | undefined;
+    let latest = 0;
 
-      const emails = EMAILS_PER_DAY * SENDING_DAYS;
-      const replies = emails * REPLY_RATE;
-      const leads = replies * POSITIVE_RATE;
-      const calls = leads * BOOK_RATE;
-      const shows = calls * SHOW_RATE;
-      const clients = shows * closeRate;
-      const revenue = clients * avgRevenue;
-      const cost = BASE_FEE + REV_SHARE_PER_SHOW * avgRevenue * shows;
-
-      revenueOut.textContent = `$${avgRevenue.toLocaleString("en-US")}`;
+    function renderLabels() {
+      revenueOut.textContent = `$${Number(revenueInput.value).toLocaleString("en-US")}`;
       closeOut.textContent = `${closeInput.value}%`;
-      clientsEl.textContent = clients.toFixed(1);
-      revenueResultEl.textContent = `$${Math.round(revenue).toLocaleString("en-US")}`;
-      roiEl.textContent = `${Math.round(revenue / cost)}x`;
     }
 
-    revenueInput.addEventListener("input", update);
-    closeInput.addEventListener("input", update);
-    update();
+    async function fetchResults() {
+      const request = ++latest;
+      try {
+        const params = new URLSearchParams({
+          revenue: revenueInput.value,
+          close: closeInput.value,
+        });
+        const response = await fetch(`/api/roi?${params}`);
+        if (!response.ok) return;
+
+        const data = (await response.json()) as {
+          clients: string;
+          revenue: string;
+          roi: string;
+        };
+
+        // Drop any response that a newer slider move has already superseded.
+        if (request !== latest) return;
+
+        clientsEl.textContent = data.clients;
+        revenueResultEl.textContent = data.revenue;
+        roiEl.textContent = data.roi;
+      } catch {
+        // Offline or the request failed: leave the last good numbers in place.
+      }
+    }
+
+    function onInput() {
+      renderLabels();
+      window.clearTimeout(debounce);
+      debounce = window.setTimeout(fetchResults, 150);
+    }
+
+    revenueInput.addEventListener("input", onInput);
+    closeInput.addEventListener("input", onInput);
   </script>
 </Layout>
 
 <style>
-  .container {
-    width: min(100% - 2rem, 1120px);
-    margin: 0 auto;
-  }
+  /* .container, .btn and friends come from global.css */
 
   /* Hero + Step 1 */
   .hero-section {
@@ -332,11 +371,14 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
     font-weight: 700;
   }
 
-  /* Step 2 section */
+  /* Step 2 section. This is the only booking point on the site, so every
+     "Book a call" link across the site lands here via /#book. The scroll
+     margin clears the 4rem sticky header. */
   .step-section {
     padding: 4.5rem 0;
     border-top: 1px solid var(--border-subtle);
     background: var(--surface);
+    scroll-margin-top: 4.5rem;
   }
 
   .step-header,

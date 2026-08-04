@@ -1,6 +1,6 @@
 {
 	"name": "furumconsulting",
-	"description": "Homepage-only VSL funnel for Furum Consulting",
+	"description": "Marketing site for Furum Consulting: client acquisition for recruiting agencies",
 	"private": true,
 	"cloudflare": {
 		"label": "Astro Framework Starter",

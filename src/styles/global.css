@@ -294,16 +294,6 @@
   font-weight: 600;
 }
 
-.placeholder-note {
-  margin: 0 0 1.5rem;
-  padding: 0.7rem 1rem;
-  border: 1px dashed var(--accent-border);
-  border-radius: 0.5rem;
-  background: var(--accent-bg);
-  color: var(--accent);
-  font-size: 0.85rem;
-}
-
 /* Page hero (interior pages) */
 .page-hero {
   padding: 3.5rem 0 1rem;
