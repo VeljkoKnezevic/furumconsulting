@@ -1,0 +1,1035 @@
+---
+export const prerender = true;
+
+import Layout from "../layouts/Layout.astro";
+
+// Affiliate link to the platform. rel="sponsored" is the correct signal for
+// search engines and keeps the rest of the page's link equity clean.
+const THEIRSTACK_URL = "https://theirstack.com?aff=VrXcd3TrLiyE";
+
+const stats = [
+  { figure: "347K+", label: "Hiring sources monitored" },
+  { figure: "211M", label: "Job postings indexed" },
+  { figure: "3x", label: "Typical lift in reply rates" },
+];
+
+const contents = [
+  { href: "#problem", n: "01", label: "The problem" },
+  { href: "#shift", n: "02", label: "The shift" },
+  { href: "#platform", n: "03", label: "The data source" },
+  { href: "#filters", n: "04", label: "The filters" },
+  { href: "#alerts", n: "05", label: "The alerts" },
+  { href: "#read", n: "06", label: "The read" },
+  { href: "#outreach", n: "07", label: "The next move" },
+];
+
+const problems = [
+  {
+    title: "Same lists, same companies",
+    body: "Most agencies buy or build prospect lists from the same two or three data providers. Your ideal client is getting six versions of the same pitch this week.",
+  },
+  {
+    title: "No buying signal",
+    body: "A company being the right size and industry tells you nothing about whether they need help today. You are guessing.",
+  },
+  {
+    title: "Manual job board checks",
+    body: "Watching Indeed and LinkedIn by hand caps you at a tiny slice of the market and burns hours that should be spent on outreach.",
+  },
+  {
+    title: "Generic messaging",
+    body: "When you don’t know why a company is in pain, your email has to be vague, and vague emails get deleted.",
+  },
+];
+
+const comparison = [
+  { cold: "Right size and industry, maybe", warm: "Right size and industry, confirmed" },
+  { cold: "No idea if they need help", warm: "Just posted 3 roles in 14 days" },
+  { cold: "No timing trigger", warm: "Pain is fresh, today" },
+  { cold: "Generic pitch", warm: "Reference the exact role and team" },
+  { cold: "Competing with 20+ agencies", warm: "Often first or second to reach out" },
+];
+
+const filters = [
+  {
+    n: "1",
+    title: "Role type",
+    body: "Start with the job titles your agency actually places. If you’re a sales recruiting firm, that’s Account Executive, SDR, Sales Manager, VP Sales. If you recruit in healthcare, it’s Registered Nurse, Nurse Practitioner, Clinical Director. Filter by these titles so every result is a company hiring for a role you can fill tomorrow.",
+  },
+  {
+    n: "2",
+    title: "Location",
+    body: "Filter to the metros, states or countries you actually serve. There’s no point in finding a perfect prospect in Singapore if you only place candidates in the Midwest. Tighten the geography until every result is realistic territory.",
+  },
+  {
+    n: "3",
+    title: "Company size",
+    body: "This is the most underused filter. You want companies large enough to have budget for an outside agency, but not so large that they have a full internal talent team that handles everything. For most agencies the sweet spot is roughly 50 to 1,000 employees. Tune it to your own ideal client.",
+  },
+  {
+    n: "4",
+    title: "Industry and niche",
+    body: "Finally, layer on industry. If your agency specialises in SaaS, healthcare, logistics or fintech, filter to it. Specialists outperform generalists in cold outreach every single time, and the filter lets you stay in your lane without manual sorting.",
+  },
+];
+
+const alertReasons = [
+  {
+    title: "Pain is freshest in week one",
+    body: "A hiring manager who posted a role yesterday is still emotionally bought into solving it. By week four, they’re numb to recruiter outreach.",
+  },
+  {
+    title: "You beat the agencies still working off monthly lists",
+    body: "Most of your competitors prospect in batches. Alerts let you prospect continuously.",
+  },
+  {
+    title: "You earn the “how did you even find us” reaction",
+    body: "Reaching out within 24 to 48 hours of a posting going live makes you look plugged in, not pushy.",
+  },
+];
+
+const alertSetup = [
+  "Build the filtered search from section 04.",
+  "Save it as an alert with a name like “SaaS / US / 100 to 500 / 3+ sales roles”.",
+  "Choose your notification cadence. A daily digest works for most agencies; real time is best for high-velocity niches.",
+  "Route the alert into whatever you already use: inbox, Slack, or straight into your outbound tool.",
+];
+
+const signals = [
+  {
+    trigger: "Posting for 3+ internal recruiters",
+    meaning: "Their talent acquisition team is underwater. They’re trying to scale hiring and can’t keep up.",
+    leadWith: "Looks like you’re scaling the recruiting function. Want extra capacity while you ramp?",
+  },
+  {
+    trigger: "Reposting the same role for the third time",
+    meaning: "They’re not finding the right candidate. Their pipeline is weak or their job description is wrong.",
+    leadWith: "Saw you’ve been hiring for [role] since [month]. We’ve placed [X] of these in the last 90 days, happy to share what’s working.",
+  },
+  {
+    trigger: "Unusually high salary band for the role",
+    meaning: "They’re desperate, or the role has been open so long they’re throwing money at it. Either way, urgency is high and willingness to pay is proven.",
+    leadWith: null,
+  },
+  {
+    trigger: "Multiple roles on the same team",
+    meaning: "Often a sign of a major project, funding event, or product launch. Worth checking their news and LinkedIn for context, then referencing it directly in the email.",
+    leadWith: null,
+  },
+  {
+    trigger: "Role open 60+ days with no updates",
+    meaning: "Internal recruiting has effectively given up. This is the easiest “we’ll take it off your plate” conversation you’ll have all month.",
+    leadWith: null,
+  },
+  {
+    trigger: "New leadership hire plus a wave of open roles",
+    meaning: "A new VP or Director is building out their team. They have political pressure to hit headcount fast and rarely have time to manage it alone.",
+    leadWith: null,
+  },
+];
+---
+
+<Layout
+  title="The Hiring Signals Playbook | Furum Consulting"
+  description="How to monitor 347,000+ hiring sources at once and turn real-time job postings into clients for your recruiting agency. The platform, the filters, the alerts, and how to read a posting as a buying signal."
+>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Hiring signals playbook</p>
+      <h1>How to monitor <span>347,000+ hiring sources</span> at once.</h1>
+      <p class="hero-sub">
+        And turn them into clients for your recruiting agency. This is the
+        mechanism behind the lists we build: where the data comes from, how it
+        gets filtered down to your niche, and how to read a job posting as a
+        buying signal.
+      </p>
+
+      <div class="stat-band">
+        {
+          stats.map((s) => (
+            <div class="stat">
+              <strong>{s.figure}</strong>
+              <p>{s.label}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="hero-meta">
+        <a class="pdf-link" href="/furum-hiring-signals-playbook.pdf" download>
+          Download the PDF version
+        </a>
+        <p class="read-time">11 sections, about a 7 minute read</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who this is for -->
+  <section class="section--tight">
+    <div class="container">
+      <div class="audience">
+        <p class="audience-label">Who this is for</p>
+        <p>
+          Founders and BD leads at recruiting agencies and executive search
+          firms who are tired of competing on the same lists as every other
+          agency in their niche.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contents -->
+  <section class="section--tight">
+    <div class="container">
+      <nav class="contents" aria-label="Playbook contents">
+        {
+          contents.map((c) => (
+            <a href={c.href}>
+              <span>{c.n}</span>
+              {c.label}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </section>
+
+  <!-- 01 The problem -->
+  <section id="problem" class="section chapter">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Section 01 / The problem</p>
+        <h2>How most recruiting agencies prospect, and why it gets harder every quarter.</h2>
+        <p>
+          Walk into almost any agency and the prospecting playbook looks roughly
+          the same. A scraped Apollo list. A few saved LinkedIn searches. Maybe a
+          VA checking Indeed for “hiring now” postings in a handful of cities.
+          Then a generic email blast that opens with “I noticed you’re
+          growing...”
+        </p>
+        <p>
+          The problem isn’t effort. The problem is that every other agency in
+          your niche is working from the exact same inputs.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        {
+          problems.map((p) => (
+            <article class="card">
+              <h3>{p.title}</h3>
+              <p>{p.body}</p>
+            </article>
+          ))
+        }
+      </div>
+
+      <aside class="callout">
+        <p class="callout-label">The real issue</p>
+        <p>
+          You’re not losing deals because your service is weak. You’re losing
+          them because you’re reaching out to companies who don’t have a problem
+          yet, or who already hired someone two weeks ago.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 02 The shift -->
+  <section id="shift" class="section section--alt chapter">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Section 02 / The shift</p>
+        <h2>Why job postings are the most powerful buying signal in recruiting.</h2>
+        <p>
+          A company posting an open role is doing something very specific:
+          publicly admitting they have a problem they haven’t solved internally.
+          Now multiply that. A company posting five open roles is broadcasting,
+          to anyone paying attention, that they’re behind on hiring, their
+          internal team is stretched, and they have budget approved.
+        </p>
+        <p>
+          That’s the trifecta you almost never get on a cold list: urgency,
+          budget, and pain, in the open, with a date stamp.
+        </p>
+      </div>
+
+      <div class="compare">
+        <div class="compare-head">
+          <p class="compare-title is-cold">Cold list prospect</p>
+          <p class="compare-title is-warm">Active hiring signal prospect</p>
+        </div>
+        {
+          comparison.map((row) => (
+            <div class="compare-row">
+              <p class="compare-cell is-cold">{row.cold}</p>
+              <p class="compare-cell is-warm">{row.warm}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="chapter-close">
+        Random cold outreach asks a stranger to care about your service.
+        Hiring-signal outreach shows up at the exact moment they need it. It’s a
+        completely different conversation, and it converts like one.
+      </p>
+    </div>
+  </section>
+
+  <!-- 03 The data source -->
+  <section id="platform" class="section chapter">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Section 03 / The data source</p>
+        <h2>The single source most agencies don’t know exists.</h2>
+        <p>
+          You don’t have to monitor job boards manually. You don’t have to choose
+          between Indeed, LinkedIn, ZipRecruiter, Greenhouse, Lever, Workday,
+          company career pages, niche industry boards, and the hundred others
+          you’ve never heard of.
+        </p>
+        <p>
+          There is a single platform that aggregates 347,000+ hiring sources into
+          one searchable database. It pulls 211 million job postings from 195
+          countries, updates in real time, and lets you filter the whole thing by
+          role, location, company size, industry, salary range, tech stack, and
+          more.
+        </p>
+      </div>
+
+      <aside class="callout callout--accent">
+        <p class="callout-label">The tool we use internally</p>
+        <p>
+          The platform is TheirStack. It’s what we use at Furum Consulting to
+          build target lists for our own recruiting clients.
+        </p>
+        <a class="btn btn-primary" href={THEIRSTACK_URL} rel="noopener sponsored" target="_blank">
+          Take a look at TheirStack
+        </a>
+        <p class="callout-note">
+          That’s an affiliate link. We’d recommend the platform either way; it’s
+          the one we actually use.
+        </p>
+      </aside>
+
+      <p class="chapter-close">
+        It’s trusted by teams at Google, Amazon, IBM, Uber, Zapier and Workable,
+        but the use case for an agency is simpler than most: it gives you a
+        real-time view of every company in your market that’s actively hiring,
+        and how badly.
+      </p>
+    </div>
+  </section>
+
+  <!-- 04 The filters -->
+  <section id="filters" class="section section--alt chapter">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Section 04 / The filters</p>
+        <h2>How to narrow 211 million postings down to your perfect prospect.</h2>
+        <p>
+          Volume is useless without filters. The point isn’t to look at every job
+          posting on earth. It’s to surface the small handful of companies that
+          are your ideal client, in active pain, this week. Here’s the filter
+          stack we use to build a clean target list.
+        </p>
+      </div>
+
+      <div class="steps">
+        {
+          filters.map((f) => (
+            <article class="step">
+              <span class="step-n">{f.n}</span>
+              <div>
+                <h3>{f.title}</h3>
+                <p>{f.body}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <aside class="callout">
+        <p class="callout-label">Quick build</p>
+        <p>
+          Role type + location + 50 to 1,000 employees + your industry. That’s
+          it. That one query, run weekly, is usually enough to keep an outbound
+          team fed.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 05 The alerts -->
+  <section id="alerts" class="section chapter">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Section 05 / The alerts</p>
+        <h2>Set up real-time alerts so you’re always first in the inbox.</h2>
+        <p>
+          Once you’ve built a query you like, save it as an alert. The platform
+          notifies you the moment a new company matches your criteria, usually
+          within hours of the role being posted.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        {
+          alertReasons.map((r) => (
+            <article class="card">
+              <h3>{r.title}</h3>
+              <p>{r.body}</p>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="setup">
+        <h3>Setup, in plain English</h3>
+        <ol class="setup-list">
+          {alertSetup.map((s) => <li>{s}</li>)}
+        </ol>
+        <p class="setup-note">
+          Total setup time: about 10 minutes. Then it runs forever.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 The read -->
+  <section id="read" class="section section--alt chapter">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Section 06 / The read</p>
+        <h2>How to read a job posting as a buying signal.</h2>
+        <p>
+          This is where most agencies stop short. They find the company, they see
+          the open role, and they send a generic pitch. But the job posting
+          itself is a confession. Read it carefully and it tells you exactly
+          what’s broken inside that company. A few patterns we look for:
+        </p>
+      </div>
+
+      <div class="signals">
+        {
+          signals.map((s) => (
+            <article class="signal">
+              <h3>{s.trigger}</h3>
+              <p>{s.meaning}</p>
+              {s.leadWith && (
+                <p class="signal-lead">
+                  <span>Lead with</span>
+                  {s.leadWith}
+                </p>
+              )}
+            </article>
+          ))
+        }
+      </div>
+
+      <aside class="callout">
+        <p class="callout-label">The takeaway</p>
+        <p>
+          Every job posting is a free piece of intel. The agencies that win
+          aren’t the ones with the biggest lists. They’re the ones who read
+          what’s already on the page and use it in the very first sentence of
+          their outreach.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 07 The next move -->
+  <section id="outreach" class="section chapter">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Section 07 / The next move</p>
+        <h2>What to do once you have the lead.</h2>
+        <p>
+          Finding the right prospect is half the work. The other half is what you
+          do in the first 90 seconds of their attention. The email should sound
+          like it could only have been written to them. Reference the specific
+          role, the team, the location, the volume. Whatever you saw that
+          triggered the outreach in the first place. That single shift is usually
+          the difference between a 1% reply rate and a 10% reply rate.
+        </p>
+      </div>
+
+      <figure class="template">
+        <figcaption>A simple opener that works</figcaption>
+        <blockquote>
+          “Saw you’ve got <em>[3]</em> open <em>[Sales]</em> roles across
+          <em>[Austin]</em> right now, including the <em>[Enterprise AE]</em> one
+          that’s been live since <em>[date]</em>. We help <em>[B2B SaaS]</em>
+          teams in your size range fill these in <em>[under 30 days]</em> without
+          a retainer. Worth a 10-minute call this week?”
+        </blockquote>
+      </figure>
+
+      <p class="chapter-close">
+        It’s specific. It proves you actually looked. It anchors on a problem
+        they know they have. And it asks for a small, easy next step.
+      </p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="outro">
+        <h2>If you’d rather not run this yourself</h2>
+        <p>
+          Everything in this guide is something you can absolutely do in-house.
+          The platform is straightforward, and the playbook is on this page. The
+          catch is that doing it well takes consistent time: building the lists,
+          writing the sequences, warming domains, managing replies, iterating on
+          what’s working.
+        </p>
+        <p>
+          That’s the part we do at Furum Consulting. We run the full cold email
+          system on your behalf, using hiring signals as the trigger and your
+          agency’s voice in the inbox. If you’d rather skip the build and start
+          with booked calls on the calendar, that’s the easiest way to plug this
+          in.
+        </p>
+
+        <div class="outro-actions">
+          <a class="btn btn-primary btn-lg" href="/#book">Book a call</a>
+          <a class="btn btn-outline btn-lg" href={THEIRSTACK_URL} rel="noopener sponsored" target="_blank">
+            Try the platform yourself
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero */
+  .hero {
+    padding: 3.5rem 0 1rem;
+  }
+
+  .hero h1 {
+    max-width: 20ch;
+    margin: 0;
+    font-size: clamp(2rem, 4.4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.08;
+  }
+
+  .hero h1 span {
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    max-width: 58ch;
+    margin: 1.25rem 0 0;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.65;
+  }
+
+  .stat-band {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2.5rem 0 0;
+    padding: 1.75rem;
+    border: 1px solid var(--accent-border);
+    border-radius: 1rem;
+    background: var(--accent-bg);
+  }
+
+  .stat strong {
+    display: block;
+    color: var(--accent);
+    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
+    font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .stat p {
+    margin: 0.45rem 0 0;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .pdf-link {
+    color: var(--accent);
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-border);
+  }
+
+  .pdf-link:hover {
+    border-bottom-color: var(--accent);
+  }
+
+  .read-time {
+    margin: 0;
+    color: var(--text-dim);
+    font-size: 0.88rem;
+  }
+
+  /* Who this is for */
+  .audience {
+    max-width: 760px;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .audience-label {
+    margin: 0 0 0.5rem;
+    color: var(--text-primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .audience p:last-child {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  /* Contents */
+  .contents {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    background: var(--surface);
+  }
+
+  .contents a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .contents a:hover {
+    color: var(--accent);
+  }
+
+  .contents span {
+    color: var(--accent);
+    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  /* Chapters */
+  .chapter {
+    scroll-margin-top: 4.5rem;
+  }
+
+  .chapter .section-head {
+    max-width: 720px;
+  }
+
+  .chapter .section-head h2 {
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  }
+
+  .chapter-close {
+    max-width: 720px;
+    margin: 2.5rem 0 0;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.08rem;
+    font-weight: 700;
+  }
+
+  .card p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* Callouts */
+  .callout {
+    max-width: 720px;
+    margin: 2.5rem 0 0;
+    padding: 1.75rem;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0.75rem;
+    background: var(--surface);
+  }
+
+  .callout--accent {
+    border: 1px solid var(--accent-border);
+    border-left: 3px solid var(--accent);
+    background: var(--accent-bg);
+  }
+
+  .callout-label {
+    margin: 0 0 0.6rem;
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .callout p:not(.callout-label):not(.callout-note) {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1.02rem;
+    line-height: 1.65;
+  }
+
+  .callout .btn {
+    margin-top: 1.25rem;
+  }
+
+  .callout-note {
+    margin: 0.9rem 0 0;
+    color: var(--text-dim);
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  /* Comparison */
+  .compare {
+    max-width: 820px;
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    background: var(--page-bg);
+    overflow: hidden;
+  }
+
+  .compare-head,
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .compare-row {
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .compare-title {
+    margin: 0;
+    padding: 0.9rem 1.25rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .compare-title.is-cold {
+    color: var(--text-dim);
+    background: var(--surface2);
+  }
+
+  .compare-title.is-warm {
+    color: #fff;
+    background: var(--accent);
+  }
+
+  .compare-cell {
+    margin: 0;
+    padding: 0.9rem 1.25rem;
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+
+  .compare-cell.is-cold {
+    color: var(--text-dim);
+  }
+
+  .compare-cell.is-warm {
+    color: var(--text-primary);
+    font-weight: 600;
+    background: var(--accent-bg);
+  }
+
+  /* Filter steps */
+  .steps {
+    max-width: 760px;
+    display: grid;
+    gap: 2rem;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .step-n {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-display, "Clash Grotesk", system-ui, sans-serif);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .step h3 {
+    margin: 0.2rem 0 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .step p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1.02rem;
+    line-height: 1.65;
+  }
+
+  /* Alert setup */
+  .setup {
+    max-width: 720px;
+    margin: 2.5rem 0 0;
+    padding: 1.9rem;
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    background: var(--surface);
+  }
+
+  .setup h3 {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .setup-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .setup-list li {
+    margin: 0 0 0.7rem;
+    padding-left: 0.35rem;
+  }
+
+  .setup-list li::marker {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .setup-note {
+    margin: 1.25rem 0 0;
+    color: var(--accent);
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  /* Signals */
+  .signals {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .signal {
+    padding: 1.6rem;
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    background: var(--page-bg);
+  }
+
+  .signal h3 {
+    margin: 0 0 0.5rem;
+    padding-left: 1.1rem;
+    position: relative;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .signal h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.52em;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--accent);
+  }
+
+  .signal p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .signal-lead {
+    margin: 1rem 0 0 !important;
+    padding: 0.9rem 1rem;
+    border-radius: 0.6rem;
+    background: var(--accent-bg);
+    color: var(--text-secondary) !important;
+    font-size: 0.95rem;
+    font-style: italic;
+  }
+
+  .signal-lead span {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* Template */
+  .template {
+    max-width: 720px;
+    margin: 0;
+    padding: 1.9rem;
+    border: 1px solid var(--accent-border);
+    border-radius: 0.9rem;
+    background: var(--accent-bg);
+  }
+
+  .template figcaption {
+    margin-bottom: 0.9rem;
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .template blockquote {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.08rem;
+    line-height: 1.7;
+  }
+
+  .template em {
+    padding: 0.05em 0.3em;
+    border-radius: 0.25rem;
+    background: var(--accent);
+    color: #fff;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* Outro */
+  .outro {
+    max-width: 720px;
+  }
+
+  .outro h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 700;
+  }
+
+  .outro p {
+    margin: 0 0 1rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .outro-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 2rem;
+  }
+
+  /* Stacked, the two columns lose their pairing, so label each cell instead
+     of leaning on a header row that is now far away. */
+  @media (max-width: 719px) {
+    .compare-head {
+      display: none;
+    }
+
+    .compare-cell::before {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .compare-cell.is-cold::before {
+      content: "Cold list";
+      color: var(--text-dim);
+    }
+
+    .compare-cell.is-warm::before {
+      content: "With hiring signals";
+      color: var(--accent);
+    }
+  }
+
+  @media (min-width: 720px) {
+    .stat-band {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      padding: 2rem 2.5rem;
+    }
+
+    .contents {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.25rem 2rem;
+    }
+
+    .compare-head,
+    .compare-row {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .signals {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .contents {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>
