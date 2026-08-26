@@ -1,6 +1,6 @@
 {
 	"name": "furumconsulting",
-	"description": "Marketing site for Furum Consulting: client acquisition for recruiting agencies",
+	"description": "Marketing site for Furum Consulting: client acquisition for staffing & recruiting agencies",
 	"private": true,
 	"cloudflare": {
 		"label": "Astro Framework Starter",

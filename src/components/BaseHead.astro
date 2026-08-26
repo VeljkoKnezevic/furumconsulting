@@ -18,7 +18,7 @@ const {
 	title,
 	description,
 	image = '/logo-light.png',
-	keywords = "recruiting agency business development, recruiting agency client acquisition, MPC outreach, most placeable candidate marketing, recruiting agency lead generation, hiring manager appointments",
+	keywords = "staffing agency business development, recruiting agency business development, recruiting agency client acquisition, MPC outreach, most placeable candidate marketing, recruiting agency lead generation, hiring manager appointments",
 	type = "website",
 	noindex = false
 } = Astro.props;
@@ -84,7 +84,7 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 	"name": "Furum Consulting",
 	"url": siteUrl,
 	"logo": new URL("/logo-light.png", siteUrl),
-	"description": "Furum Consulting builds and runs client-acquisition outbound for recruiting agencies on a pay-on-results basis, delivering qualified hiring-manager conversations to your calendar.",
+	"description": "Furum Consulting builds and runs client-acquisition outbound for staffing and recruiting agencies on a pay-on-results basis, delivering qualified hiring-manager conversations to your calendar.",
 	"foundingDate": "2024",
 	"contactPoint": {
 		"@type": "ContactPoint",
@@ -100,7 +100,7 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 <script type="application/ld+json" set:html={JSON.stringify({
 	"@context": "https://schema.org",
 	"@type": "Service",
-	"serviceType": "Recruiting Agency Client Acquisition",
+	"serviceType": "Staffing and Recruiting Agency Client Acquisition",
 	"provider": {
 		"@type": "Organization",
 		"name": "Furum Consulting",
@@ -110,7 +110,7 @@ const siteUrl = Astro.site?.toString() || "https://furumconsulting.com";
 		"@type": "Place",
 		"name": "Worldwide"
 	},
-	"description": "Done-for-you client acquisition for recruiting agencies. Furum Consulting builds candidate-led outbound campaigns that book qualified hiring manager conversations on a pay-on-results basis.",
+	"description": "Done-for-you client acquisition for staffing and recruiting agencies. Furum Consulting builds candidate-led outbound campaigns that book qualified hiring manager conversations on a pay-on-results basis.",
 	"offers": {
 		"@type": "Offer",
 		"url": siteUrl,

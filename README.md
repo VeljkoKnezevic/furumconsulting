@@ -1,7 +1,8 @@
 # Furum Consulting
 
 Marketing site for Furum Consulting: done-for-you, pay-on-results client
-acquisition for recruiting agencies. Astro, deployed to Cloudflare Workers.
+acquisition for staffing and recruiting agencies. Astro, deployed to Cloudflare
+Workers.
 
 ## Commands
 
